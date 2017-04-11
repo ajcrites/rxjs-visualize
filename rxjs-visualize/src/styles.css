@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+i {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #FF6946;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+    position: relative;
+}
+i:nth-child(4n + 2) {
+    background-color: #FFCB46;
+}
+i:nth-child(4n + 3) {
+    background-color: #3EA1CB;
+}
+i:nth-child(4n + 4) {
+    background-color: #82D736;
+}
+.spacing {
+    opacity: 0;
+}
+
+div {
+    position: relative;
+}

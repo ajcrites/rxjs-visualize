@@ -10,6 +10,11 @@ import { RxAuditTimeComponent } from './visualizations/audit-time';
 import { RxBufferComponent } from './visualizations/buffer';
 import { RxBufferCountComponent } from './visualizations/buffer-count';
 import { RxBufferTimeComponent } from './visualizations/buffer-time';
+import { RxBufferToggleComponent } from './visualizations/buffer-toggle';
+import { RxBufferWhenComponent } from './visualizations/buffer-when';
+import { RxCatchComponent } from './visualizations/catch';
+import { RxCombineAllComponent } from './visualizations/combine-all';
+import { RxCombineLatestComponent } from './visualizations/combine-latest';
 
 import { Marble } from './visualizations/marble';
 
@@ -21,6 +26,11 @@ import { Marble } from './visualizations/marble';
     RxBufferComponent,
     RxBufferCountComponent,
     RxBufferTimeComponent,
+    RxBufferToggleComponent,
+    RxBufferWhenComponent,
+    RxCatchComponent,
+    RxCombineAllComponent,
+    RxCombineLatestComponent,
     Marble,
   ],
   imports: [

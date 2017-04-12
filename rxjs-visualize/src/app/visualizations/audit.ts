@@ -9,7 +9,7 @@ import 'rxjs/add/operator/audit';
   template: `
     <marble [source$]="preAudit$"></marble>
     <h2><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-audit">Audit</a></h2>
-    <marble [source$]="postAudit$" [positioningSource$]="preAudit$"></marble>
+    <marble [source$]="postAudit$"></marble>
   `,
 })
 export class RxAuditComponent {

@@ -9,7 +9,7 @@ import 'rxjs/add/operator/bufferTime';
   template: `
     <marble [source$]="preBuffer$"></marble>
     <h2>Buffer Time</h2>
-    <marble [source$]="postBuffer$" [positioningSource$]="preBuffer$"></marble>
+    <marble [source$]="postBuffer$"></marble>
   `,
 })
 export class RxBufferTimeComponent {

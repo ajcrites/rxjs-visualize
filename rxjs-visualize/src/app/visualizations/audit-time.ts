@@ -9,7 +9,7 @@ import 'rxjs/add/operator/auditTime';
   template: `
     <marble [source$]="preAudit$"></marble>
     <h2>Audit Time</h2>
-    <marble [source$]="postAudit$" [positioningSource$]="preAudit$"></marble>
+    <marble [source$]="postAudit$"></marble>
   `
 })
 export class RxAuditTimeComponent {

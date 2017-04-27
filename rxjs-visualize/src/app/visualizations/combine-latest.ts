@@ -9,7 +9,7 @@ import 'rxjs/add/operator/combineLatest';
   template: `
     <marble [source$]="first$"></marble>
     <marble [source$]="second$"></marble>
-    <h2>Combine All</h2>
+    <h2>Combine Latest</h2>
     <marble [source$]="combined$"></marble>
   `
 })

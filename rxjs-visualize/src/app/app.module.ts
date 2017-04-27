@@ -15,6 +15,8 @@ import { RxBufferWhenComponent } from './visualizations/buffer-when';
 import { RxCatchComponent } from './visualizations/catch';
 import { RxCombineAllComponent } from './visualizations/combine-all';
 import { RxCombineLatestComponent } from './visualizations/combine-latest';
+import { RxConcatComponent } from './visualizations/concat';
+import { RxConcatAllComponent } from './visualizations/concat-all';
 
 import { Marble } from './visualizations/marble';
 
@@ -31,6 +33,8 @@ import { Marble } from './visualizations/marble';
     RxCatchComponent,
     RxCombineAllComponent,
     RxCombineLatestComponent,
+    RxConcatComponent,
+    RxConcatAllComponent,
     Marble,
   ],
   imports: [

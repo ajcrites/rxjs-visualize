@@ -23,10 +23,15 @@ export class Marble implements OnInit {
   // Force color to simplify tracking of some inputs
   @Input() color;
 
+  // Specify the initial time of the observable to force it to the right based
+  // on a separate time metric. If none is provided, start it at the very left
+  // (init time when the marble diagram starts emitting)
+  @Input() initTime = (new Date).getTime();
+
   @Input() leftPad = 45;
 
   ngOnInit() {
-    const initTime = (new Date).getTime();
+    const initTime = this.initTime;
     const sourceSubscription = this.source$.subscribe(value => {
       this.source.push({value, left: ((new Date).getTime() - initTime) / 1000 * this.leftPad})
 

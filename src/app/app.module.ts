@@ -17,6 +17,8 @@ import { RxCombineAllComponent } from './visualizations/combine-all';
 import { RxCombineLatestComponent } from './visualizations/combine-latest';
 import { RxConcatComponent } from './visualizations/concat';
 import { RxConcatAllComponent } from './visualizations/concat-all';
+import { RxConcatMapComponent } from './visualizations/concat-map';
+import { RxConcatMapToComponent } from './visualizations/concat-map-to';
 
 import { Marble } from './visualizations/marble';
 
@@ -35,6 +37,9 @@ import { Marble } from './visualizations/marble';
     RxCombineLatestComponent,
     RxConcatComponent,
     RxConcatAllComponent,
+    RxConcatMapComponent,
+    RxConcatMapToComponent,
+
     Marble,
   ],
   imports: [

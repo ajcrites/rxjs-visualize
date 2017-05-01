@@ -19,6 +19,8 @@ import { RxConcatComponent } from './visualizations/concat';
 import { RxConcatAllComponent } from './visualizations/concat-all';
 import { RxConcatMapComponent } from './visualizations/concat-map';
 import { RxConcatMapToComponent } from './visualizations/concat-map-to';
+import { RxCountComponent } from './visualizations/count';
+import { RxDebounceComponent } from './visualizations/debounce';
 
 import { Marble } from './visualizations/marble';
 
@@ -39,6 +41,8 @@ import { Marble } from './visualizations/marble';
     RxConcatAllComponent,
     RxConcatMapComponent,
     RxConcatMapToComponent,
+    RxCountComponent,
+    RxDebounceComponent,
 
     Marble,
   ],

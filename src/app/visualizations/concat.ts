@@ -18,4 +18,3 @@ export class RxConcatComponent {
   second$ = Observable.interval(1000).take(10);
   concatenated$ = this.first$.concat(this.second$);
 }
-

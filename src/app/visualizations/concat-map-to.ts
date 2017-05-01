@@ -19,6 +19,7 @@ import 'rxjs/add/operator/concatMapTo';
   `
 })
 export class RxConcatMapToComponent {
+  /*
   initTime = (new Date).getTime();
   lowerOrders = [];
   higherOrder$ = Observable.interval(1000).take(4).map(val => String.fromCharCode(val + 97));
@@ -32,4 +33,5 @@ export class RxConcatMapToComponent {
 
     return innerObservable;
   }
+  */
 }

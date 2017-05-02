@@ -38,6 +38,7 @@ import { RxFilterComponent } from './visualizations/filter';
 import { RxFindComponent } from './visualizations/find';
 import { RxFindIndexComponent } from './visualizations/find-index';
 import { RxFirstComponent } from './visualizations/first';
+import { RxGroupByComponent } from "./visualizations/group-by";
 
 import { Marble } from './visualizations/marble';
 
@@ -77,6 +78,7 @@ import { Marble } from './visualizations/marble';
     RxFindComponent,
     RxFindIndexComponent,
     RxFirstComponent,
+    RxGroupByComponent,
 
     Marble,
   ],

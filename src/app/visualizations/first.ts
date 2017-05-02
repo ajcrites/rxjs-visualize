@@ -8,7 +8,7 @@ import 'rxjs/add/operator/first';
   selector: 'rx-first',
   template: `
     <marble [source$]="input$"></marble>
-    <h2>Do</h2>
+    <h2>First</h2>
     <marble [source$]="output$"></marble>
   `
 })

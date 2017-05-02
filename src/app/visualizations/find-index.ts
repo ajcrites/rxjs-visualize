@@ -8,7 +8,7 @@ import 'rxjs/add/operator/findIndex';
   selector: 'rx-find-index',
   template: `
     <marble [source$]="input$"></marble>
-    <h2>Do</h2>
+    <h2>Find Index</h2>
     <marble [source$]="output$"></marble>
   `
 })

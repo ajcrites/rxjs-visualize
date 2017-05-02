@@ -8,7 +8,7 @@ import 'rxjs/add/operator/find';
   selector: 'rx-find',
   template: `
     <marble [source$]="input$"></marble>
-    <h2>Do</h2>
+    <h2>Find</h2>
     <marble [source$]="output$"></marble>
   `
 })

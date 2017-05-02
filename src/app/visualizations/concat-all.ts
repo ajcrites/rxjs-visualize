@@ -14,7 +14,7 @@ import 'rxjs/add/operator/concatAll';
   `
 })
 export class RxConcatAllComponent {
-  initTime = (new Date).getTime();
+  iitTime = (new Date).getTime();
   lowerOrders = [];
   higherOrder$ = Observable.interval(1000).take(4).map(val => String.fromCharCode(val + 97));
   firstOrder$ = this.higherOrder$.map(val => {

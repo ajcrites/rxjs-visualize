@@ -34,6 +34,10 @@ import { RxEveryComponent } from './visualizations/every';
 import { RxExhaustComponent } from './visualizations/exhaust';
 import { RxExhaustMapComponent } from './visualizations/exhaust-map';
 import { RxExpandComponent } from './visualizations/expand';
+import { RxFilterComponent } from './visualizations/filter';
+import { RxFindComponent } from './visualizations/find';
+import { RxFindIndexComponent } from './visualizations/find-index';
+import { RxFirstComponent } from './visualizations/first';
 
 import { Marble } from './visualizations/marble';
 
@@ -69,6 +73,10 @@ import { Marble } from './visualizations/marble';
     RxExhaustComponent,
     RxExhaustMapComponent,
     RxExpandComponent,
+    RxFilterComponent,
+    RxFindComponent,
+    RxFindIndexComponent,
+    RxFirstComponent,
 
     Marble,
   ],

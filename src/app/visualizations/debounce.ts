@@ -4,8 +4,8 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/debounce';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/delay';
 
 @Component({
   selector: 'rx-debounce',
@@ -22,7 +22,7 @@ import 'rxjs/add/operator/delay';
 // 750ms) and the next outer observable emission (at 2s, more than a 1s
 // difference)
 export class RxDebounceComponent {
-  input$ = Observable.interval(2000).flatMap(val =>
+  input$ = Observable.interval(2000).mergeMap(val =>
     Observable.interval(250).map(innerVal => val + innerVal).take(3)
   ).take(20);
   debounced$ = this.input$.debounce(() => Observable.interval(1000));

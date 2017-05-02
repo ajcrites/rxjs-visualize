@@ -32,6 +32,7 @@ import { RxDoComponent } from './visualizations/do';
 import { RxElementAtComponent } from './visualizations/element-at';
 import { RxEveryComponent } from './visualizations/every';
 import { RxExhaustComponent } from './visualizations/exhaust';
+import { RxExhaustMapComponent } from './visualizations/exhaust-map';
 
 import { Marble } from './visualizations/marble';
 
@@ -65,6 +66,7 @@ import { Marble } from './visualizations/marble';
     RxElementAtComponent,
     RxEveryComponent,
     RxExhaustComponent,
+    RxExhaustMapComponent,
 
     Marble,
   ],

@@ -25,6 +25,7 @@ import { RxDebounceTimeComponent } from './visualizations/debounce-time';
 import { RxDefaultIfEmptyComponent } from "./visualizations/default-if-empty";
 import { RxDelayComponent } from "./visualizations/delay";
 import { RxDelayWhenComponent } from "./visualizations/delay-when";
+import { RxDistinctComponent } from "./visualizations/distinct";
 
 import { Marble } from './visualizations/marble';
 
@@ -51,6 +52,7 @@ import { Marble } from './visualizations/marble';
     RxDefaultIfEmptyComponent,
     RxDelayComponent,
     RxDelayWhenComponent,
+    RxDistinctComponent,
 
     Marble,
   ],

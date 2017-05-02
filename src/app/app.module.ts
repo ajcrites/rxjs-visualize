@@ -31,6 +31,7 @@ import { RxDistinctUntilKeyChangedComponent } from './visualizations/distinct-un
 import { RxDoComponent } from './visualizations/do';
 import { RxElementAtComponent } from './visualizations/element-at';
 import { RxEveryComponent } from './visualizations/every';
+import { RxExhaustComponent } from './visualizations/exhaust';
 
 import { Marble } from './visualizations/marble';
 
@@ -63,6 +64,7 @@ import { Marble } from './visualizations/marble';
     RxDoComponent,
     RxElementAtComponent,
     RxEveryComponent,
+    RxExhaustComponent,
 
     Marble,
   ],

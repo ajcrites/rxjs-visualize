@@ -28,6 +28,8 @@ import { RxDelayWhenComponent } from './visualizations/delay-when';
 import { RxDistinctComponent } from './visualizations/distinct';
 import { RxDistinctUntilChangedComponent } from './visualizations/distinct-until-changed';
 import { RxDistinctUntilKeyChangedComponent } from './visualizations/distinct-until-key-changed';
+import { RxDoComponent } from './visualizations/do';
+import { RxElementAtComponent } from './visualizations/element-at';
 
 import { Marble } from './visualizations/marble';
 
@@ -57,6 +59,8 @@ import { Marble } from './visualizations/marble';
     RxDistinctComponent,
     RxDistinctUntilChangedComponent,
     RxDistinctUntilKeyChangedComponent,
+    RxDoComponent,
+    RxElementAtComponent,
 
     Marble,
   ],

@@ -41,6 +41,8 @@ import { RxFirstComponent } from './visualizations/first';
 import { RxGroupByComponent } from './visualizations/group-by';
 import { RxIsEmptyComponent } from './visualizations/is-empty';
 import { RxLastComponent } from './visualizations/last';
+import { RxMapComponent } from './visualizations/map';
+import { RxMapToComponent } from './visualizations/map-to';
 
 import { Marble } from './visualizations/marble';
 
@@ -83,6 +85,8 @@ import { Marble } from './visualizations/marble';
     RxGroupByComponent,
     RxIsEmptyComponent,
     RxLastComponent,
+    RxMapComponent,
+    RxMapToComponent,
 
     Marble,
   ],

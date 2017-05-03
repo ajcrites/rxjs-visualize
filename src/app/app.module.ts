@@ -43,6 +43,11 @@ import { RxIsEmptyComponent } from './visualizations/is-empty';
 import { RxLastComponent } from './visualizations/last';
 import { RxMapComponent } from './visualizations/map';
 import { RxMapToComponent } from './visualizations/map-to';
+import { RxMaxComponent } from './visualizations/max';
+import { RxMergeComponent } from './visualizations/merge';
+import { RxMergeAllComponent } from './visualizations/merge-all';
+import { RxMergeMapComponent } from './visualizations/merge-map';
+import { RxMergeMapToComponent } from './visualizations/merge-map-to';
 
 import { Marble } from './visualizations/marble';
 
@@ -87,6 +92,11 @@ import { Marble } from './visualizations/marble';
     RxLastComponent,
     RxMapComponent,
     RxMapToComponent,
+    RxMaxComponent,
+    RxMergeComponent,
+    RxMergeAllComponent,
+    RxMergeMapComponent,
+    RxMergeMapToComponent,
 
     Marble,
   ],

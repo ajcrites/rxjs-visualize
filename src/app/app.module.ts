@@ -48,6 +48,7 @@ import { RxMergeComponent } from './visualizations/merge';
 import { RxMergeAllComponent } from './visualizations/merge-all';
 import { RxMergeMapComponent } from './visualizations/merge-map';
 import { RxMergeMapToComponent } from './visualizations/merge-map-to';
+import { RxMergeScanComponent } from './visualizations/merge-scan';
 
 import { Marble } from './visualizations/marble';
 
@@ -97,6 +98,7 @@ import { Marble } from './visualizations/marble';
     RxMergeAllComponent,
     RxMergeMapComponent,
     RxMergeMapToComponent,
+    RxMergeScanComponent,
 
     Marble,
   ],

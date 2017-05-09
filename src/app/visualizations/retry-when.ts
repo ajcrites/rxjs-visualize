@@ -10,7 +10,7 @@ import 'rxjs/add/operator/retryWhen';
 @Component({
   selector: 'rx-retry-when',
   template: `
-    <marble [source$]="retry$" [color]="yellow"></marble>
+    <marble [source$]="retry$" [color]="'yellow'"></marble>
     <marble [source$]="input$"></marble>
     <h2>Retry When</h2>
     <marble [source$]="output$"></marble>

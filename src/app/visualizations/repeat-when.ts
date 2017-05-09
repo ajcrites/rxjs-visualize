@@ -9,7 +9,7 @@ import 'rxjs/add/operator/repeatWhen';
 @Component({
   selector: 'rx-repeat-when',
   template: `
-    <marble [source$]="input$" [color]="yellow"></marble>
+    <marble [source$]="input$" [color]="'yellow'"></marble>
     <h2>Repeat When</h2>
     <marble [source$]="output$"></marble>
   `

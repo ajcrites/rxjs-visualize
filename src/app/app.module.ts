@@ -63,6 +63,7 @@ import { RxRetryWhenComponent } from './visualizations/retry-when';
 import { RxSampleComponent } from './visualizations/sample';
 import { RxSampleTimeComponent } from './visualizations/sample-time';
 import { RxScanComponent } from './visualizations/scan';
+import { RxSequenceEqualComponent } from './visualizations/sequence-equal';
 
 import { Marble } from './visualizations/marble';
 
@@ -127,6 +128,7 @@ import { Marble } from './visualizations/marble';
     RxSampleComponent,
     RxSampleTimeComponent,
     RxScanComponent,
+    RxSequenceEqualComponent,
 
     Marble,
   ],

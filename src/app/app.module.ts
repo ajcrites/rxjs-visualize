@@ -82,6 +82,7 @@ import { RxWindowComponent } from './visualizations/window';
 import { RxWindowCountComponent } from './visualizations/window-count';
 import { RxWindowToggleComponent } from './visualizations/window-toggle';
 import { RxWindowWhenComponent } from './visualizations/window-when';
+import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
 
 import { Marble } from './visualizations/marble';
 
@@ -165,6 +166,7 @@ import { Marble } from './visualizations/marble';
     RxWindowCountComponent,
     RxWindowToggleComponent,
     RxWindowWhenComponent,
+    RxWithLatestFromComponent,
 
     Marble,
   ],

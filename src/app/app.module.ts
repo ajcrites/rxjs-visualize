@@ -72,6 +72,10 @@ import { RxStartWithComponent } from './visualizations/start-with';
 import { RxSwitchComponent } from './visualizations/switch';
 import { RxSwitchMapComponent } from './visualizations/switch-map';
 import { RxSwitchMapToComponent } from './visualizations/switch-map-to';
+import { RxTakeComponent } from './visualizations/take';
+import { RxTakeLastComponent } from './visualizations/take-last';
+import { RxTakeUntilComponent } from './visualizations/take-until';
+import { RxTakeWhileComponent } from './visualizations/take-while';
 
 import { Marble } from './visualizations/marble';
 
@@ -145,6 +149,10 @@ import { Marble } from './visualizations/marble';
     RxSwitchComponent,
     RxSwitchMapComponent,
     RxSwitchMapToComponent,
+    RxTakeComponent,
+    RxTakeLastComponent,
+    RxTakeUntilComponent,
+    RxTakeWhileComponent,
 
     Marble,
   ],

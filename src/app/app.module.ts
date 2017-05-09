@@ -78,6 +78,10 @@ import { RxTakeUntilComponent } from './visualizations/take-until';
 import { RxTakeWhileComponent } from './visualizations/take-while';
 import { RxThrottleComponent } from './visualizations/throttle';
 import { RxThrottleTimeComponent } from './visualizations/throttle-time';
+import { RxWindowComponent } from './visualizations/window';
+import { RxWindowCountComponent } from './visualizations/window-count';
+import { RxWindowToggleComponent } from './visualizations/window-toggle';
+import { RxWindowWhenComponent } from './visualizations/window-when';
 
 import { Marble } from './visualizations/marble';
 
@@ -157,6 +161,10 @@ import { Marble } from './visualizations/marble';
     RxTakeWhileComponent,
     RxThrottleComponent,
     RxThrottleTimeComponent,
+    RxWindowComponent,
+    RxWindowCountComponent,
+    RxWindowToggleComponent,
+    RxWindowWhenComponent,
 
     Marble,
   ],

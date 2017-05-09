@@ -76,6 +76,8 @@ import { RxTakeComponent } from './visualizations/take';
 import { RxTakeLastComponent } from './visualizations/take-last';
 import { RxTakeUntilComponent } from './visualizations/take-until';
 import { RxTakeWhileComponent } from './visualizations/take-while';
+import { RxThrottleComponent } from './visualizations/throttle';
+import { RxThrottleTimeComponent } from './visualizations/throttle-time';
 
 import { Marble } from './visualizations/marble';
 
@@ -153,6 +155,8 @@ import { Marble } from './visualizations/marble';
     RxTakeLastComponent,
     RxTakeUntilComponent,
     RxTakeWhileComponent,
+    RxThrottleComponent,
+    RxThrottleTimeComponent,
 
     Marble,
   ],

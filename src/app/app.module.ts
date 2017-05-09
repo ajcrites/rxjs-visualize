@@ -64,6 +64,11 @@ import { RxSampleComponent } from './visualizations/sample';
 import { RxSampleTimeComponent } from './visualizations/sample-time';
 import { RxScanComponent } from './visualizations/scan';
 import { RxSequenceEqualComponent } from './visualizations/sequence-equal';
+import { RxSingleComponent } from './visualizations/single';
+import { RxSkipComponent } from './visualizations/skip';
+import { RxSkipUntilComponent } from './visualizations/skip-until';
+import { RxSkipWhileComponent } from './visualizations/skip-while';
+import { RxStartWithComponent } from './visualizations/start-with';
 
 import { Marble } from './visualizations/marble';
 
@@ -129,6 +134,11 @@ import { Marble } from './visualizations/marble';
     RxSampleTimeComponent,
     RxScanComponent,
     RxSequenceEqualComponent,
+    RxSingleComponent,
+    RxSkipComponent,
+    RxSkipUntilComponent,
+    RxSkipWhileComponent,
+    RxStartWithComponent,
 
     Marble,
   ],

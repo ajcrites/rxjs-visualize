@@ -49,6 +49,17 @@ import { RxMergeAllComponent } from './visualizations/merge-all';
 import { RxMergeMapComponent } from './visualizations/merge-map';
 import { RxMergeMapToComponent } from './visualizations/merge-map-to';
 import { RxMergeScanComponent } from './visualizations/merge-scan';
+import { RxMinComponent } from './visualizations/min';
+import { RxPairwiseComponent } from './visualizations/pairwise';
+import { RxPartitionComponent } from './visualizations/partition';
+import { RxPluckComponent } from './visualizations/pluck';
+import { RxPublishComponent } from './visualizations/publish';
+import { RxRaceComponent } from './visualizations/race';
+import { RxReduceComponent } from './visualizations/reduce';
+import { RxRepeatComponent } from './visualizations/repeat';
+import { RxRepeatWhenComponent } from './visualizations/repeat-when';
+import { RxRetryComponent } from './visualizations/retry';
+import { RxRetryWhenComponent } from './visualizations/retry-when';
 
 import { Marble } from './visualizations/marble';
 
@@ -99,6 +110,17 @@ import { Marble } from './visualizations/marble';
     RxMergeMapComponent,
     RxMergeMapToComponent,
     RxMergeScanComponent,
+    RxMinComponent,
+    RxPairwiseComponent,
+    RxPartitionComponent,
+    RxPluckComponent,
+    RxPublishComponent,
+    RxRaceComponent,
+    RxReduceComponent,
+    RxRepeatComponent,
+    RxRepeatWhenComponent,
+    RxRetryComponent,
+    RxRetryWhenComponent,
 
     Marble,
   ],

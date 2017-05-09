@@ -60,6 +60,9 @@ import { RxRepeatComponent } from './visualizations/repeat';
 import { RxRepeatWhenComponent } from './visualizations/repeat-when';
 import { RxRetryComponent } from './visualizations/retry';
 import { RxRetryWhenComponent } from './visualizations/retry-when';
+import { RxSampleComponent } from './visualizations/sample';
+import { RxSampleTimeComponent } from './visualizations/sample-time';
+import { RxScanComponent } from './visualizations/scan';
 
 import { Marble } from './visualizations/marble';
 
@@ -121,6 +124,9 @@ import { Marble } from './visualizations/marble';
     RxRepeatWhenComponent,
     RxRetryComponent,
     RxRetryWhenComponent,
+    RxSampleComponent,
+    RxSampleTimeComponent,
+    RxScanComponent,
 
     Marble,
   ],

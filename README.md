@@ -26,10 +26,10 @@ manipulate values for display purposes.
 This was built using the Angular framework.
 
 ## TODO
-[ ] Build frame / menu to allow selection(s)
-[ ] Allow restarting of diagram without requiring refresh
-[ ] Include static operators (`Observable`)
-[ ] Include versions with other arguments
-[ ] Allow users to manipulate arguments
+* [ ] Build frame / menu to allow selection(s)
+* [ ] Allow restarting of diagram without requiring refresh
+* [ ] Include static operators (`Observable`)
+* [ ] Include versions with other arguments
+* [ ] Allow users to manipulate arguments
 
 I should also generally improve the visual style of the app.

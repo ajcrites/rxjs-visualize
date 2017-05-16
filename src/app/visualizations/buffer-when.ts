@@ -8,9 +8,26 @@ import 'rxjs/add/operator/bufferWhen';
 @Component({
   selector: 'rx-buffer-when',
   template: `
+    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferWhen">
+      Buffer When
+    </a></h1>
+    <p>
+      This is similar to <code>audit</code> except that it will collect <i>all</i>
+      values until the next notifier Observable emission rather than just the
+      last value.
+    </p>
+    <pre>
+    preBuffer$ = Observable.interval(1000).take(20);
+    closingBuffer$ = new Subject;
+    postBuffer$ = this.preBuffer$.bufferWhen(() =>
+      Observable.interval(1000 + Math.random() * 4000).do(() =>
+        this.closingBuffer$.next('s')
+      )
+    );
+    </pre>
+
     <marble [source$]="preBuffer$"></marble>
     <marble [source$]="closingBuffer$" [color]="'blue'"></marble>
-    <h2>Buffer When</h2>
     <marble [source$]="postBuffer$"></marble>
   `,
 })

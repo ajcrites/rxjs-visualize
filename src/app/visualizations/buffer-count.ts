@@ -7,8 +7,15 @@ import 'rxjs/add/operator/bufferCount';
 @Component({
   selector: 'rx-buffer-count',
   template: `
+    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferCount">
+      Buffer Count
+    </a></h1>
+    <pre>
+      preBuffer$ = Observable.interval(1000).take(20);
+      postBuffer$ = this.preBuffer$.bufferCount(3);
+    </pre>
+
     <marble [source$]="preBuffer$"></marble>
-    <h2>Buffer Count</h2>
     <marble [source$]="postBuffer$"></marble>
   `
 })

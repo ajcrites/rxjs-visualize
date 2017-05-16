@@ -1,28 +1,35 @@
 # RxjsVisualize
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+Showcase RxJS operators using RxJS operators.
 
-## Development server
+Marble diagram visualizations are created for many of the
+operators explained in the [RxJS Observable](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html)
+documentation.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+There are many other versions of this project and some are
+more advanced than this one such as http://rxmarbles.com/
 
-## Code scaffolding
+Most of the implementations use an interval to display the
+marble diagram and Observables working over time. It
+attempts to somewhat mirror the visualizations from the
+original documentation and includes editorial comments
+from [the author, @ajcrites](https://github.com/ajcrites).
+Some operators that are not well documented by the
+ReactiveX docs themselves.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+This makes heavy use of `Observable.interval` as a source
+observable. `take` was also heavily used to limit the
+length of the source Observable and eventually end the
+examples. Other variations of `skip` and `map` were used to
+manipulate values for display purposes.
 
-## Build
+This was built using the Angular framework.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## TODO
+[ ] Build frame / menu to allow selection(s)
+[ ] Allow restarting of diagram without requiring refresh
+[ ] Include static operators (`Observable`)
+[ ] Include versions with other arguments
+[ ] Allow users to manipulate arguments
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I should also generally improve the visual style of the app.

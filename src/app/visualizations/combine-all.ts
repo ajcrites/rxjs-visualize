@@ -7,9 +7,23 @@ import 'rxjs/add/operator/combineAll';
 @Component({
   selector: 'rx-combine-all',
   template: `
+    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-combineAll">
+      Combine All
+    </a></h1>
+    <p>
+      I don't understand this operator yet.
+    </p>
+    <pre>
+    outer$ = Observable.interval(1000).take(20);
+    inner$ = new Subject;
+    combined$ = this.outer$.map(val =>
+      Observable.interval(2000).take(3).do(
+        value => this.inner$.next(value)
+      )
+    ).take(4).combineAll();
+    </pre>
     <marble [source$]="outer$"></marble>
     <marble [source$]="inner$"></marble>
-    <h2>Combine All</h2>
     <marble [source$]="combined$"></marble>
   `
 })

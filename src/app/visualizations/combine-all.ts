@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 import { Component } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/interval';
@@ -13,15 +15,7 @@ import 'rxjs/add/operator/combineAll';
     <p>
       I don't understand this operator yet.
     </p>
-    <pre>
-    outer$ = Observable.interval(1000).take(20);
-    inner$ = new Subject;
-    combined$ = this.outer$.map(val =>
-      Observable.interval(2000).take(3).do(
-        value => this.inner$.next(value)
-      )
-    ).take(4).combineAll();
-    </pre>
+    <pre ngNonBindable>${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')}</pre>
     <marble [source$]="outer$"></marble>
     <marble [source$]="inner$"></marble>
     <marble [source$]="combined$"></marble>

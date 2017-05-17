@@ -191,8 +191,7 @@ module.exports = {
               plugins: ['babel-plugin-static-fs']
             }
           },
-        // "@ngtools/webpack",
-          "ts-loader",
+          "@ngtools/webpack",
         ]
       }
     ]

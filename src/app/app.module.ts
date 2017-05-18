@@ -86,6 +86,8 @@ import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
 
 import { Marble } from './visualizations/marble';
 
+import { PrismDirective } from './prism.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -169,12 +171,14 @@ import { Marble } from './visualizations/marble';
     RxWithLatestFromComponent,
 
     Marble,
+
+    PrismDirective,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

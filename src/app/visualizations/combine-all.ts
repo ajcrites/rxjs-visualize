@@ -6,6 +6,8 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/combineAll';
 
+declare let Prism: any;
+
 @Component({
   selector: 'rx-combine-all',
   template: `
@@ -15,7 +17,7 @@ import 'rxjs/add/operator/combineAll';
     <p>
       I don't understand this operator yet.
     </p>
-    <pre ngNonBindable>${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')}</pre>
+    <pre [prismHighlight]="'typescript'">${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')}</pre>
     <marble [source$]="outer$"></marble>
     <marble [source$]="inner$"></marble>
     <marble [source$]="combined$"></marble>

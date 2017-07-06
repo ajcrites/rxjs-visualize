@@ -12,7 +12,7 @@ import 'rxjs/add/operator/catch';
     <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-catch">
       Catch
     </a></h1>
-    <pre [prismHighlight]="'typescript'">${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1').replace(/{/g, "{{ '{' }}")}</pre>
+    <pre prismHighlight="typescript">${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1').replace(/{/g, "{{ '{' }}")}</pre>
 
     <marble [source$]="preCatch$"></marble>
     <marble [source$]="postCatch$"></marble>

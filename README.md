@@ -31,5 +31,6 @@ This was built using the Angular framework.
 * [ ] Include static operators (`Observable`)
 * [ ] Include versions with other arguments
 * [ ] Allow users to manipulate arguments
+* [ ] Support HMR
 
 I should also generally improve the visual style of the app.

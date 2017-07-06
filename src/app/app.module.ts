@@ -86,7 +86,7 @@ import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
 
 import { Marble } from './visualizations/marble';
 
-import { PrismDirective } from './prism.directive';
+import { PrismHighlightModule } from 'prism-highlight';
 
 @NgModule({
   declarations: [
@@ -171,14 +171,14 @@ import { PrismDirective } from './prism.directive';
     RxWithLatestFromComponent,
 
     Marble,
-
-    PrismDirective,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+
+    PrismHighlightModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3377,9 +3377,9 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prism-highlight@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/prism-highlight/-/prism-highlight-0.0.1.tgz#a95c1f1976dc44f12ff394ffa3feaf8e96adfc97"
+prism-highlight@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/prism-highlight/-/prism-highlight-0.0.2.tgz#dc0c8c801613fb2b347a115552ca811d3d705d85"
   dependencies:
     "@angular/compiler" "^4.1.3"
     "@angular/compiler-cli" "^4.1.3"

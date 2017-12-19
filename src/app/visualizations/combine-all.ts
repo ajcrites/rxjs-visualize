@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs';
 
 import { Component } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -17,7 +16,6 @@ declare let Prism: any;
     <p>
       I don't understand this operator yet.
     </p>
-    <pre [prismHighlight]="'typescript'">${readFileSync(__filename).toString().replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')}</pre>
     <marble [source$]="outer$"></marble>
     <marble [source$]="inner$"></marble>
     <marble [source$]="combined$"></marble>

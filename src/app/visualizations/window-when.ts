@@ -21,7 +21,7 @@ export class RxWindowWhenComponent {
   notifier$ = interval(2500).pipe(mapTo('w'));
   output$ = this.input$.pipe(
     windowWhen(() => interval(2500)),
-    map(win => win.take(2)),
+    map(win => win.pipe(take(2))),
     mergeAll(),
   );
 }

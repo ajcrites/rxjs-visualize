@@ -20,7 +20,7 @@ export class RxWindowComponent {
   notifier$ = interval(3500).pipe(mapTo('w'));
   output$ = this.input$.pipe(
     window(this.notifier$),
-    map(win => win.take(2)),
+    map(win => win.pipe(take(2))),
     mergeAll(),
   );
 }

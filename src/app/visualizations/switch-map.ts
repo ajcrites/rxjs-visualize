@@ -21,9 +21,10 @@ export class RxSwitchMapComponent {
   );
   firstOrder$ = this.higherOrder$.pipe(
     switchMap(val => {
-      const lowerOrder = interval(1000)
-        .take(4)
-        .map(innerVal => val + innerVal);
+      const lowerOrder = interval(1000).pipe(
+        take(4),
+        map(innerVal => val + innerVal),
+      );
       this.lowerOrders.push(lowerOrder);
       return lowerOrder;
     }),

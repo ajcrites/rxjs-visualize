@@ -14,5 +14,5 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
 })
 export class RxRepeatWhenComponent {
   input$ = interval(3000).pipe(take(3), mapTo('r'));
-  output$ = this.input$.pipe(repeatWhen(() => interval(1000).take(2)));
+  output$ = this.input$.pipe(repeatWhen(() => interval(1000).pipe(take(2))));
 }

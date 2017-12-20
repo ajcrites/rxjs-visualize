@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/skip';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/race';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, skip, map, race } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-race',
@@ -13,11 +10,10 @@ import 'rxjs/add/operator/race';
     <marble [source$]="slower$"></marble>
     <h2>Race</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxRaceComponent {
-  faster$ = Observable.interval(1000).take(5).map(val => 'a' + val);
-  slower$ = Observable.interval(800).skip(1).take(5).map(val => 'b' + val);
-  output$ = this.faster$.race(this.slower$);
+  faster$ = interval(1000).pipe(take(5), map(val => 'a' + val));
+  slower$ = interval(800).pipe(skip(1), take(5), map(val => 'b' + val));
+  output$ = this.faster$.pipe(race(this.slower$));
 }
-

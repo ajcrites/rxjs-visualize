@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/every';
+
+import { interval } from 'rxjs/observable/interval';
+import { every, mapTo, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-every',
@@ -14,12 +11,17 @@ import 'rxjs/add/operator/every';
     <h2>Every</h2>
     <marble [source$]="passed$"></marble>
     <marble [source$]="failed$"></marble>
-  `
+  `,
 })
 export class RxEveryComponent {
-  passEvery$ = Observable.interval(1000).take(5).mapTo('a');
-  failEvery$ = Observable.interval(1000).take(5).map(val => val % 2 ? 'b' : 'a');
-  passed$ = this.passEvery$.every(val => 'a' === val).map(val => val ? 1 : 0);
-  failed$ = this.failEvery$.every(val => 'a' === val).map(val => val ? 1 : 0);
+  passEvery$ = interval(1000).pipe(take(5), mapTo('a'));
+  failEvery$ = interval(1000).pipe(take(5), map(val => (val % 2 ? 'b' : 'a')));
+  passed$ = this.passEvery$.pipe(
+    every(val => 'a' === val),
+    map(val => (val ? 1 : 0)),
+  );
+  failed$ = this.failEvery$.pipe(
+    every(val => 'a' === val),
+    map(val => (val ? 1 : 0)),
+  );
 }
-

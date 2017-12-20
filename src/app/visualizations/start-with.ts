@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/startWith';
+
+import { interval } from 'rxjs/observable/interval';
+import { startWith, take } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-start-with',
@@ -11,10 +11,9 @@ import 'rxjs/add/operator/startWith';
     <marble [source$]="input$"></marble>
     <h2>Start With</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxStartWithComponent {
-  input$ = Observable.interval(1000).take(3).map(val => String.fromCharCode(val + 97));
-  output$ = this.input$.startWith('s');
+  input$ = interval(1000).pipe(take(3), mapNumberToChar());
+  output$ = this.input$.pipe(startWith('s'));
 }
-

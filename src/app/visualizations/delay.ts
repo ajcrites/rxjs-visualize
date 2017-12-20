@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/take';
+
+import { interval } from 'rxjs/observable/interval';
+import { delay, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-delay',
@@ -10,11 +9,9 @@ import 'rxjs/add/operator/take';
     <marble [source$]="input$"></marble>
     <h2>Delay</h2>
     <marble [source$]="delayed$"></marble>
-  `
+  `,
 })
 export class RxDelayComponent {
-  input$ = Observable.interval(1000).take(20);
-  delayed$ = this.input$.delay(1000);
+  input$ = interval(1000).pipe(take(20));
+  delayed$ = this.input$.pipe(delay(1000));
 }
-
-

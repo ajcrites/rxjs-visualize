@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/publish';
+
+import { ConnectableObservable } from 'rxjs/observable/ConnectableObservable';
+import { interval } from 'rxjs/observable/interval';
+import { tap, take, publish } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-publish',
@@ -11,14 +10,16 @@ import 'rxjs/add/operator/publish';
     <marble [source$]="input$"></marble>
     <h2>Publish</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxPublishComponent {
-  input$ = Observable.interval(1000).take(20).do(val => {
-    if (5 === val) {
-      this.output$.connect();
-    }
-  });
-  output$ = this.input$.publish();
+  input$ = interval(1000).pipe(
+    take(20),
+    tap(val => {
+      if (5 === val) {
+        this.output$.connect();
+      }
+    }),
+  );
+  output$ = this.input$.pipe(publish()) as ConnectableObservable<number>;
 }
-

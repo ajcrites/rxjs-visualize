@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import { RxVisualizationsAppComponent } from './app.component';
 import { RxAuditComponent } from './visualizations/audit';
 import { RxAuditTimeComponent } from './visualizations/audit-time';
 import { RxBufferComponent } from './visualizations/buffer';
@@ -83,13 +83,13 @@ import { RxWindowToggleComponent } from './visualizations/window-toggle';
 import { RxWindowWhenComponent } from './visualizations/window-when';
 import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
 
-import { Marble } from './visualizations/marble';
+import { Marble } from './marble';
 
 import { PrismHighlightModule } from 'ngx-prism-highlight';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    RxVisualizationsAppComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,
@@ -179,6 +179,6 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     PrismHighlightModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [RxVisualizationsAppComponent],
 })
-export class AppModule { }
+export class AppModule {}

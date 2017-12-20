@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/sample';
+
+import { interval } from 'rxjs/observable/interval';
+import { sampleTime, take } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-sample-time',
@@ -10,10 +11,9 @@ import 'rxjs/add/operator/sample';
     <marble [source$]="input$"></marble>
     <h2>Sample Time</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxSampleTimeComponent {
-  input$ = Observable.interval(1000).map(val => String.fromCharCode(val + 97)).take(10);
-  output$ = this.input$.sampleTime(1600);
+  input$ = interval(1000).pipe(mapNumberToChar(), take(10));
+  output$ = this.input$.pipe(sampleTime(1600));
 }
-

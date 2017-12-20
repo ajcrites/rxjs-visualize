@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/filter';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-filter',
@@ -10,9 +9,9 @@ import 'rxjs/add/operator/filter';
     <marble [source$]="input$"></marble>
     <h2>Filter</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxFilterComponent {
-  input$ = Observable.interval(1000).take(20);
-  output$ = this.input$.filter(val => !!(val % 2));
+  input$ = interval(1000).pipe(take(20));
+  output$ = this.input$.pipe(filter(val => !!(val % 2)));
 }

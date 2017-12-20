@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/first';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, first } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-first',
@@ -10,10 +9,9 @@ import 'rxjs/add/operator/first';
     <marble [source$]="input$"></marble>
     <h2>First</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxFirstComponent {
-  input$ = Observable.interval(1000).take(3);
-  output$ = this.input$.first();
+  input$ = interval(1000).pipe(take(3));
+  output$ = this.input$.pipe(first());
 }
-

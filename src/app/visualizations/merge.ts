@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/merge';
+
+import { interval } from 'rxjs/observable/interval';
+import { merge, delay, take, map } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-merge',
@@ -12,10 +12,10 @@ import 'rxjs/add/operator/merge';
     <marble [source$]="second$"></marble>
     <h2>Merge</h2>
     <marble [source$]="merged$"></marble>
-  `
+  `,
 })
 export class RxMergeComponent {
-  first$ = Observable.interval(1000).take(10).map(count => String.fromCharCode(count + 97));
-  second$ = Observable.interval(1000).delay(500).take(10);
-  merged$ = this.first$.merge(this.second$);
+  first$ = interval(1000).pipe(take(10), mapNumberToChar());
+  second$ = interval(1000).pipe(delay(500), take(10));
+  merged$ = this.first$.pipe(merge(this.second$));
 }

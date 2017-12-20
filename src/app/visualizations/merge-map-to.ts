@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/mergeMapTo';
+
+import { interval } from 'rxjs/observable/interval';
+import { mergeMapTo, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-merge-map-to',
@@ -11,10 +10,10 @@ import 'rxjs/add/operator/mergeMapTo';
     <marble [source$]="inner$"></marble>
     <h2>Merge Map To</h2>
     <marble [source$]="firstOrder$"></marble>
-  `
+  `,
 })
 export class RxMergeMapToComponent {
-  higherOrder$ = Observable.interval(1000).take(4).mapTo('a');
-  inner$ = Observable.interval(1000).take(3);
-  firstOrder$ = this.higherOrder$.mergeMapTo(this.inner$);
+  higherOrder$ = interval(1000).pipe(take(4), mapTo('a'));
+  inner$ = interval(1000).pipe(take(3));
+  firstOrder$ = this.higherOrder$.pipe(mergeMapTo(this.inner$));
 }

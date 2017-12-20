@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/skipWhile';
+
+import { interval } from 'rxjs/observable/interval';
+import { skipWhile, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-skip-while',
@@ -11,10 +9,9 @@ import 'rxjs/add/operator/skipWhile';
     <marble [source$]="input$"></marble>
     <h2>Skip While</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxSkipWhileComponent {
-  input$ = Observable.interval(1000).take(6);
-  output$ = this.input$.skipWhile(val => val != 3);
+  input$ = interval(1000).pipe(take(6));
+  output$ = this.input$.pipe(skipWhile(val => val !== 3));
 }
-

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/auditTime';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, auditTime } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-audit-time',
@@ -21,10 +20,10 @@ import 'rxjs/add/operator/auditTime';
 
     <marble [source$]="preAudit$"></marble>
     <marble [source$]="postAudit$"></marble>
-  `
+  `,
 })
 export class RxAuditTimeComponent {
-  preAudit$ = Observable.interval(1000).take(20);
+  preAudit$ = interval(1000).pipe(take(20));
   // Practically equivalent to <code>.audit(() => Observable.interval(2500))</code>
-  postAudit$ = this.preAudit$.auditTime(2500);
+  postAudit$ = this.preAudit$.pipe(auditTime(2500));
 }

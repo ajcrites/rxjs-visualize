@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-map',
@@ -10,13 +9,9 @@ import 'rxjs/add/operator/take';
     <marble [source$]="input$"></marble>
     <h2>Map</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxMapComponent {
-  input$ = Observable.interval(1000).take(20);
-  output$ = this.input$.map(val => val * 10);
+  input$ = interval(1000).pipe(take(20));
+  output$ = this.input$.pipe(map(val => val * 10));
 }
-
-
-
-

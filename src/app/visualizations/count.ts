@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/count';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, count } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-count',
@@ -10,9 +9,9 @@ import 'rxjs/add/operator/count';
     <marble [source$]="input$"></marble>
     <h2>Count</h2>
     <marble [source$]="count$"></marble>
-  `
+  `,
 })
 export class RxCountComponent {
-  input$ = Observable.interval(1000).take(5);
-  count$ = this.input$.count();
+  input$ = interval(1000).pipe(take(5));
+  count$ = this.input$.pipe(count());
 }

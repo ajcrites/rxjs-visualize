@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/min';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, map, min } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-min',
@@ -10,11 +9,13 @@ import 'rxjs/add/operator/min';
     <marble [source$]="input$"></marble>
     <h2>Min</h2>
     <marble [source$]="min$"></marble>
-  `
+  `,
 })
 export class RxMinComponent {
   values = [1, -1, 2, 4, 0];
-  input$ = Observable.interval(1000).map(val => this.values[val]).take(this.values.length);
-  min$ = this.input$.min();
+  input$ = interval(1000).pipe(
+    map(val => this.values[val]),
+    take(this.values.length),
+  );
+  min$ = this.input$.pipe(min());
 }
-

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/mergeAll';
-import 'rxjs/add/operator/window';
+
+import { interval } from 'rxjs/observable/interval';
+import { window, map, take, mapTo, mergeAll } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-window',
@@ -14,10 +12,14 @@ import 'rxjs/add/operator/window';
     <marble [source$]="notifier$" [main$]="input$" [color]="'blue'"></marble>
     <h2>Window</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxWindowComponent {
-  input$ = Observable.interval(1000).map(val => String.fromCharCode(val + 97)).take(10);
-  notifier$ = Observable.interval(3500).mapTo('w');
-  output$ = this.input$.window(this.notifier$).map(win => win.take(2)).mergeAll();
+  input$ = interval(1000).pipe(mapNumberToChar(), take(10));
+  notifier$ = interval(3500).pipe(mapTo('w'));
+  output$ = this.input$.pipe(
+    window(this.notifier$),
+    map(win => win.pipe(take(2))),
+    mergeAll(),
+  );
 }

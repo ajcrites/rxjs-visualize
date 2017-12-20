@@ -1,11 +1,20 @@
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  transition,
+  style,
+  animate,
+} from '@angular/animations';
 
 export const animations = [
   trigger('appear', [
-    state('in', style({
-      transform: 'scale(1)',
-      opacity: 1,
-    })),
+    state(
+      'in',
+      style({
+        transform: 'scale(1)',
+        opacity: 1,
+      }),
+    ),
     transition('void => *', [
       style({
         transform: 'scale(0.2)',
@@ -17,5 +26,5 @@ export const animations = [
       }),
       animate(100),
     ]),
-  ])
+  ]),
 ];

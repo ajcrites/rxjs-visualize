@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/single';
+
+import { interval } from 'rxjs/observable/interval';
+import { single, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-single',
@@ -10,10 +9,12 @@ import 'rxjs/add/operator/single';
     <marble [source$]="input$"></marble>
     <h2>Single</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxSingleComponent {
-  input$ = Observable.interval(1000).take(3).map(val => String.fromCharCode(val + 97));
-  output$ = this.input$.single(val => val == 'b');
+  input$ = interval(1000).pipe(
+    take(3),
+    map(val => String.fromCharCode(val + 97)),
+  );
+  output$ = this.input$.pipe(single(val => val === 'b'));
 }
-

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/throttle';
+
+import { interval } from 'rxjs/observable/interval';
+import { throttle, take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-throttle',
@@ -11,9 +9,12 @@ import 'rxjs/add/operator/throttle';
     <marble [source$]="input$"></marble>
     <h2>Throttle</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxThrottleComponent {
-  input$ = Observable.interval(500).map(val => String.fromCharCode(val + 97)).take(10);
-  output$ = this.input$.throttle(() => Observable.interval(1500));
+  input$ = interval(500).pipe(
+    map(val => String.fromCharCode(val + 97)),
+    take(10),
+  );
+  output$ = this.input$.pipe(throttle(() => interval(1500)));
 }

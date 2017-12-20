@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/groupBy';
+
+import { Subject } from 'rxjs/Subject';
+import { interval } from 'rxjs/observable/interval';
+import { groupBy, map, take, mergeAll } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-group-by',
@@ -11,17 +11,22 @@ import 'rxjs/add/operator/groupBy';
     <h2>Group By</h2>
     <marble [source$]="even$"></marble>
     <marble [source$]="odd$"></marble>
-  `
+  `,
 })
 export class RxGroupByComponent {
-  input$ = Observable.interval(1000).take(20).groupBy(val => val % 2).map(obs => {
-    if (obs.key) {
-      obs.subscribe(this.odd$);
-    } else {
-      obs.subscribe(this.even$);
-    }
-    return obs;
-  }).mergeAll();
   even$ = new Subject();
   odd$ = new Subject();
+  input$ = interval(1000).pipe(
+    take(20),
+    groupBy(val => val % 2),
+    map(obs => {
+      if (obs.key) {
+        obs.subscribe(this.odd$);
+      } else {
+        obs.subscribe(this.even$);
+      }
+      return obs;
+    }),
+    mergeAll(),
+  );
 }

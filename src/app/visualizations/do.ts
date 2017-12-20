@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/do';
+
+import { interval } from 'rxjs/observable/interval';
+import { tap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-do',
   template: `
     <marble [source$]="input$"></marble>
-    <h2>Do</h2>
+    <h2>Do / Tap</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxDoComponent {
-  input$ = Observable.interval(1000).take(20);
-  output$ = this.input$.do(val => console.log(val));
+  // The lettable operator version of `do` is `tap`
+  input$ = interval(1000).pipe(take(20));
+  output$ = this.input$.pipe(tap(val => console.log(val)));
 }

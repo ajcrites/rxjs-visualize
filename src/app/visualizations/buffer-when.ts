@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/bufferWhen';
+
+import { Subject } from 'rxjs/Subject';
+import { interval } from 'rxjs/observable/interval';
+import { tap, take, mapTo, bufferWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-when',
@@ -32,11 +31,13 @@ import 'rxjs/add/operator/bufferWhen';
   `,
 })
 export class RxBufferWhenComponent {
-  preBuffer$ = Observable.interval(1000).take(20);
-  closingBuffer$ = new Subject;
-  postBuffer$ = this.preBuffer$.bufferWhen(() =>
-    Observable.interval(1000 + Math.random() * 4000).do(() =>
-      this.closingBuffer$.next('s')
-    )
+  preBuffer$ = interval(1000).pipe(take(20));
+  closingBuffer$ = new Subject();
+  postBuffer$ = this.preBuffer$.pipe(
+    bufferWhen(() =>
+      interval(1000 + Math.random() * 4000).pipe(
+        tap(() => this.closingBuffer$.next('s')),
+      ),
+    ),
   );
 }

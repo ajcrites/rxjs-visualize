@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/repeat';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, repeat } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-repeat',
@@ -10,10 +9,9 @@ import 'rxjs/add/operator/repeat';
     <marble [source$]="input$"></marble>
     <h2>Repeat</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxRepeatComponent {
-  input$ = Observable.interval(1000).take(3);
-  output$ = this.input$.repeat(3);
+  input$ = interval(1000).pipe(take(3));
+  output$ = this.input$.pipe(repeat(3));
 }
-

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/takeWhile';
+
+import { interval } from 'rxjs/observable/interval';
+import { takeWhile, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-take-while',
@@ -10,9 +9,9 @@ import 'rxjs/add/operator/takeWhile';
     <marble [source$]="input$"></marble>
     <h2>Take While</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxTakeWhileComponent {
-  input$ = Observable.interval(1000).take(5);
-  output$ = this.input$.takeWhile(val => val != 3);
+  input$ = interval(1000).pipe(take(5));
+  output$ = this.input$.pipe(takeWhile(val => val !== 3));
 }

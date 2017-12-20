@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/last';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, last } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-last',
@@ -10,10 +9,9 @@ import 'rxjs/add/operator/last';
     <marble [source$]="input$"></marble>
     <h2>Last</h2>
     <marble [source$]="last$"></marble>
-  `
+  `,
 })
 export class RxLastComponent {
-  input$ = Observable.interval(1000).take(3);
-  last$ = this.input$.last();
+  input$ = interval(1000).pipe(take(3));
+  last$ = this.input$.pipe(last());
 }
-

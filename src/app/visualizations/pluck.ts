@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/pluck';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, map, pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-pluck',
@@ -11,12 +9,14 @@ import 'rxjs/add/operator/pluck';
     <marble [source$]="display$"></marble>
     <h2>Pluck</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxPluckComponent {
   values = [1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4, 4, 3, 1, 1, 2];
-  input$ = Observable.interval(1000).map(key => ({key: this.values[key]})).take(this.values.length);
-  display$ = this.input$.map(val => val.key);
-  output$ = this.input$.pluck('key');
+  input$ = interval(1000).pipe(
+    map(key => ({ key: this.values[key] })),
+    take(this.values.length),
+  );
+  display$ = this.input$.pipe(map(val => val.key));
+  output$ = this.input$.pipe(pluck('key'));
 }
-

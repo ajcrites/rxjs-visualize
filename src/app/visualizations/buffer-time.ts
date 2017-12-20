@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/bufferTime';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, bufferTime } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-time',
@@ -24,7 +23,7 @@ import 'rxjs/add/operator/bufferTime';
   `,
 })
 export class RxBufferTimeComponent {
-  preBuffer$ = Observable.interval(1000).take(20);
+  preBuffer$ = interval(1000).pipe(take(20));
   // Practically equivalent to <code>.buffer(Observable.interval(3000))</code>
-  postBuffer$ = this.preBuffer$.bufferTime(3000);
+  postBuffer$ = this.preBuffer$.pipe(bufferTime(3000));
 }

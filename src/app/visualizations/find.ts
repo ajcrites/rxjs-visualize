@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/find';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, find } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-find',
@@ -10,10 +9,9 @@ import 'rxjs/add/operator/find';
     <marble [source$]="input$"></marble>
     <h2>Find</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxFindComponent {
-  input$ = Observable.interval(1000).take(5);
-  output$ = this.input$.find(val => val > 1);
+  input$ = interval(1000).pipe(take(5));
+  output$ = this.input$.pipe(find(val => val > 1));
 }
-

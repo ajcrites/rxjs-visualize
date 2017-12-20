@@ -1,10 +1,8 @@
 // This one confuses me
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/repeatWhen';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, mapTo, repeatWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-repeat-when',
@@ -12,10 +10,9 @@ import 'rxjs/add/operator/repeatWhen';
     <marble [source$]="input$" [color]="'yellow'"></marble>
     <h2>Repeat When</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxRepeatWhenComponent {
-  input$ = Observable.interval(3000).take(3).mapTo('r');
-  output$ = this.input$.repeatWhen(() => Observable.interval(1000).take(2));
+  input$ = interval(3000).pipe(take(3), mapTo('r'));
+  output$ = this.input$.pipe(repeatWhen(() => interval(1000).take(2)));
 }
-

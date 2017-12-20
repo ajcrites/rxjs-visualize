@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/bufferCount';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, bufferCount } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-count',
@@ -17,9 +16,9 @@ import 'rxjs/add/operator/bufferCount';
 
     <marble [source$]="preBuffer$"></marble>
     <marble [source$]="postBuffer$"></marble>
-  `
+  `,
 })
 export class RxBufferCountComponent {
-  preBuffer$ = Observable.interval(1000).take(20);
-  postBuffer$ = this.preBuffer$.bufferCount(3);
+  preBuffer$ = interval(1000).pipe(take(20));
+  postBuffer$ = this.preBuffer$.pipe(bufferCount(3));
 }

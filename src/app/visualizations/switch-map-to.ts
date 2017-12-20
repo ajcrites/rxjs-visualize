@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/switchMapTo';
+
+import { interval } from 'rxjs/observable/interval';
+import { switchMapTo, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-switch-map-to',
@@ -11,10 +10,10 @@ import 'rxjs/add/operator/switchMapTo';
     <marble [source$]="inner$"></marble>
     <h2>Switch Map To</h2>
     <marble [source$]="firstOrder$"></marble>
-  `
+  `,
 })
 export class RxSwitchMapToComponent {
-  higherOrder$ = Observable.interval(2000).take(4).mapTo('a');
-  inner$ = Observable.interval(1000).take(3);
-  firstOrder$ = this.higherOrder$.switchMapTo(this.inner$);
+  higherOrder$ = interval(2000).pipe(take(4), mapTo('a'));
+  inner$ = interval(1000).pipe(take(3));
+  firstOrder$ = this.higherOrder$.pipe(switchMapTo(this.inner$));
 }

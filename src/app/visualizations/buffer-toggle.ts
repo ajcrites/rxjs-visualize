@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/bufferToggle';
+
+import { Subject } from 'rxjs/Subject';
+import { interval } from 'rxjs/observable/interval';
+import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-toggle',
@@ -30,13 +29,14 @@ import 'rxjs/add/operator/bufferToggle';
   `,
 })
 export class RxBufferToggleComponent {
-  preBuffer$ = Observable.interval(1000).take(20);
-  openBuffer$ = Observable.interval(4250).mapTo('o');
+  preBuffer$ = interval(1000).pipe(take(20));
+  openBuffer$ = interval(4250).pipe(mapTo('o'));
   // Used for displaying when the closing buffer is triggered, but does not
   // impact the output observable
-  closeBuffer$ = new Subject;
-  postBuffer$ = this.preBuffer$.bufferToggle(this.openBuffer$, () => {
-    const closingObservable = Observable.interval(1750).take(1).do(() => this.closeBuffer$.next('c'));
-    return closingObservable;
-  });
+  closeBuffer$ = new Subject();
+  postBuffer$ = this.preBuffer$.pipe(
+    bufferToggle(this.openBuffer$, () =>
+      interval(1750).pipe(take(1), tap(() => this.closeBuffer$.next('c'))),
+    ),
+  );
 }

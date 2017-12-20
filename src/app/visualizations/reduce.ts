@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/reduce';
+
+import { interval } from 'rxjs/observable/interval';
+import { take, reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-reduce',
@@ -10,10 +9,9 @@ import 'rxjs/add/operator/reduce';
     <marble [source$]="input$"></marble>
     <h2>Reduce</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxReduceComponent {
-  input$ = Observable.interval(1000).take(5);
-  output$ = this.input$.reduce((acc, curr) => acc + curr, 1);
+  input$ = interval(1000).pipe(take(5));
+  output$ = this.input$.pipe(reduce((acc, curr) => acc + curr, 1));
 }
-

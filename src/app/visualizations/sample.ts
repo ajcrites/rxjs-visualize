@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/sample';
+
+import { interval } from 'rxjs/observable/interval';
+import { sample, map, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-sample',
@@ -11,11 +10,13 @@ import 'rxjs/add/operator/sample';
     <marble [source$]="sample$" [color]="green" [main$]="input$"></marble>
     <h2>Sample</h2>
     <marble [source$]="output$"></marble>
-  `
+  `,
 })
 export class RxSampleComponent {
-  input$ = Observable.interval(1000).map(val => String.fromCharCode(val + 97)).take(10);
-  sample$ = Observable.interval(1600).mapTo('x');
-  output$ = this.input$.sample(this.sample$);
+  input$ = interval(1000).pipe(
+    map(val => String.fromCharCode(val + 97)),
+    take(10),
+  );
+  sample$ = interval(1600).pipe(mapTo('x'));
+  output$ = this.input$.pipe(sample(this.sample$));
 }
-

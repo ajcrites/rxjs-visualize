@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs/observable/interval';
 import { take, map, concatMap } from 'rxjs/operators';
 
+import { mapNumberToChar } from '../mapNumberToChar';
+
 @Component({
   selector: 'rx-concat-map',
   template: `
@@ -15,10 +17,7 @@ import { take, map, concatMap } from 'rxjs/operators';
 export class RxConcatMapComponent {
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder$ = interval(1000).pipe(
-    take(4),
-    map(val => String.fromCharCode(val + 97)),
-  );
+  higherOrder$ = interval(1000).pipe(take(4), mapNumberToChar());
   firstOrder$ = this.higherOrder$.pipe(
     concatMap(val => {
       const lowerOrder = interval(1000).pipe(

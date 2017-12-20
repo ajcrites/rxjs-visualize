@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs/observable/interval';
-import { takeUntil, map, mapTo, take } from 'rxjs/operators';
+import { takeUntil, mapTo, take } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-take-until',
@@ -13,10 +15,7 @@ import { takeUntil, map, mapTo, take } from 'rxjs/operators';
   `,
 })
 export class RxTakeUntilComponent {
-  input$ = interval(1000).pipe(
-    map(val => String.fromCharCode(val + 97)),
-    take(7),
-  );
+  input$ = interval(1000).pipe(mapNumberToChar(), take(7));
   notifier$ = interval(4500).pipe(mapTo('z'), take(1));
   output$ = this.input$.pipe(takeUntil(this.notifier$));
 }

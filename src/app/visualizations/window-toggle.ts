@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs/observable/interval';
-import { windowToggle, map, take, mapTo, mergeAll } from 'rxjs/operators';
+import { windowToggle, take, mapTo, mergeAll } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-window-toggle',
@@ -13,10 +15,7 @@ import { windowToggle, map, take, mapTo, mergeAll } from 'rxjs/operators';
   `,
 })
 export class RxWindowToggleComponent {
-  input$ = interval(1000).pipe(
-    map(val => String.fromCharCode(val + 97)),
-    take(20),
-  );
+  input$ = interval(1000).pipe(mapNumberToChar(), take(20));
   notifier$ = interval(3500).pipe(mapTo('w'));
   output$ = this.input$.pipe(
     windowToggle(this.notifier$, () => interval(2000)),

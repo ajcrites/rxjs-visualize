@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/Subject';
 import { interval } from 'rxjs/observable/interval';
 import { tap, take, map, catchError } from 'rxjs/operators';
 
+import { mapNumberToChar } from '../mapNumberToChar';
+
 @Component({
   selector: 'rx-catch',
   template: `
@@ -31,8 +33,9 @@ export class RxCatchComponent {
       if (4 === i) {
         throw Error;
       }
-      return String.fromCharCode(i + 97);
+      return i;
     }),
+    mapNumberToChar(),
   );
   postCatch$ = new Subject();
   caught$ = this.preCatch$.pipe(

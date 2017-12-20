@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs/observable/interval';
 import { merge, delay, take, map } from 'rxjs/operators';
 
+import { mapNumberToChar } from '../mapNumberToChar';
+
 @Component({
   selector: 'rx-merge',
   template: `
@@ -13,10 +15,7 @@ import { merge, delay, take, map } from 'rxjs/operators';
   `,
 })
 export class RxMergeComponent {
-  first$ = interval(1000).pipe(
-    take(10),
-    map(count => String.fromCharCode(count + 97)),
-  );
+  first$ = interval(1000).pipe(take(10), mapNumberToChar());
   second$ = interval(1000).pipe(delay(500), take(10));
   merged$ = this.first$.pipe(merge(this.second$));
 }

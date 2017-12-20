@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs/observable/interval';
-import { windowCount, map, take, tap, mergeAll } from 'rxjs/operators';
+import { windowCount, take, tap, mergeAll } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-window-count',
@@ -14,10 +16,7 @@ import { windowCount, map, take, tap, mergeAll } from 'rxjs/operators';
 })
 export class RxWindowCountComponent {
   initTime = new Date().getTime();
-  input$ = interval(1000).pipe(
-    map(val => String.fromCharCode(val + 97)),
-    take(10),
-  );
+  input$ = interval(1000).pipe(mapNumberToChar(), take(10));
   windows = [];
   output$ = this.input$.pipe(
     windowCount(2),

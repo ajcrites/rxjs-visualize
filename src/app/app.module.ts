@@ -83,7 +83,7 @@ import { RxWindowToggleComponent } from './visualizations/window-toggle';
 import { RxWindowWhenComponent } from './visualizations/window-when';
 import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
 
-import { Marble } from './visualizations/marble';
+import { Marble } from './marble';
 
 import { PrismHighlightModule } from 'ngx-prism-highlight';
 

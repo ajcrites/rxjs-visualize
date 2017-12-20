@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs/observable/interval';
 import { window, map, take, mapTo, mergeAll } from 'rxjs/operators';
 
+import { mapNumberToChar } from '../mapNumberToChar';
+
 @Component({
   selector: 'rx-window',
   template: `
@@ -13,10 +15,7 @@ import { window, map, take, mapTo, mergeAll } from 'rxjs/operators';
   `,
 })
 export class RxWindowComponent {
-  input$ = interval(1000).pipe(
-    map(val => String.fromCharCode(val + 97)),
-    take(10),
-  );
+  input$ = interval(1000).pipe(mapNumberToChar(), take(10));
   notifier$ = interval(3500).pipe(mapTo('w'));
   output$ = this.input$.pipe(
     window(this.notifier$),

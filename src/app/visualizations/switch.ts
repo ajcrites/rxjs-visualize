@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs/observable/interval';
 import { switchAll, map, take } from 'rxjs/operators';
 
+import { mapNumberToChar } from '../mapNumberToChar';
+
 @Component({
   selector: 'rx-switch',
   template: `
@@ -15,10 +17,7 @@ import { switchAll, map, take } from 'rxjs/operators';
 export class RxSwitchComponent {
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder$ = interval(2000).pipe(
-    take(4),
-    map(val => String.fromCharCode(val + 97)),
-  );
+  higherOrder$ = interval(2000).pipe(take(4), mapNumberToChar());
   firstOrder$ = this.higherOrder$.pipe(
     map(val => {
       const lowerOrder = interval(1000).pipe(

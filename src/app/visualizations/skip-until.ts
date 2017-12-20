@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs/observable/interval';
-import { skipUntil, mapTo, map, take } from 'rxjs/operators';
+import { skipUntil, mapTo, take } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-skip-until',
@@ -13,10 +15,7 @@ import { skipUntil, mapTo, map, take } from 'rxjs/operators';
   `,
 })
 export class RxSkipUntilComponent {
-  input$ = interval(1000).pipe(
-    take(5),
-    map(val => String.fromCharCode(val + 97)),
-  );
+  input$ = interval(1000).pipe(take(5), mapNumberToChar());
   skipper$ = interval(3400).pipe(take(1), mapTo('x'));
   output$ = this.input$.pipe(skipUntil(this.skipper$));
 }

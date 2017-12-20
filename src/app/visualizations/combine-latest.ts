@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 import { Subject } from 'rxjs/Subject';
 import { interval } from 'rxjs/observable/interval';
-import { take, map, combineLatest } from 'rxjs/operators';
+import { take, combineLatest } from 'rxjs/operators';
+
+import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-combine-latest',
@@ -14,10 +16,7 @@ import { take, map, combineLatest } from 'rxjs/operators';
   `,
 })
 export class RxCombineLatestComponent {
-  first$ = interval(1500).pipe(
-    take(15),
-    map(count => String.fromCharCode(count + 97)),
-  );
+  first$ = interval(1500).pipe(take(15), mapNumberToChar());
   second$ = interval(1000).pipe(take(20));
   combined$ = this.first$.pipe(combineLatest(this.second$));
 }

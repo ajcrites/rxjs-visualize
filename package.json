@@ -58,6 +58,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "stylus-loader": "^3.0.1",
+    "ts-config-mobiquity-angular": "^0.0.18",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "2.7",

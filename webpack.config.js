@@ -7,11 +7,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const rxPaths = require('rxjs/_esm5/path-mapping');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
-const cssnano = require('cssnano');
-const customProperties = require('postcss-custom-properties');
+const postcssImports = require('postcss-import');
 
 const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
-const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
+const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin, PostcssCliResources } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
@@ -19,19 +18,62 @@ const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
 const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
 const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
-const minimizeCss = false;
+const hashFormat = {"chunk":"","extract":"","file":".[hash:20]","script":""};
 const baseHref = "";
 const deployUrl = "";
-const postcssPlugins = function () {
-        // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
-        const importantCommentRe = /@preserve|@licen[cs]e|[@#]\s*source(?:Mapping)?URL|^!/i;
-        const minimizeOptions = {
-            autoprefixer: false,
-            safe: true,
-            mergeLonghand: false,
-            discardComments: { remove: (comment) => !importantCommentRe.test(comment) }
-        };
+const projectRoot = process.cwd();
+const maximumInlineSize = 10;
+const postcssPlugins = function (loader) {
         return [
+            postcssImports({
+                resolve: (url, context) => {
+                    return new Promise((resolve, reject) => {
+                        let hadTilde = false;
+                        if (url && url.startsWith('~')) {
+                            url = url.substr(1);
+                            hadTilde = true;
+                        }
+                        loader.resolve(context, (hadTilde ? '' : './') + url, (err, result) => {
+                            if (err) {
+                                if (hadTilde) {
+                                    reject(err);
+                                    return;
+                                }
+                                loader.resolve(context, url, (err, result) => {
+                                    if (err) {
+                                        reject(err);
+                                    }
+                                    else {
+                                        resolve(result);
+                                    }
+                                });
+                            }
+                            else {
+                                resolve(result);
+                            }
+                        });
+                    });
+                },
+                load: (filename) => {
+                    return new Promise((resolve, reject) => {
+                        loader.fs.readFile(filename, (err, data) => {
+                            if (err) {
+                                reject(err);
+                                return;
+                            }
+                            const content = data.toString();
+                            resolve(content);
+                        });
+                    });
+                }
+            }),
+            postcssUrl({
+                filter: ({ url }) => url.startsWith('~'),
+                url: ({ url }) => {
+                    const fullPath = path.join(projectRoot, 'node_modules', url.substr(1));
+                    return path.relative(loader.context, fullPath).replace(/\\/g, '/');
+                }
+            }),
             postcssUrl([
                 {
                     // Only convert root relative URLs, which CSS-Loader won't process into require().
@@ -55,15 +97,23 @@ const postcssPlugins = function () {
                 },
                 {
                     // TODO: inline .cur if not supporting IE (use browserslist to check)
-                    filter: (asset) => !asset.hash && !asset.absolutePath.endsWith('.cur'),
+                    filter: (asset) => {
+                        return maximumInlineSize > 0 && !asset.hash && !asset.absolutePath.endsWith('.cur');
+                    },
                     url: 'inline',
                     // NOTE: maxSize is in KB
-                    maxSize: 10
-                }
+                    maxSize: maximumInlineSize,
+                    fallback: 'rebase',
+                },
+                { url: 'rebase' },
             ]),
-            autoprefixer(),
-            customProperties({ preserve: true })
-        ].concat(minimizeCss ? [cssnano(minimizeOptions)] : []);
+            PostcssCliResources({
+                deployUrl: loader.loaders[loader.loaderIndex].options.ident == 'extracted' ? '' : deployUrl,
+                loader,
+                filename: `[name]${hashFormat.file}.[ext]`,
+            }),
+            autoprefixer({ grid: true }),
+        ];
     };
 
 
@@ -75,11 +125,11 @@ module.exports = {
       ".ts",
       ".js"
     ],
+    "symlinks": true,
     "modules": [
-      "./node_modules",
+      "./src",
       "./node_modules"
     ],
-    "symlinks": true,
     "alias": rxPaths(),
     "mainFields": [
       "browser",
@@ -90,7 +140,7 @@ module.exports = {
   "resolveLoader": {
     "modules": [
       "./node_modules",
-      "./node_modules"
+      "./node_modules/@angular/cli/node_modules"
     ],
     "alias": rxPaths()
   },
@@ -139,20 +189,15 @@ module.exports = {
         ],
         "test": /\.css$/,
         "use": [
-          "exports-loader?module.exports.toString()",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           }
         ]
@@ -163,26 +208,21 @@ module.exports = {
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
-          "exports-loader?module.exports.toString()",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "sass-loader",
             "options": {
-              "sourceMap": false,
+              "sourceMap": true,
               "precision": 8,
               "includePaths": []
             }
@@ -195,26 +235,21 @@ module.exports = {
         ],
         "test": /\.less$/,
         "use": [
-          "exports-loader?module.exports.toString()",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "less-loader",
             "options": {
-              "sourceMap": false
+              "sourceMap": true
             }
           }
         ]
@@ -225,26 +260,21 @@ module.exports = {
         ],
         "test": /\.styl$/,
         "use": [
-          "exports-loader?module.exports.toString()",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "stylus-loader",
             "options": {
-              "sourceMap": false,
+              "sourceMap": true,
               "paths": []
             }
           }
@@ -258,18 +288,14 @@ module.exports = {
         "use": [
           "style-loader",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           }
         ]
@@ -282,24 +308,20 @@ module.exports = {
         "use": [
           "style-loader",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "sass-loader",
             "options": {
-              "sourceMap": false,
+              "sourceMap": true,
               "precision": 8,
               "includePaths": []
             }
@@ -314,24 +336,20 @@ module.exports = {
         "use": [
           "style-loader",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "less-loader",
             "options": {
-              "sourceMap": false
+              "sourceMap": true
             }
           }
         ]
@@ -344,24 +362,20 @@ module.exports = {
         "use": [
           "style-loader",
           {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "importLoaders": 1
-            }
+            "loader": "raw-loader"
           },
           {
             "loader": "postcss-loader",
             "options": {
-              "ident": "postcss",
+              "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": false
+              "sourceMap": true
             }
           },
           {
             "loader": "stylus-loader",
             "options": {
-              "sourceMap": false,
+              "sourceMap": true,
               "paths": []
             }
           }
@@ -413,7 +427,7 @@ module.exports = {
       "exclude": /(\\|\/)node_modules(\\|\/)/,
       "failOnError": false,
       "onDetected": false,
-      "cwd": "/Users/acrites/projects/personal/rxjs-visualize"
+      "cwd": projectRoot
     }),
     new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -432,11 +446,11 @@ module.exports = {
       "xhtml": true,
       "chunksSortMode": function sort(left, right) {
         let leftIndex = entryPoints.indexOf(left.names[0]);
-        let rightindex = entryPoints.indexOf(right.names[0]);
-        if (leftIndex > rightindex) {
+        let rightIndex = entryPoints.indexOf(right.names[0]);
+        if (leftIndex > rightIndex) {
             return 1;
         }
-        else if (leftIndex < rightindex) {
+        else if (leftIndex < rightIndex) {
             return -1;
         }
         else {

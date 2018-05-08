@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { empty } from 'rxjs/observable/empty';
+import { empty } from 'rxjs';
 import { defaultIfEmpty } from 'rxjs/operators';
 
 @Component({

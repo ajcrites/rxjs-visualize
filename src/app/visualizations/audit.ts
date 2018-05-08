@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { take, audit } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-audit',
+  /* tslint:disable:max-line-length */
   template: `
     <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-audit">
       Audit
@@ -20,6 +21,7 @@ import { take, audit } from 'rxjs/operators';
     <marble [source$]="preAudit$"></marble>
     <marble [source$]="postAudit$"></marble>
   `,
+  /* tslint:enable */
 })
 export class RxAuditComponent {
   preAudit$ = interval(1000).pipe(take(20));

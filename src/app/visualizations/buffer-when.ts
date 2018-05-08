@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
-import { tap, take, mapTo, bufferWhen } from 'rxjs/operators';
+import { Subject, interval } from 'rxjs';
+import { tap, take, bufferWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-when',
+  /* tslint:disable:max-line-length */
   template: `
     <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferWhen">
       Buffer When
@@ -29,6 +29,7 @@ import { tap, take, mapTo, bufferWhen } from 'rxjs/operators';
     <marble [source$]="closingBuffer$" [color]="'blue'"></marble>
     <marble [source$]="postBuffer$"></marble>
   `,
+  /* tslint:enable */
 })
 export class RxBufferWhenComponent {
   preBuffer$ = interval(1000).pipe(take(20));

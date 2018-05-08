@@ -1,17 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animations } from './visualizations.animations';
 
-import { never } from 'rxjs/observable/never';
+import { never } from 'rxjs';
 
 @Component({
+  animations,
+  // tslint:disable-next-line:component-selector
   selector: 'marble',
   template: `
     <i [@appear] *ngFor="let elem of source;" [style.left.px]="elem.left"
       [style.top.px]="elem.top"
-      [class]="color">{{elem.value}}</i>
+      [class]="color">{{ elem.value }}</i>
   `,
-  animations,
 })
+// tslint:disable-next-line:component-class-suffix
 export class Marble implements OnInit {
   source = [];
   // Source Observable for the marble diagram

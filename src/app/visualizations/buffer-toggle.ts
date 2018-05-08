@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
+import { Subject, interval } from 'rxjs';
 import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-toggle',
+  /* tslint:disable:max-line-length */
   template: `
     <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferToggle">
       Buffer Toggle
@@ -27,6 +27,7 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
     <marble [source$]="closeBuffer$" [color]="'blue'"></marble>
     <marble [source$]="postBuffer$"></marble>
   `,
+  /* tslint:enable */
 })
 export class RxBufferToggleComponent {
   preBuffer$ = interval(1000).pipe(take(20));

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 
 @Component({
@@ -14,5 +14,6 @@ import { tap, take } from 'rxjs/operators';
 export class RxDoComponent {
   // The lettable operator version of `do` is `tap`
   input$ = interval(1000).pipe(take(20));
+  // tslint:disable-next-line:no-console
   output$ = this.input$.pipe(tap(val => console.log(val)));
 }

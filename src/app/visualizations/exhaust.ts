@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
-import { empty } from 'rxjs/observable/empty';
+import { interval, empty } from 'rxjs';
 import { exhaust, map, take } from 'rxjs/operators';
 
 @Component({

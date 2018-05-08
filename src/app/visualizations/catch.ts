@@ -2,14 +2,14 @@ import { readFileSync } from 'fs';
 
 import { Component } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
+import { Subject, interval } from 'rxjs';
 import { tap, take, map, catchError } from 'rxjs/operators';
 
 import { mapNumberToChar } from '../mapNumberToChar';
 
 @Component({
   selector: 'rx-catch',
+  /* tslint:disable:max-line-length */
   template: `
     <pre prism-highlight="typescript">${readFileSync(__filename)
       .toString()
@@ -23,6 +23,7 @@ import { mapNumberToChar } from '../mapNumberToChar';
     <marble [source$]="postCatch$"></marble>
     <marble [source$]="caught$"></marble>
   `,
+  /* tslint:enable */
 })
 export class RxCatchComponent {
   // Throw an error on the 5th emission. Then, create a new observable

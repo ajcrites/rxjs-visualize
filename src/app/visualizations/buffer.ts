@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { take, mapTo, buffer } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer',
+  /* tslint:disable:max-line-length */
   template: `
     <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-buffer">
       Buffer
@@ -30,6 +31,7 @@ import { take, mapTo, buffer } from 'rxjs/operators';
     <marble [source$]="buffer$"></marble>
     <marble [source$]="postBuffer$"></marble>
   `,
+  /* tslint:enable */
 })
 export class RxBufferComponent {
   preBuffer$ = interval(1000).pipe(take(20));

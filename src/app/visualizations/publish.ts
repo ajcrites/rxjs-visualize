@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConnectableObservable } from 'rxjs/observable/ConnectableObservable';
-import { interval } from 'rxjs/observable/interval';
+import { ConnectableObservable, interval } from 'rxjs';
 import { tap, take, publish } from 'rxjs/operators';
 
 @Component({

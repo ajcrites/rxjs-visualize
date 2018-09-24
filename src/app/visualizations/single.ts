@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { single, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from '../mapNumberToChar';

@@ -6,9 +6,7 @@ import { take, bufferTime } from 'rxjs/operators';
 @Component({
   selector: 'rx-buffer-time',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferTime">
-      Buffer Time
-    </a></h1>
+    <h1>Buffer Time</h1>
     <p>
       Similar to how <code>auditTime</code> works, but for buffers.
     </p>

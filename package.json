@@ -3,19 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "webpack-dev-server --port=4200",
-    "lint": "ng lint",
-    "build": "webpack",
-    "test": "karma start ./karma.conf.js",
-    "pree2e": "webdriver-manager update --standalone false --gecko false --quiet",
-    "e2e": "protractor ./protractor.conf.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "**/*.ts": [
       "prettier --write --parser typescript --single-quote --trailing-comma all",
-      "ng lint --fix --force",
+      "tslint --fix",
       "git add"
     ]
   },
@@ -65,9 +58,9 @@
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.13.1",
     "stylus-loader": "^3.0.1",
-    "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
-    "typescript": "~2.4.2",
+    "ts-config-mobiquity-angular": "^2.0.2",
+    "tslint": "^5.11.0",
+    "typescript": "^2.7.2",
     "uglifyjs-webpack-plugin": "~1.1.2",
     "url-loader": "^0.6.2",
     "webpack": "~3.10.0",

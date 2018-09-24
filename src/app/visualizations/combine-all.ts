@@ -6,9 +6,7 @@ import { tap, take, map, combineAll } from 'rxjs/operators';
 @Component({
   selector: 'rx-combine-all',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-combineAll">
-      Combine All
-    </a></h1>
+    <h1>Combine All</h1>
     <p>
       I don't understand this operator yet.
     </p>
@@ -21,7 +19,7 @@ export class RxCombineAllComponent {
   outer$ = interval(1000).pipe(take(20));
   inner$ = new Subject();
   combined$ = this.outer$.pipe(
-    map(val =>
+    map(() =>
       interval(2000).pipe(take(3), tap(value => this.inner$.next(value))),
     ),
     take(4),

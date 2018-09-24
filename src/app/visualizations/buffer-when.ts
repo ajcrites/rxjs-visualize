@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 
 import { Subject, interval } from 'rxjs';
-import { tap, take, mapTo, bufferWhen } from 'rxjs/operators';
+import { tap, take, bufferWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-when',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferWhen">
-      Buffer When
-    </a></h1>
+    <h1>Buffer When</h1>
     <p>
       This is similar to <code>audit</code> except that it will collect <i>all</i>
       values until the next notifier Observable emission rather than just the

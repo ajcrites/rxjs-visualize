@@ -13,10 +13,8 @@ import { mapNumberToChar } from '../mapNumberToChar';
     <pre prism-highlight="typescript">${readFileSync(__filename)
       .toString()
       .replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')
-      .replace(/{/g, '{{ \'{\' }}')}</pre>
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-catch">
-      Catch
-    </a></h1>
+      .replace(/{/g, "{{ '{' }}")}</pre>
+    <h1>Catch</h1>
 
     <marble [source$]="preCatch$"></marble>
     <marble [source$]="postCatch$"></marble>

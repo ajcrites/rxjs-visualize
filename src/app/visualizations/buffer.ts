@@ -6,9 +6,7 @@ import { take, mapTo, buffer } from 'rxjs/operators';
 @Component({
   selector: 'rx-buffer',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-buffer">
-      Buffer
-    </a></h1>
+    <h1>Buffer</h1>
     <p>
       This is useful if you want to only emit aggregated values based on another
       event stream, i.e. the buffer Observable.

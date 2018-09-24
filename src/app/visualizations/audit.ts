@@ -6,9 +6,7 @@ import { take, audit } from 'rxjs/operators';
 @Component({
   selector: 'rx-audit',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-audit">
-      Audit
-    </a></h1>
+    <h1>Audit</h1>
     <pre>
       preAudit$ = Observable.interval(1000).take(20);
       // Interestingly, when the source Observable (preAudit$) completes, the

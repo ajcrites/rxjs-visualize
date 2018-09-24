@@ -6,9 +6,7 @@ import { take, bufferCount } from 'rxjs/operators';
 @Component({
   selector: 'rx-buffer-count',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferCount">
-      Buffer Count
-    </a></h1>
+    <h1>Buffer Count</h1>
     <pre>
       preBuffer$ = Observable.interval(1000).take(20);
       postBuffer$ = this.preBuffer$.bufferCount(3);

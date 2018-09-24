@@ -6,9 +6,7 @@ import { take, auditTime } from 'rxjs/operators';
 @Component({
   selector: 'rx-audit-time',
   template: `
-    <h1><a href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-auditTime">
-      Audit Time
-    </a></h1>
+    <h1>Audit Time</h1>
     <p>
       This is similar to <code>audit</code>, but it wraps the provided number as an interval timer.
     </p>

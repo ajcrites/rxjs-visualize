@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
+import { Subject, interval } from 'rxjs';
 import { groupBy, map, take, mergeAll } from 'rxjs/operators';
 
 @Component({

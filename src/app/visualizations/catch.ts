@@ -2,8 +2,7 @@ import { readFileSync } from 'fs';
 
 import { Component } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
+import { interval, Subject } from 'rxjs';
 import { tap, take, map, catchError } from 'rxjs/operators';
 
 import { mapNumberToChar } from '../mapNumberToChar';

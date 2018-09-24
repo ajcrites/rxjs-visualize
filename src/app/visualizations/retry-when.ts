@@ -1,7 +1,7 @@
 // It's unclear to me why one of the emissions is skipped
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { retryWhen, take, map, mapTo } from 'rxjs/operators';
 
 @Component({

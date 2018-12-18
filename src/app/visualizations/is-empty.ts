@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { of } from 'rxjs/observable/of';
+import { of } from 'rxjs';
 import { map, isEmpty } from 'rxjs/operators';
 
 @Component({
@@ -13,5 +13,8 @@ import { map, isEmpty } from 'rxjs/operators';
 })
 export class RxIsEmptyComponent {
   input$ = of(1);
-  output$ = this.input$.pipe(isEmpty(), map(Number));
+  output$ = this.input$.pipe(
+    isEmpty(),
+    map(Number),
+  );
 }

@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
-import { empty } from 'rxjs/observable/empty';
+import { interval, empty } from 'rxjs';
 import { exhaust, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-exhaust',
   template: `
     <marble [source$]="higherOrder$"></marble>
-    <marble *ngFor="let source$ of lowerOrders" [initTime]="initTime" [source$]="source$"></marble>
+    <marble
+      *ngFor="let source$ of lowerOrders"
+      [initTime]="initTime"
+      [source$]="source$"
+    ></marble>
     <h2>Exhaust</h2>
     <marble [source$]="firstOrder$"></marble>
   `,

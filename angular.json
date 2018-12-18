@@ -11,8 +11,11 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "webpack.config.js"
+            },
             "outputPath": "dist/rxjs-visualize",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -55,7 +58,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/dev-server:generic",
           "options": {
             "browserTarget": "rxjs-visualize:build"
           },

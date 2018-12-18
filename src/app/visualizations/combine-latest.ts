@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject, interval } from 'rxjs';
+import { interval } from 'rxjs';
 import { take, combineLatest } from 'rxjs/operators';
 
 import { mapNumberToChar } from '../mapNumberToChar';

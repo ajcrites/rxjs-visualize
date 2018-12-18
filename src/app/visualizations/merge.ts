@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs';
-import { merge, delay, take, map } from 'rxjs/operators';
+import { merge, delay, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from '../mapNumberToChar';
 

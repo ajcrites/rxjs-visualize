@@ -14,7 +14,10 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "webpack.config.js"
+              "path": "webpack.config.js",
+              "mergeStrategies": {
+                "module": "prepend"
+              }
             },
             "outputPath": "dist/rxjs-visualize",
             "index": "src/index.html",

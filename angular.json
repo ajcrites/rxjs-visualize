@@ -11,14 +11,8 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "webpack.config.js",
-              "mergeStrategies": {
-                "module": "prepend"
-              }
-            },
             "outputPath": "dist/rxjs-visualize",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -61,7 +55,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/dev-server:generic",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "rxjs-visualize:build"
           },

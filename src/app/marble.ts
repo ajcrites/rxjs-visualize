@@ -1,16 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animations } from './visualizations.animations';
 
-import { never } from 'rxjs/observable/never';
+import { never } from 'rxjs';
 
 @Component({
   animations,
   // tslint:disable-next-line: component-selector
   selector: 'marble',
   template: `
-    <i [@appear] *ngFor="let elem of source;" [style.left.px]="elem.left"
+    <i
+      [@appear]
+      *ngFor="let elem of source"
+      [style.left.px]="elem.left"
       [style.top.px]="elem.top"
-      [class]="color">{{ elem.value }}</i>
+      [class]="color"
+      >{{ elem.value }}</i
+    >
   `,
 })
 // tslint:disable-next-line:component-class-suffix
@@ -39,7 +44,7 @@ export class Marble implements OnInit {
     const sourceSubscription = this.source$.subscribe(value => {
       this.source.push({
         value,
-        left: (new Date().getTime() - initTime) / 1000 * this.leftPad,
+        left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
       });
 
       const sourcesLength = this.source.length;

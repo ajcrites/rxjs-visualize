@@ -9,8 +9,8 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
     <h1>Buffer Toggle</h1>
 
     <marble [source$]="preBuffer$"></marble>
-    <marble [source$]="openBuffer$" [main$]="preBuffer$" [color]="'blue'"></marble>
-    <marble [source$]="closeBuffer$" [color]="'blue'"></marble>
+    <marble [source$]="openBuffer$" [main$]="preBuffer$" color="blue"></marble>
+    <marble [source$]="closeBuffer$" color="blue"></marble>
     <marble [source$]="postBuffer$"></marble>
   `,
 })
@@ -22,7 +22,10 @@ export class RxBufferToggleComponent {
   closeBuffer$ = new Subject();
   postBuffer$ = this.preBuffer$.pipe(
     bufferToggle(this.openBuffer$, () =>
-      interval(1750).pipe(take(1), tap(() => this.closeBuffer$.next('c'))),
+      interval(1750).pipe(
+        take(1),
+        tap(() => this.closeBuffer$.next('c')),
+      ),
     ),
   );
 }

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval, Subject } from 'rxjs';
 import { tap, take, map, catchError } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-catch',

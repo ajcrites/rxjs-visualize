@@ -1,3 +1,6 @@
 {
-  "extends": "./node_modules/ts-config-mobiquity-angular/tsconfig.json"
+  "extends": "./node_modules/ts-config-mobiquity-angular/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  }
 }

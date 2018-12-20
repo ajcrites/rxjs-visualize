@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { startWith, take } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-start-with',
@@ -14,6 +14,9 @@ import { mapNumberToChar } from '../mapNumberToChar';
   `,
 })
 export class RxStartWithComponent {
-  input$ = interval(1000).pipe(take(3), mapNumberToChar());
+  input$ = interval(1000).pipe(
+    take(3),
+    mapNumberToChar(),
+  );
   output$ = this.input$.pipe(startWith('s'));
 }

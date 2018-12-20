@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { take, findIndex } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-find-index',
@@ -14,6 +14,9 @@ import { mapNumberToChar } from '../mapNumberToChar';
   `,
 })
 export class RxFindIndexComponent {
-  input$ = interval(1000).pipe(take(5), mapNumberToChar());
+  input$ = interval(1000).pipe(
+    take(5),
+    mapNumberToChar(),
+  );
   output$ = this.input$.pipe(findIndex(val => val.charCodeAt(0) > 98));
 }

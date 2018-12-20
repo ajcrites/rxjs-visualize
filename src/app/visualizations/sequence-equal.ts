@@ -9,7 +9,7 @@ import { sequenceEqual, take } from 'rxjs/operators';
     <marble [source$]="compare$"></marble>
     <marble [source$]="compareTo$"></marble>
     <h2>Sequence Equal</h2>
-    <marble [source$]="output$" [color]="'green'"></marble>
+    <marble [source$]="output$" color="green"></marble>
   `,
 })
 export class RxSequenceEqualComponent {

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { takeLast, take } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-take-last',
@@ -14,6 +14,9 @@ import { mapNumberToChar } from '../mapNumberToChar';
   `,
 })
 export class RxTakeLastComponent {
-  input$ = interval(1000).pipe(mapNumberToChar(), take(4));
+  input$ = interval(1000).pipe(
+    mapNumberToChar(),
+    take(4),
+  );
   output$ = this.input$.pipe(takeLast(2));
 }

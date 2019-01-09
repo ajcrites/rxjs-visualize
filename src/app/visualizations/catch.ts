@@ -8,13 +8,17 @@ import { mapNumberToChar } from '../mapNumberToChar';
 @Component({
   selector: 'rx-catch',
   template: `
+    <pre prism-highlight="typescript">{{ code }}</pre>
     <h1>Catch</h1>
+
     <marble [source$]="preCatch$"></marble>
     <marble [source$]="postCatch$"></marble>
     <marble [source$]="caught$"></marble>
   `,
 })
 export class RxCatchComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // Throw an error on the 5th emission. Then, create a new observable
   // and keep going. This also switches letters to numbers; it essentially
   // mirrors the example from the ReactiveX docs

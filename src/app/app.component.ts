@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'rx-visualizations-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  template: `
+    <rx-catch></rx-catch>
+    <rx-single></rx-single>
+  `,
 })
 export class RxVisualizationsAppComponent {}

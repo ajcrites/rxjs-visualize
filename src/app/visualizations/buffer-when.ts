@@ -8,9 +8,9 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
   template: `
     <h1>Buffer When</h1>
     <p>
-      This is similar to <code>audit</code> except that it will collect <i>all</i>
-      values until the next notifier Observable emission rather than just the
-      last value.
+      This is similar to <code>audit</code> except that it will collect
+      <i>all</i> values until the next notifier Observable emission rather than
+      just the last value.
     </p>
     <pre>
     preBuffer$ = Observable.interval(1000).take(20);
@@ -20,10 +20,11 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
         this.closingBuffer$.next('s')
       )
     );
-    </pre>
+    </pre
+    >
 
     <marble [source$]="preBuffer$"></marble>
-    <marble [source$]="closingBuffer$" [color]="'blue'"></marble>
+    <marble [source$]="closingBuffer$" color="blue"></marble>
     <marble [source$]="postBuffer$"></marble>
   `,
 })

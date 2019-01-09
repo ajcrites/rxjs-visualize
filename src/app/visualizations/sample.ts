@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { sample, mapTo, take } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-sample',

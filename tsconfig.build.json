@@ -1,10 +1,6 @@
 {
   "extends": "./node_modules/ts-config-mobiquity-angular/tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "./dist",
     "baseUrl": "."
-  },
-  "exclude": [
-    "src/**/__tests__/*.ts"
-  ]
+  }
 }

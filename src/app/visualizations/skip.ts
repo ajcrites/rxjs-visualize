@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { skip, take } from 'rxjs/operators';
 
-import { mapNumberToChar } from '../mapNumberToChar';
+import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
   selector: 'rx-skip',
@@ -14,6 +14,9 @@ import { mapNumberToChar } from '../mapNumberToChar';
   `,
 })
 export class RxSkipComponent {
-  input$ = interval(1000).pipe(take(5), mapNumberToChar());
+  input$ = interval(1000).pipe(
+    take(5),
+    mapNumberToChar(),
+  );
   output$ = this.input$.pipe(skip(3));
 }

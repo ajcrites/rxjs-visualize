@@ -8,12 +8,18 @@ import { mapNumberToChar } from '../mapNumberToChar';
 @Component({
   selector: 'rx-single',
   template: `
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source$]="input$"></marble>
     <h2>Single</h2>
     <marble [source$]="output$"></marble>
   `,
 })
 export class RxSingleComponent {
-  input$ = interval(1000).pipe(take(3), mapNumberToChar());
+  code = preval`module.exports = require('./codefile')(__filename)`;
+  input$ = interval(1000).pipe(
+    take(3),
+    mapNumberToChar(),
+  );
   output$ = this.input$.pipe(single(val => val === 'b'));
 }

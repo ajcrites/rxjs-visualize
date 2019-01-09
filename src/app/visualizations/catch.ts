@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs';
-
 import { Component } from '@angular/core';
 
 import { interval, Subject } from 'rxjs';
@@ -10,10 +8,7 @@ import { mapNumberToChar } from '../mapNumberToChar';
 @Component({
   selector: 'rx-catch',
   template: `
-    <pre prism-highlight="typescript">${readFileSync(__filename)
-      .toString()
-      .replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')
-      .replace(/{/g, "{{ '{' }}")}</pre>
+    <pre prism-highlight="typescript">{{ code }}</pre>
     <h1>Catch</h1>
 
     <marble [source$]="preCatch$"></marble>
@@ -22,6 +17,8 @@ import { mapNumberToChar } from '../mapNumberToChar';
   `,
 })
 export class RxCatchComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // Throw an error on the 5th emission. Then, create a new observable
   // and keep going. This also switches letters to numbers; it essentially
   // mirrors the example from the ReactiveX docs

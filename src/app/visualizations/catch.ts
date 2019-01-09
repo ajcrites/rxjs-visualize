@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 import { Component } from '@angular/core';
 
 import { interval, Subject } from 'rxjs';
@@ -8,7 +10,12 @@ import { mapNumberToChar } from '../mapNumberToChar';
 @Component({
   selector: 'rx-catch',
   template: `
+    <pre prism-highlight="typescript">${readFileSync(__filename)
+      .toString()
+      .replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')
+      .replace(/{/g, "{{ '{' }}")}</pre>
     <h1>Catch</h1>
+
     <marble [source$]="preCatch$"></marble>
     <marble [source$]="postCatch$"></marble>
     <marble [source$]="caught$"></marble>

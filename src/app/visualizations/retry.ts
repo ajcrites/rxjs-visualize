@@ -6,13 +6,13 @@ import { retry, map } from 'rxjs/operators';
 @Component({
   selector: 'rx-retry',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>Retry</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxRetryComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     map(val => {
       if (3 === val) {
         throw new Error();
@@ -20,5 +20,5 @@ export class RxRetryComponent {
       return val + 1;
     }),
   );
-  output$ = this.input$.pipe(retry(2));
+  output = this.input.pipe(retry(2));
 }

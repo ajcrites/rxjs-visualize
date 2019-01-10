@@ -7,18 +7,18 @@ import { retryWhen, take, map, mapTo } from 'rxjs/operators';
 @Component({
   selector: 'rx-retry-when',
   template: `
-    <marble [source$]="retry$" color="yellow"></marble>
-    <marble [source$]="input$"></marble>
+    <marble [source]="retry" color="yellow"></marble>
+    <marble [source]="input"></marble>
     <h2>Retry When</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxRetryWhenComponent {
-  retry$ = interval(4000).pipe(
+  retry = interval(4000).pipe(
     take(2),
     mapTo('r'),
   );
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     map(val => {
       if (2 === val) {
         throw new Error();
@@ -26,5 +26,5 @@ export class RxRetryWhenComponent {
       return val + 1;
     }),
   );
-  output$ = this.input$.pipe(retryWhen(() => this.retry$));
+  output = this.input.pipe(retryWhen(() => this.retry));
 }

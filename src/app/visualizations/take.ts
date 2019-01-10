@@ -8,15 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-take',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>Take</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxTakeComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     mapNumberToChar(),
     take(4),
   );
-  output$ = this.input$.pipe(take(2));
+  output = this.input.pipe(take(2));
 }

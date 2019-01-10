@@ -8,17 +8,17 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-sample',
   template: `
-    <marble [source$]="input$"></marble>
-    <marble [source$]="sample$" color="green" [main$]="input$"></marble>
+    <marble [source]="input"></marble>
+    <marble [source]="sample" color="green" [main]="input"></marble>
     <h2>Sample</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxSampleComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     mapNumberToChar(),
     take(10),
   );
-  sample$ = interval(1600).pipe(mapTo('x'));
-  output$ = this.input$.pipe(sample(this.sample$));
+  sample = interval(1600).pipe(mapTo('x'));
+  output = this.input.pipe(sample(this.sample));
 }

@@ -8,15 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-throttle-time',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>Throttle Time</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxThrottleTimeComponent {
-  input$ = interval(500).pipe(
+  input = interval(500).pipe(
     mapNumberToChar(),
     take(10),
   );
-  output$ = this.input$.pipe(throttleTime(1500));
+  output = this.input.pipe(throttleTime(1500));
 }

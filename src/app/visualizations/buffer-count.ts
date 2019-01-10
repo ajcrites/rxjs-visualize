@@ -8,15 +8,16 @@ import { take, bufferCount } from 'rxjs/operators';
   template: `
     <h1>Buffer Count</h1>
     <pre>
-      preBuffer$ = Observable.interval(1000).take(20);
-      postBuffer$ = this.preBuffer$.bufferCount(3);
-    </pre>
+      preBuffer = Observable.interval(1000).take(20);
+      postBuffer = this.preBuffer.bufferCount(3);
+    </pre
+    >
 
-    <marble [source$]="preBuffer$"></marble>
-    <marble [source$]="postBuffer$"></marble>
+    <marble [source]="preBuffer"></marble>
+    <marble [source]="postBuffer"></marble>
   `,
 })
 export class RxBufferCountComponent {
-  preBuffer$ = interval(1000).pipe(take(20));
-  postBuffer$ = this.preBuffer$.pipe(bufferCount(3));
+  preBuffer = interval(1000).pipe(take(20));
+  postBuffer = this.preBuffer.pipe(bufferCount(3));
 }

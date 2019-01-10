@@ -8,16 +8,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-combine-latest',
   template: `
-    <marble [source$]="first$"></marble> <marble [source$]="second$"></marble>
+    <marble [source]="first"></marble> <marble [source]="second"></marble>
     <h2>Combine Latest</h2>
-    <marble [source$]="combined$"></marble>
+    <marble [source]="combined"></marble>
   `,
 })
 export class RxCombineLatestComponent {
-  first$ = interval(1500).pipe(
+  first = interval(1500).pipe(
     take(15),
     mapNumberToChar(),
   );
-  second$ = interval(1000).pipe(take(20));
-  combined$ = this.first$.pipe(combineLatest(this.second$));
+  second = interval(1000).pipe(take(20));
+  combined = this.first.pipe(combineLatest(this.second));
 }

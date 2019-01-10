@@ -6,12 +6,12 @@ import { take, first } from 'rxjs/operators';
 @Component({
   selector: 'rx-first',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>First</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxFirstComponent {
-  input$ = interval(1000).pipe(take(3));
-  output$ = this.input$.pipe(first());
+  input = interval(1000).pipe(take(3));
+  output = this.input.pipe(first());
 }

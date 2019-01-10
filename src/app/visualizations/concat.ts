@@ -8,19 +8,19 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-concat',
   template: `
-    <marble [source$]="first$"></marble> <marble [source$]="second$"></marble>
+    <marble [source]="first"></marble> <marble [source]="second"></marble>
     <h2>Concat</h2>
-    <marble [source$]="concatenated$"></marble>
+    <marble [source]="concatenated"></marble>
   `,
 })
 export class RxConcatComponent {
-  first$ = interval(1000).pipe(
+  first = interval(1000).pipe(
     take(10),
     mapNumberToChar(),
   );
-  second$ = interval(1000).pipe(
+  second = interval(1000).pipe(
     delay(500),
     take(10),
   );
-  concatenated$ = this.first$.pipe(concat(this.second$));
+  concatenated = this.first.pipe(concat(this.second));
 }

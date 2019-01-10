@@ -8,15 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-start-with',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>Start With</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxStartWithComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     take(3),
     mapNumberToChar(),
   );
-  output$ = this.input$.pipe(startWith('s'));
+  output = this.input.pipe(startWith('s'));
 }

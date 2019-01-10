@@ -6,17 +6,24 @@ import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
 @Component({
   selector: 'rx-expand',
   template: `
-    <marble [source$]="higherOrder$"></marble>
-    <marble *ngFor="let source$ of lowerOrders" [initTime]="initTime" [source$]="source$"></marble>
+    <marble [source]="higherOrder"></marble>
+    <marble
+      *ngFor="let source of lowerOrders"
+      [initTime]="initTime"
+      [source]="source"
+    ></marble>
     <h2>Expand</h2>
-    <marble [source$]="expanded$"></marble>
+    <marble [source]="expanded"></marble>
   `,
 })
 export class RxExpandComponent {
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder$ = interval(500).pipe(skip(3), take(3));
-  expanded$ = this.higherOrder$.pipe(
+  higherOrder = interval(500).pipe(
+    skip(3),
+    take(3),
+  );
+  expanded = this.higherOrder.pipe(
     expand(val => {
       const lowerOrder = interval(500).pipe(
         skip(3),

@@ -8,15 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-skip',
   template: `
-    <marble [source$]="input$"></marble>
+    <marble [source]="input"></marble>
     <h2>Skip</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxSkipComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     take(5),
     mapNumberToChar(),
   );
-  output$ = this.input$.pipe(skip(3));
+  output = this.input.pipe(skip(3));
 }

@@ -8,24 +8,24 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-merge-map',
   template: `
-    <marble [source$]="higherOrder$"></marble>
+    <marble [source]="higherOrder"></marble>
     <marble
-      *ngFor="let source$ of lowerOrders"
+      *ngFor="let source of lowerOrders"
       [initTime]="initTime"
-      [source$]="source$"
+      [source]="source"
     ></marble>
     <h2>Merge Map</h2>
-    <marble [source$]="firstOrder$"></marble>
+    <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxMergeMapComponent {
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder$ = interval(1000).pipe(
+  higherOrder = interval(1000).pipe(
     take(4),
     mapNumberToChar(),
   );
-  firstOrder$ = this.higherOrder$.pipe(
+  firstOrder = this.higherOrder.pipe(
     mergeMap(val => {
       const lowerOrder = interval(1000).pipe(
         take(4),

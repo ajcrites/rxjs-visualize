@@ -7,9 +7,9 @@ import { defaultIfEmpty } from 'rxjs/operators';
   selector: 'rx-default-if-empty',
   template: `
     <h2>Default If Empty</h2>
-    <marble [source$]="default$"></marble>
+    <marble [source]="default"></marble>
   `,
 })
 export class RxDefaultIfEmptyComponent {
-  default$ = empty().pipe(defaultIfEmpty('e'));
+  default = empty().pipe(defaultIfEmpty('e'));
 }

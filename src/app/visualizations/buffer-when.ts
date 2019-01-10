@@ -13,28 +13,28 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
       just the last value.
     </p>
     <pre>
-    preBuffer$ = Observable.interval(1000).take(20);
-    closingBuffer$ = new Subject;
-    postBuffer$ = this.preBuffer$.bufferWhen(() =>
+    preBuffer = Observable.interval(1000).take(20);
+    closingBuffer = new Subject;
+    postBuffer = this.preBuffer.bufferWhen(() =>
       Observable.interval(1000 + Math.random() * 4000).do(() =>
-        this.closingBuffer$.next('s')
+        this.closingBuffer.next('s')
       )
     );
     </pre
     >
 
-    <marble [source$]="preBuffer$"></marble>
-    <marble [source$]="closingBuffer$" color="blue"></marble>
-    <marble [source$]="postBuffer$"></marble>
+    <marble [source]="preBuffer"></marble>
+    <marble [source]="closingBuffer" color="blue"></marble>
+    <marble [source]="postBuffer"></marble>
   `,
 })
 export class RxBufferWhenComponent {
-  preBuffer$ = interval(1000).pipe(take(20));
-  closingBuffer$ = new Subject();
-  postBuffer$ = this.preBuffer$.pipe(
+  preBuffer = interval(1000).pipe(take(20));
+  closingBuffer = new Subject();
+  postBuffer = this.preBuffer.pipe(
     bufferWhen(() =>
       interval(1000 + Math.random() * 4000).pipe(
-        tap(() => this.closingBuffer$.next('s')),
+        tap(() => this.closingBuffer.next('s')),
       ),
     ),
   );

@@ -8,20 +8,20 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-window-toggle',
   template: `
-    <marble [source$]="input$"></marble>
-    <marble [source$]="notifier$" [main$]="input$" color="blue"></marble>
+    <marble [source]="input"></marble>
+    <marble [source]="notifier" [main]="input" color="blue"></marble>
     <h2>Window Toggle</h2>
-    <marble [source$]="output$"></marble>
+    <marble [source]="output"></marble>
   `,
 })
 export class RxWindowToggleComponent {
-  input$ = interval(1000).pipe(
+  input = interval(1000).pipe(
     mapNumberToChar(),
     take(20),
   );
-  notifier$ = interval(3500).pipe(mapTo('w'));
-  output$ = this.input$.pipe(
-    windowToggle(this.notifier$, () => interval(2000)),
+  notifier = interval(3500).pipe(mapTo('w'));
+  output = this.input.pipe(
+    windowToggle(this.notifier, () => interval(2000)),
     mergeAll(),
   );
 }

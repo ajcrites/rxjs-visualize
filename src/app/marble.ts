@@ -10,7 +10,7 @@ import { never } from 'rxjs';
   template: `
     <i
       [@appear]
-      *ngFor="let elem of source"
+      *ngFor="let elem of sourceValues"
       [style.left.px]="elem.left"
       [style.top.px]="elem.top"
       [class]="color"
@@ -20,14 +20,14 @@ import { never } from 'rxjs';
 })
 // tslint:disable-next-line:component-class-suffix
 export class Marble implements OnInit {
-  source = [];
+  sourceValues = [];
   // Source Observable for the marble diagram
-  @Input() source$;
+  @Input() source;
 
   // Main Observable for the example. When it completes, stop the source
   // This is only needed if the source will not stop on its own in a
   // reasonable way
-  @Input() main$ = never();
+  @Input() main = never();
 
   // Force color to simplify tracking of some inputs
   @Input() color;
@@ -41,25 +41,25 @@ export class Marble implements OnInit {
 
   ngOnInit() {
     const initTime = this.initTime;
-    const sourceSubscription = this.source$.subscribe(value => {
-      this.source.push({
+    const sourceSubscription = this.source.subscribe(value => {
+      this.sourceValues.push({
         value,
         left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
       });
 
-      const sourcesLength = this.source.length;
+      const sourcesLength = this.sourceValues.length;
       // TODO improve this to handle more than one overlap
       if (
         sourcesLength > 1 &&
-        this.source[sourcesLength - 1].left -
-          this.source[sourcesLength - 2].left <
+        this.sourceValues[sourcesLength - 1].left -
+          this.sourceValues[sourcesLength - 2].left <
           30 &&
-        !this.source[sourcesLength - 2].top
+        !this.sourceValues[sourcesLength - 2].top
       ) {
-        this.source[sourcesLength - 1].top = 30;
+        this.sourceValues[sourcesLength - 1].top = 30;
       }
     });
 
-    this.main$.subscribe(null, null, () => sourceSubscription.unsubscribe());
+    this.main.subscribe(null, null, () => sourceSubscription.unsubscribe());
   }
 }

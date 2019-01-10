@@ -8,24 +8,24 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-switch',
   template: `
-    <marble [source$]="higherOrder$"></marble>
+    <marble [source]="higherOrder"></marble>
     <marble
-      *ngFor="let source$ of lowerOrders"
+      *ngFor="let source of lowerOrders"
       [initTime]="initTime"
-      [source$]="source$"
+      [source]="source"
     ></marble>
     <h2>Switch</h2>
-    <marble [source$]="firstOrder$"></marble>
+    <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxSwitchComponent {
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder$ = interval(2000).pipe(
+  higherOrder = interval(2000).pipe(
     take(4),
     mapNumberToChar(),
   );
-  firstOrder$ = this.higherOrder$.pipe(
+  firstOrder = this.higherOrder.pipe(
     map(val => {
       const lowerOrder = interval(1000).pipe(
         take(4),

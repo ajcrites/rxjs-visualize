@@ -8,11 +8,18 @@ import { never } from 'rxjs';
   // tslint:disable-next-line: component-selector
   selector: 'marble',
   template: `
+    <div
+      class="guide"
+      [class.complete]="complete"
+      [style.width.px]="
+        sourceValues[sourceValues.length - 1]?.left + (complete ? 25 : 0)
+      "
+      [style.left.px]="leftPad - 10"
+    ></div>
     <i
       [@appear]
       *ngFor="let elem of sourceValues"
       [style.left.px]="elem.left"
-      [style.top.px]="elem.top"
       [class]="color"
       >{{ elem.value }}</i
     >
@@ -20,7 +27,6 @@ import { never } from 'rxjs';
 })
 // tslint:disable-next-line:component-class-suffix
 export class Marble implements OnInit {
-  sourceValues = [];
   // Source Observable for the marble diagram
   @Input() source;
 
@@ -30,7 +36,7 @@ export class Marble implements OnInit {
   @Input() main = never();
 
   // Force color to simplify tracking of some inputs
-  @Input() color;
+  @Input() color = '';
 
   // Specify the initial time of the observable to force it to the right based
   // on a separate time metric. If none is provided, start it at the very left
@@ -39,25 +45,21 @@ export class Marble implements OnInit {
 
   @Input() leftPad = 45;
 
+  sourceValues = [];
+  complete = false;
+
   ngOnInit() {
     const initTime = this.initTime;
-    const sourceSubscription = this.source.subscribe(value => {
-      this.sourceValues.push({
-        value,
-        left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
-      });
-
-      const sourcesLength = this.sourceValues.length;
-      // TODO improve this to handle more than one overlap
-      if (
-        sourcesLength > 1 &&
-        this.sourceValues[sourcesLength - 1].left -
-          this.sourceValues[sourcesLength - 2].left <
-          30 &&
-        !this.sourceValues[sourcesLength - 2].top
-      ) {
-        this.sourceValues[sourcesLength - 1].top = 30;
-      }
+    const sourceSubscription = this.source.subscribe({
+      next: value => {
+        this.sourceValues.push({
+          value,
+          left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
+        });
+      },
+      complete: () => {
+        this.complete = true;
+      },
     });
 
     this.main.subscribe(null, null, () => sourceSubscription.unsubscribe());

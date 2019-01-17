@@ -3,46 +3,67 @@
 @import '../node_modules/prismjs/themes/prism.css';
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 i {
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-    border-radius: 50%;
-    border: 2px solid black;
-    background-color: #FF6946;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-    position: absolute;
-    font-style: normal;
-    font-family: sans-serif;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: #FF6946;
+  text-align: center;
+  line-height: 30px;
+  white-space: nowrap;
+  position: absolute;
+  font-style: normal;
+  font-family: sans-serif;
 }
 i:nth-child(4n + 2) {
-    background-color: #FFCB46;
+  background-color: #FFCB46;
 }
 i:nth-child(4n + 3) {
-    background-color: #3EA1CB;
+  background-color: #3EA1CB;
 }
 i:nth-child(4n + 4) {
-    background-color: #82D736;
+  background-color: #82D736;
 }
 i.orange {
-    background-color: #FF6946;
+  background-color: #FF6946;
 }
 i.yellow {
-    background-color: #FFCB46;
+  background-color: #FFCB46;
 }
 i.green {
-    background-color: #82D736;
+  background-color: #82D736;
 }
 i.blue {
-    background-color: #3EA1CB;
+  background-color: #3EA1CB;
 }
 
 marble {
-    display: block;
-    height: 50px;
-    position: relative;
+  display: block;
+  height: 50px;
+  position: relative;
+}
+
+.guide {
+  position: absolute;
+  top: 17.5px;
+  height: 1px;
+  background-color: #555;
+  transition: all 1s;
+}
+.guide::after {
+  content: "";
+  height: 15px;
+  border-right: 1px solid #555;
+  right: 0;
+  top: -7px;
+  position: absolute;
+  transform: scale(0);
+  transition: all 2s;
+}
+.guide.complete::after {
+  transform: scale(1);
 }

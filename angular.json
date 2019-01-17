@@ -25,11 +25,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.build.json",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/frame.css"
             ],
             "scripts": []
           },

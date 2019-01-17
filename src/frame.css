@@ -1,0 +1,32 @@
+.header {
+  height: 50px;
+  background-color: #ccc;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .8);
+  display: flex;
+  align-items: center;
+  width: auto;
+  white-space: nowrap;
+}
+
+.page-title {
+  font-size: 25px;
+  color: white;
+  text-shadow: 1px 1px 1px #777;
+}
+
+.small-screen-warning {
+  display: none;
+
+  background-color: rgb(245, 255, 240);
+  margin: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #83ABFF;
+  color: #97000E;
+}
+
+@media screen and (max-width: 950px) {
+  .small-screen-warning {
+    display: block;
+  }
+}

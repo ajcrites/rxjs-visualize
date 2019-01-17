@@ -52,18 +52,24 @@ marble {
   top: 17.5px;
   height: 1px;
   background-color: #555;
-  transition: all 1s;
+  transition: width 1s;
 }
-.guide::after {
+.guide::after, .guide::before {
   content: "";
   height: 15px;
   border-right: 1px solid #555;
   right: 0;
   top: -7px;
   position: absolute;
-  transform: scale(0);
+  transform: scale(0) rotate(0);
   transition: all 2s;
 }
 .guide.complete::after {
-  transform: scale(1);
+  transform: scale(1) rotate(0);
+}
+.guide.error::after {
+  transform: scale(1) rotate(45deg);
+}
+.guide.error::before {
+  transform: scale(1) rotate(-45deg);
 }

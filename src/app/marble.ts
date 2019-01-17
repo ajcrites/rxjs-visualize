@@ -11,8 +11,10 @@ import { never } from 'rxjs';
     <div
       class="guide"
       [class.complete]="complete"
+      [class.error]="error"
       [style.width.px]="
-        sourceValues[sourceValues.length - 1]?.left + (complete ? 25 : 0)
+        sourceValues[sourceValues.length - 1]?.left +
+        (complete || error ? 15 : 0)
       "
       [style.left.px]="leftPad - 10"
     ></div>
@@ -46,20 +48,21 @@ export class Marble implements OnInit {
   @Input() leftPad = 45;
 
   sourceValues = [];
+  // Source Observable has completed
   complete = false;
+  // Source Observable encountered an error
+  error = false;
 
   ngOnInit() {
     const initTime = this.initTime;
     const sourceSubscription = this.source.subscribe({
-      next: value => {
+      next: value =>
         this.sourceValues.push({
           value,
           left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
-        });
-      },
-      complete: () => {
-        this.complete = true;
-      },
+        }),
+      error: () => (this.error = true),
+      complete: () => (this.complete = true),
     });
 
     this.main.subscribe(null, null, () => sourceSubscription.unsubscribe());

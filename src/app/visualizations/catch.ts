@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { interval, Subject } from 'rxjs';
-import { tap, take, map, catchError } from 'rxjs/operators';
+import { tap, take, map, catchError, finalize } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -37,6 +37,7 @@ export class RxCatchComponent {
         take(15),
         map(value => value + 1),
         tap(value => this.postCatch.next(value)),
+        finalize(() => this.postCatch.complete()),
       ),
     ),
   );

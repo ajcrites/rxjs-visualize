@@ -7,17 +7,15 @@ import { take, bufferCount } from 'rxjs/operators';
   selector: 'rx-buffer-count',
   template: `
     <h1>Buffer Count</h1>
-    <pre>
-      preBuffer = Observable.interval(1000).take(20);
-      postBuffer = this.preBuffer.bufferCount(3);
-    </pre
-    >
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preBuffer"></marble>
     <marble [source]="postBuffer"></marble>
   `,
 })
 export class RxBufferCountComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   preBuffer = interval(1000).pipe(take(20));
   postBuffer = this.preBuffer.pipe(bufferCount(3));
 }

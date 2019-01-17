@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { RxVisualizationsAppComponent } from './app.component';
+import { VisualizationsListComponent } from './visualizations-list.component';
+import { VisualizationComponent } from './visualization.component';
 import { RxAuditComponent } from './visualizations/audit';
 import { RxAuditTimeComponent } from './visualizations/audit-time';
 import { RxBufferComponent } from './visualizations/buffer';
@@ -89,6 +91,8 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
 @NgModule({
   declarations: [
     RxVisualizationsAppComponent,
+    VisualizationsListComponent,
+    VisualizationComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,

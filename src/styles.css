@@ -1,10 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import '../node_modules/prismjs/themes/prism.css';
 
 body {
   font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -16,40 +15,35 @@ i {
   display: inline-block;
   border-radius: 50%;
   border: 2px solid black;
-  background-color: #FF6946;
   text-align: center;
+  background-color: #ff6946;
+  background-image: radial-gradient(circle at 25% 25%, #ffbcad, #ff6946, #e02900);
   line-height: 30px;
   white-space: nowrap;
   position: absolute;
   font-style: normal;
   font-family: sans-serif;
+  box-shadow: 2px 2px 3px #ccc;
 }
-i:nth-child(4n + 2) {
+i:nth-child(4n + 2), i.yellow {
   background-color: #FFCB46;
+  background-image: radial-gradient(circle at 25% 25%, #ffe4a2, #ffcb46, #a27400);
 }
-i:nth-child(4n + 3) {
+i:nth-child(4n + 3), i.blue {
   background-color: #3EA1CB;
+  background-image: radial-gradient(circle at 25% 25%, #8ec8e1, #3EA1CB, #226581);
 }
-i:nth-child(4n + 4) {
+i:nth-child(4n + 4), i.green {
   background-color: #82D736;
-}
-i.orange {
-  background-color: #FF6946;
-}
-i.yellow {
-  background-color: #FFCB46;
-}
-i.green {
-  background-color: #82D736;
-}
-i.blue {
-  background-color: #3EA1CB;
+  background-image: radial-gradient(circle at 25% 25%, #b7e88c, #82D736, #508d1c);
 }
 
 marble {
   display: block;
   height: 50px;
   position: relative;
+  overflow-x: auto;
+  margin-right: 5px;
 }
 
 .guide {

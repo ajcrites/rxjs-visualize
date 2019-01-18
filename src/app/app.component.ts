@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
       should still work on smaller screens, but you may have to scroll or
       otherwise manipulate your screen size to see the full visualizations.
     </aside>
-    <rx-visualizations-list></rx-visualizations-list>
+    <main><rx-visualizations-list></rx-visualizations-list></main>
   `,
 })
 export class RxVisualizationsAppComponent {}

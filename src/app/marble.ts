@@ -16,12 +16,12 @@ import { never } from 'rxjs';
         sourceValues[sourceValues.length - 1]?.left +
         (complete || error ? 15 : 0)
       "
-      [style.left.px]="leftPad - 10"
+      [style.left.px]="leftPad - 35"
     ></div>
     <i
       [@appear]
       *ngFor="let elem of sourceValues"
-      [style.left.px]="elem.left"
+      [style.left.px]="elem.left - 25"
       [class]="color"
       >{{ elem.value }}</i
     >

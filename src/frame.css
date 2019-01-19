@@ -25,6 +25,10 @@
   color: #97000E;
 }
 
+.nav-open .small-screen-warning {
+  margin-right: 210px;
+}
+
 @media screen and (max-width: 950px) {
   .small-screen-warning {
     display: block;
@@ -34,4 +38,68 @@
 main {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.menu-button {
+  height: 24px;
+  color: #1647FF;
+  background-color: #EDFFF8;
+  border: 1px solid #374DFF;
+  border-radius: 5px;
+  color: white;
+  margin-left: 15px;
+  cursor: pointer;
+  width: 24px;
+  transition: width .5s;
+}
+
+.nav-open .menu-button {
+  width: 0;
+  border: none;
+}
+
+.menu-button path, .nav-menu-button path {
+  fill: #374DFF;
+}
+
+.content {
+  transition: transform .5s;
+}
+
+.nav-open {
+  transform: translateX(200px);
+}
+
+.main-nav {
+  z-index: 1;
+  height: 100%;
+  width: 200px;
+  background-color: #bbb;
+  position: absolute;
+  box-shadow: inset -2px -2px 8px rgba(0, 0, 0, .8);
+  transition: transform .5s;
+  transform: translateX(-200px);
+}
+.main-nav.nav-open {
+  transform: translateX(0);
+}
+
+.nav-menu-button {
+  width: 24px;
+  height: 24px;
+  margin-top: -5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+}
+.menu-title {
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 1px #777;
+  margin-left: 8px;
+  margin-top: 10px;
 }

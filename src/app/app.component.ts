@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
         should still work on smaller screens, but you may have to scroll or
         otherwise manipulate your screen size to see the full visualizations.
       </aside>
-      <main><rx-visualizations-list></rx-visualizations-list></main>
+      <main><router-outlet></router-outlet></main>
     </div>
   `,
 })

@@ -9,8 +9,8 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
     <h1>Buffer When</h1>
     <p>
       This is similar to <code>audit</code> except that it will collect
-      <i>all</i> values until the next notifier Observable emission rather than
-      just the last value.
+      <em>all</em> values until the next notifier Observable emission rather
+      than just the last value.
     </p>
     <pre>
     preBuffer = Observable.interval(1000).take(20);

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'rx-visualizations-list',
@@ -10,5 +11,11 @@ import { Component } from '@angular/core';
   `,
 })
 export class VisualizationsListComponent {
-  visualizations = ['buffer-count', 'filter'];
+  visualizations = [];
+
+  constructor(private route: ActivatedRoute) {
+    this.route.url.subscribe(
+      segments => (this.visualizations = segments.map(({ path }) => path)),
+    );
+  }
 }

@@ -122,8 +122,20 @@ main {
   margin-left: 45px;
 }
 
+rx-nav {
+  display: flex;
+  justify-content: center;
+}
+
 .operators-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+.operators-list li {
+  font-family: monospace;
+  color: white;
+  text-shadow: 1px 1px 1px #222;
+  cursor: pointer;
+  margin-bottom: 15px;
 }

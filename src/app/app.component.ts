@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <div class="nav-title">
         <svg
           class="nav-menu-button"
-          (click)="navOpen = false"
+          (click)="navOpen = !navOpen"
           xmlns="http://www.w3.org/2000/svg"
           focusable="false"
           viewBox="0 0 24 24"
@@ -21,15 +21,6 @@ import { Component } from '@angular/core';
     </nav>
     <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
       <header class="header">
-        <svg
-          class="menu-button"
-          (click)="navOpen = true"
-          xmlns="http://www.w3.org/2000/svg"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-        </svg>
         <img src="assets/rxjs-logo.png" />
         <h1 class="page-title">RxJS Visualize</h1>
       </header>

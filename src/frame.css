@@ -6,6 +6,12 @@
   align-items: center;
   width: auto;
   white-space: nowrap;
+  transition: padding .5s;
+  padding-left: 35px;
+}
+
+.nav-open .header {
+  padding-left: 0px;
 }
 
 .page-title {
@@ -79,18 +85,30 @@ main {
   box-shadow: inset -2px -2px 8px rgba(0, 0, 0, .8);
   transition: transform .5s;
   transform: translateX(-250px);
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 .main-nav.nav-open {
   transform: translateX(0);
+  overflow-y: auto;
 }
 
 .nav-menu-button {
   width: 24px;
   height: 24px;
-  margin-top: -5px;
-  margin-left: 5px;
+  margin-left: 15px;
   cursor: pointer;
+  position: fixed;
+  transform: translateX(250px);
+  transition-property: transform, background-color, border;
+  transition-duration: .5s;
+  border-radius: 5px;
+  border: 1px solid #374DFF;
+  background-color: rgba(233, 255, 244, 1);
+}
+.nav-open .nav-menu-button {
+  transform: translateX(0);
+  border: none;
+  background-color: rgba(233, 255, 244, 0);
 }
 
 .nav-title {
@@ -101,8 +119,7 @@ main {
   font-size: 18px;
   color: white;
   text-shadow: 1px 1px 1px #777;
-  margin-left: 8px;
-  margin-top: 10px;
+  margin-left: 45px;
 }
 
 .operators-list {

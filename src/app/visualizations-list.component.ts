@@ -15,7 +15,10 @@ export class VisualizationsListComponent {
 
   constructor(private route: ActivatedRoute) {
     this.route.url.subscribe(
-      segments => (this.visualizations = segments.map(({ path }) => path)),
+      segments =>
+        (this.visualizations = segments.length
+          ? segments[0].path.split(',')
+          : []),
     );
   }
 }

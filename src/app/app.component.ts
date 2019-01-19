@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
     </nav>
     <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
       <header class="header">
-        <img src="assets/rxjs-logo.png" />
+        <a routerLink="/"><img src="assets/rxjs-logo.png"/></a>
         <h1 class="page-title">RxJS Visualize</h1>
       </header>
       <aside class="small-screen-warning">

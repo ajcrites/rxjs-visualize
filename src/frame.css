@@ -26,7 +26,7 @@
 }
 
 .nav-open .small-screen-warning {
-  margin-right: 210px;
+  margin-right: 260px;
 }
 
 @media screen and (max-width: 950px) {
@@ -67,18 +67,19 @@ main {
 }
 
 .nav-open {
-  transform: translateX(200px);
+  transform: translateX(250px);
 }
 
 .main-nav {
   z-index: 1;
+  width: 250px;
   height: 100%;
-  width: 200px;
   background-color: #bbb;
   position: absolute;
   box-shadow: inset -2px -2px 8px rgba(0, 0, 0, .8);
   transition: transform .5s;
-  transform: translateX(-200px);
+  transform: translateX(-250px);
+  overflow-y: scroll;
 }
 .main-nav.nav-open {
   transform: translateX(0);
@@ -102,4 +103,10 @@ main {
   text-shadow: 1px 1px 1px #777;
   margin-left: 8px;
   margin-top: 10px;
+}
+
+.operators-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

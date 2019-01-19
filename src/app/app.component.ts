@@ -17,6 +17,7 @@ import { Component } from '@angular/core';
 
         <h1 class="menu-title">RxJS Operators</h1>
       </div>
+      <rx-nav></rx-nav>
     </nav>
     <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
       <header class="header">

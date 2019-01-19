@@ -6,12 +6,15 @@ import { take, filter } from 'rxjs/operators';
 @Component({
   selector: 'rx-filter',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Filter</h2>
-    <marble [source]="output"></marble>
+    <h1>Filter</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxFilterComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(take(20));
   output = this.input.pipe(filter(val => !!(val % 2)));
 }

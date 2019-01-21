@@ -11,17 +11,15 @@ import { take, auditTime } from 'rxjs/operators';
       This is similar to <code>audit</code>, but it wraps the provided number as
       an interval timer.
     </p>
-    <pre>
-      preAudit = Observable.interval(1000).take(20);
-      // Practically equivalent to <code>.audit(() => Observable.interval(2500))</code>
-      postAudit = this.preAudit.auditTime(2500);
-    </pre>
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preAudit"></marble> <marble [source]="postAudit"></marble>
   `,
 })
 export class RxAuditTimeComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   preAudit = interval(1000).pipe(take(20));
-  // Practically equivalent to <code>.audit(() => Observable.interval(2500))</code>
+  // Practically equivalent to `audit(() => Observable.interval(2500))`
   postAudit = this.preAudit.pipe(auditTime(2500));
 }

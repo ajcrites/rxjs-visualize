@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { RxVisualizationsAppComponent } from './app.component';
 import { VisualizationsListComponent } from './visualizations-list.component';
@@ -177,7 +178,17 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
 
     Marble,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, PrismHighlightModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    PrismHighlightModule,
+    RouterModule.forRoot([
+      {
+        path: '**',
+        component: VisualizationsListComponent,
+      },
+    ]),
+  ],
   providers: [],
   bootstrap: [RxVisualizationsAppComponent],
 })

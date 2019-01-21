@@ -9,19 +9,10 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
     <h1>Buffer When</h1>
     <p>
       This is similar to <code>audit</code> except that it will collect
-      <i>all</i> values until the next notifier Observable emission rather than
-      just the last value.
+      <em>all</em> values until the next notifier Observable emission rather
+      than just the last value.
     </p>
-    <pre>
-    preBuffer = Observable.interval(1000).take(20);
-    closingBuffer = new Subject;
-    postBuffer = this.preBuffer.bufferWhen(() =>
-      Observable.interval(1000 + Math.random() * 4000).do(() =>
-        this.closingBuffer.next('s')
-      )
-    );
-    </pre
-    >
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preBuffer"></marble>
     <marble [source]="closingBuffer" color="blue"></marble>
@@ -29,6 +20,8 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
   `,
 })
 export class RxBufferWhenComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   preBuffer = interval(1000).pipe(take(20));
   closingBuffer = new Subject();
   postBuffer = this.preBuffer.pipe(

@@ -6,12 +6,15 @@ import { take, mergeMap, map, debounce } from 'rxjs/operators';
 @Component({
   selector: 'rx-debounce',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Debounce</h2>
-    <marble [source]="debounced"></marble>
+    <h1>Debounce</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="debounced"></marble>
   `,
 })
 export class RxDebounceComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // Debounce timer starts over when a value is emitted
   // Emit multiple values, but then do not emit another value until after 1 second
   // Debounce catches the last value in this set as well as the final value

@@ -21,16 +21,17 @@ import { Component } from '@angular/core';
     </nav>
     <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
       <header class="header">
-        <img src="assets/rxjs-logo.png" />
+        <a routerLink="/"><img src="assets/rxjs-logo.png"/></a>
         <h1 class="page-title">RxJS Visualize</h1>
       </header>
       <aside class="small-screen-warning">
         <strong>Warning:</strong> This app is intended to be viewed on a
         relatively wide screen and is not responsive for smaller screens. It
-        should still work on smaller screens, but you may have to scroll or
-        otherwise manipulate your screen size to see the full visualizations.
+        should still work on smaller screens, but you may have to scroll the
+        marble diagrams or otherwise manipulate your screen size to see the full
+        visualizations.
       </aside>
-      <main><rx-visualizations-list></rx-visualizations-list></main>
+      <main><router-outlet></router-outlet></main>
     </div>
   `,
 })

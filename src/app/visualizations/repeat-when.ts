@@ -7,12 +7,16 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
 @Component({
   selector: 'rx-repeat-when',
   template: `
+    <h1>Repeat When</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input" color="yellow"></marble>
-    <h2>Repeat When</h2>
     <marble [source]="output"></marble>
   `,
 })
 export class RxRepeatWhenComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(3000).pipe(
     take(3),
     mapTo('r'),

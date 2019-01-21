@@ -41,15 +41,17 @@ i:nth-child(4n + 4), i.green {
 
 marble {
   display: block;
-  height: 50px;
+  height: 60px;
   position: relative;
   overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-right: 5px;
 }
 
 .guide {
   position: absolute;
-  top: 17.5px;
+  top: 27.5px;
   height: 1px;
   background-color: #555;
   transition: width 1s;

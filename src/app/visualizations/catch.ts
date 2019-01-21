@@ -8,8 +8,8 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-catch',
   template: `
-    <pre prism-highlight="typescript">{{ code }}</pre>
     <h1>Catch</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preCatch"></marble>
     <marble [source]="postCatch"></marble> <marble [source]="caught"></marble>

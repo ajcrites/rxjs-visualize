@@ -27,8 +27,9 @@ import { Component } from '@angular/core';
       <aside class="small-screen-warning">
         <strong>Warning:</strong> This app is intended to be viewed on a
         relatively wide screen and is not responsive for smaller screens. It
-        should still work on smaller screens, but you may have to scroll or
-        otherwise manipulate your screen size to see the full visualizations.
+        should still work on smaller screens, but you may have to scroll the
+        marble diagrams or otherwise manipulate your screen size to see the full
+        visualizations.
       </aside>
       <main><router-outlet></router-outlet></main>
     </div>

@@ -31,7 +31,7 @@
   color: #97000E;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1050px) {
   .small-screen-warning {
     display: block;
   }

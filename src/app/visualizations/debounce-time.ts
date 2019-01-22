@@ -6,13 +6,16 @@ import { take, mergeMap, map, debounceTime } from 'rxjs/operators';
 @Component({
   selector: 'rx-debounce-time',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Debounce</h2>
-    <marble [source]="debounced"></marble>
+    <h1>Debounce</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="debounced"></marble>
   `,
 })
-// This is essentially the same as `debounce`, with `Observable.interval`.
 export class RxDebounceTimeComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
+  // This is essentially the same as `debounce`, with `interval`.
   input = interval(2000).pipe(
     mergeMap(val =>
       interval(250).pipe(

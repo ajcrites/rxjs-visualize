@@ -17,7 +17,7 @@ from [the author, @ajcrites](https://github.com/ajcrites).
 Some operators that are not well documented by the
 ReactiveX docs themselves.
 
-This makes heavy use of `Observable.interval` as a source
+This makes heavy use of Observable `interval` as a source
 observable. `take` was also heavily used to limit the
 length of the source Observable and eventually end the
 examples. Other variations of `skip` and `map` were used to

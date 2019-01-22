@@ -6,12 +6,15 @@ import { distinctUntilKeyChanged, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-distinct-until-key-changed',
   template: `
-    <marble [source]="display"></marble>
-    <h2>Distinct Until Key Changed</h2>
-    <marble [source]="distinct"></marble>
+    <h1>Distinct Until Key Changed</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="display"></marble> <marble [source]="distinct"></marble>
   `,
 })
 export class RxDistinctUntilKeyChangedComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   values = [1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4, 4, 3, 1, 1, 2];
   input = interval(1000).pipe(
     map(key => ({ key: this.values[key] })),

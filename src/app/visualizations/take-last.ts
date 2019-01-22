@@ -8,12 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-take-last',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Take Last</h2>
-    <marble [source]="output"></marble>
+    <h1>Take Last</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxTakeLastComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(
     mapNumberToChar(),
     take(4),

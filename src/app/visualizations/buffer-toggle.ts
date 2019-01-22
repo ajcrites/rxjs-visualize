@@ -7,6 +7,7 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
   selector: 'rx-buffer-toggle',
   template: `
     <h1>Buffer Toggle</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preBuffer"></marble>
     <marble [source]="openBuffer" [main]="preBuffer" color="blue"></marble>
@@ -15,6 +16,8 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
   `,
 })
 export class RxBufferToggleComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   preBuffer = interval(1000).pipe(take(20));
   openBuffer = interval(4250).pipe(mapTo('o'));
   // Used for displaying when the closing buffer is triggered, but does not

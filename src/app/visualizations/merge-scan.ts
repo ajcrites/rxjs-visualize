@@ -6,17 +6,21 @@ import { mergeScan, skip, take, map } from 'rxjs/operators';
 @Component({
   selector: 'rx-merge-scan',
   template: `
+    <h1>Merge Scan</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble>
     <marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Merge Scan</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxMergeScanComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // I don't fully understand this one yet; will revisit after `scan`
   initTime = new Date().getTime();
   lowerOrders = [];

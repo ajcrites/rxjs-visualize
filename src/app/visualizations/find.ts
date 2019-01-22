@@ -6,12 +6,15 @@ import { take, find } from 'rxjs/operators';
 @Component({
   selector: 'rx-find',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Find</h2>
-    <marble [source]="output"></marble>
+    <h1>Find</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxFindComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(find(val => val > 1));
 }

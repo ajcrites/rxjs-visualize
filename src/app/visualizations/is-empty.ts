@@ -6,12 +6,15 @@ import { map, isEmpty } from 'rxjs/operators';
 @Component({
   selector: 'rx-is-empty',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Is Empty</h2>
-    <marble [source]="output"></marble>
+    <h1>Is Empty</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxIsEmptyComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = of(1);
   output = this.input.pipe(
     isEmpty(),

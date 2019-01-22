@@ -8,12 +8,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-merge',
   template: `
+    <h1>Merge</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="first"></marble> <marble [source]="second"></marble>
-    <h2>Merge</h2>
     <marble [source]="merged"></marble>
   `,
 })
 export class RxMergeComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   first = interval(1000).pipe(
     take(10),
     mapNumberToChar(),

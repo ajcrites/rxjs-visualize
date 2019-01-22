@@ -6,12 +6,15 @@ import { tap, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-do',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Do / Tap</h2>
-    <marble [source]="output"></marble>
+    <h1>Do / Tap</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxDoComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // The lettable operator version of `do` is `tap`
   input = interval(1000).pipe(take(20));
   // tslint:disable-next-line:no-console

@@ -8,17 +8,21 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-merge-all',
   template: `
+    <h1>Merge All</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble>
     <marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Merge All</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxMergeAllComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   lowerOrders = [];
   higherOrder = interval(1000).pipe(

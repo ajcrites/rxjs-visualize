@@ -7,13 +7,16 @@ import { retryWhen, take, map, mapTo } from 'rxjs/operators';
 @Component({
   selector: 'rx-retry-when',
   template: `
+    <h1>Retry When</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="retry" color="yellow"></marble>
-    <marble [source]="input"></marble>
-    <h2>Retry When</h2>
-    <marble [source]="output"></marble>
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxRetryWhenComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   retry = interval(4000).pipe(
     take(2),
     mapTo('r'),

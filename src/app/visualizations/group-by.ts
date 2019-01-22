@@ -6,12 +6,16 @@ import { groupBy, map, take, mergeAll } from 'rxjs/operators';
 @Component({
   selector: 'rx-group-by',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Group By</h2>
-    <marble [source]="even"></marble> <marble [source]="odd"></marble>
+    <h1>Group By</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="even"></marble>
+    <marble [source]="odd"></marble>
   `,
 })
 export class RxGroupByComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   even = new Subject();
   odd = new Subject();
   input = interval(1000).pipe(

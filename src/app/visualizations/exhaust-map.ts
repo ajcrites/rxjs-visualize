@@ -6,17 +6,21 @@ import { exhaustMap, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-exhaust-map',
   template: `
+    <h1>Exhaust</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble>
     <marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Exhaust</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxExhaustMapComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   lowerOrders = [];
   higherOrder = interval(1000).pipe(take(18));

@@ -6,17 +6,21 @@ import { delayWhen, take, mapTo } from 'rxjs/operators';
 @Component({
   selector: 'rx-delay-when',
   template: `
+    <h1>Delay</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input"></marble>
     <marble
       *ngFor="let source of delays"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Delay</h2>
     <marble [source]="delayed"></marble>
   `,
 })
 export class RxDelayWhenComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   delays = [];
   input = interval(1000).pipe(take(5));

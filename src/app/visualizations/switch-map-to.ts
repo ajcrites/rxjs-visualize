@@ -6,12 +6,16 @@ import { switchMapTo, mapTo, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-switch-map-to',
   template: `
+    <h1>Switch Map To</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble> <marble [source]="inner"></marble>
-    <h2>Switch Map To</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxSwitchMapToComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   higherOrder = interval(2000).pipe(
     take(4),
     mapTo('a'),

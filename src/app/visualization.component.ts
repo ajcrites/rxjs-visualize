@@ -21,9 +21,9 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-concat-all *ngSwitchCase="'concat-all'"></rx-concat-all>
         <rx-concat-map-to *ngSwitchCase="'concat-map-to'"></rx-concat-map-to>
         <rx-concat-map *ngSwitchCase="'concat-map'"></rx-concat-map>
-        <rx-concat *ngSwitchCase="'concat'"></rx-concat>
         <rx-count *ngSwitchCase="'count'"></rx-count>
         <rx-debounce-time *ngSwitchCase="'debounce-time'"></rx-debounce-time>
+        <rx-dematerialize *ngSwitchCase="'dematerialize'"></rx-dematerialize>
         <rx-debounce *ngSwitchCase="'debounce'"></rx-debounce>
         <rx-default-if-empty
           *ngSwitchCase="'default-if-empty'"
@@ -38,33 +38,49 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         ></rx-distinct-until-key-changed>
         <rx-distinct *ngSwitchCase="'distinct'"></rx-distinct>
         <rx-tap *ngSwitchCase="'tap'"></rx-tap>
+        <rx-end-with *ngSwitchCase="'end-with'"></rx-end-with>
         <rx-element-at *ngSwitchCase="'element-at'"></rx-element-at>
         <rx-every *ngSwitchCase="'every'"></rx-every>
         <rx-exhaust-map *ngSwitchCase="'exhaust-map'"></rx-exhaust-map>
         <rx-exhaust *ngSwitchCase="'exhaust'"></rx-exhaust>
         <rx-expand *ngSwitchCase="'expand'"></rx-expand>
         <rx-filter *ngSwitchCase="'filter'"></rx-filter>
+        <rx-finalize *ngSwitchCase="'finalize'"></rx-finalize>
         <rx-find-index *ngSwitchCase="'find-index'"></rx-find-index>
         <rx-find *ngSwitchCase="'find'"></rx-find>
         <rx-first *ngSwitchCase="'first'"></rx-first>
         <rx-group-by *ngSwitchCase="'group-by'"></rx-group-by>
+        <rx-ignore-elements
+          *ngSwitchCase="'ignore-elements'"
+        ></rx-ignore-elements>
         <rx-is-empty *ngSwitchCase="'is-empty'"></rx-is-empty>
         <rx-last *ngSwitchCase="'last'"></rx-last>
         <rx-map-to *ngSwitchCase="'map-to'"></rx-map-to>
         <rx-map *ngSwitchCase="'map'"></rx-map>
+        <rx-materialize *ngSwitchCase="'materialize'"></rx-materialize>
         <rx-max *ngSwitchCase="'max'"></rx-max>
         <rx-merge-all *ngSwitchCase="'merge-all'"></rx-merge-all>
         <rx-merge-map-to *ngSwitchCase="'merge-map-to'"></rx-merge-map-to>
         <rx-merge-map *ngSwitchCase="'merge-map'"></rx-merge-map>
         <rx-merge-scan *ngSwitchCase="'merge-scan'"></rx-merge-scan>
-        <rx-merge *ngSwitchCase="'merge'"></rx-merge>
         <rx-min *ngSwitchCase="'min'"></rx-min>
+        <rx-multicast *ngSwitchCase="'multicast'"></rx-multicast>
+        <rx-observe-on *ngSwitchCase="'observe-on'"></rx-observe-on>
+        <rx-on-error-resume-next
+          *ngSwitchCase="'on-error-resume-next'"
+        ></rx-on-error-resume-next>
         <rx-pairwise *ngSwitchCase="'pairwise'"></rx-pairwise>
         <rx-partition *ngSwitchCase="'partition'"></rx-partition>
         <rx-pluck *ngSwitchCase="'pluck'"></rx-pluck>
         <rx-publish *ngSwitchCase="'publish'"></rx-publish>
+        <rx-publish-behavior
+          *ngSwitchCase="'publish-behavior'"
+        ></rx-publish-behavior>
+        <rx-publish-last *ngSwitchCase="'publish-last'"></rx-publish-last>
+        <rx-publish-replay *ngSwitchCase="'publish-replay'"></rx-publish-replay>
         <rx-race *ngSwitchCase="'race'"></rx-race>
         <rx-reduce *ngSwitchCase="'reduce'"></rx-reduce>
+        <rx-ref-count *ngSwitchCase="'ref-count'"></rx-ref-count>
         <rx-repeat-when *ngSwitchCase="'repeat-when'"></rx-repeat-when>
         <rx-repeat *ngSwitchCase="'repeat'"></rx-repeat>
         <rx-retry-when *ngSwitchCase="'retry-when'"></rx-retry-when>

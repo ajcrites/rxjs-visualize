@@ -18,7 +18,6 @@ import { RxBufferWhenComponent } from './visualizations/buffer-when';
 import { RxCatchErrorComponent } from './visualizations/catch-error';
 import { RxCombineAllComponent } from './visualizations/combine-all';
 import { RxCombineLatestComponent } from './visualizations/combine-latest';
-import { RxConcatComponent } from './visualizations/concat';
 import { RxConcatAllComponent } from './visualizations/concat-all';
 import { RxConcatMapComponent } from './visualizations/concat-map';
 import { RxConcatMapToComponent } from './visualizations/concat-map-to';
@@ -26,39 +25,50 @@ import { RxCountComponent } from './visualizations/count';
 import { RxDebounceComponent } from './visualizations/debounce';
 import { RxDebounceTimeComponent } from './visualizations/debounce-time';
 import { RxDefaultIfEmptyComponent } from './visualizations/default-if-empty';
+import { RxDematerializeComponent } from './visualizations/dematerialize';
 import { RxDelayComponent } from './visualizations/delay';
 import { RxDelayWhenComponent } from './visualizations/delay-when';
 import { RxDistinctComponent } from './visualizations/distinct';
 import { RxDistinctUntilChangedComponent } from './visualizations/distinct-until-changed';
 import { RxDistinctUntilKeyChangedComponent } from './visualizations/distinct-until-key-changed';
 import { RxTapComponent } from './visualizations/tap';
+import { RxEndWithComponent } from './visualizations/end-with';
 import { RxElementAtComponent } from './visualizations/element-at';
 import { RxEveryComponent } from './visualizations/every';
 import { RxExhaustComponent } from './visualizations/exhaust';
 import { RxExhaustMapComponent } from './visualizations/exhaust-map';
 import { RxExpandComponent } from './visualizations/expand';
 import { RxFilterComponent } from './visualizations/filter';
+import { RxFinalizeComponent } from './visualizations/finalize';
 import { RxFindComponent } from './visualizations/find';
 import { RxFindIndexComponent } from './visualizations/find-index';
 import { RxFirstComponent } from './visualizations/first';
 import { RxGroupByComponent } from './visualizations/group-by';
+import { RxIgnoreElementsComponent } from './visualizations/ignore-elements';
 import { RxIsEmptyComponent } from './visualizations/is-empty';
 import { RxLastComponent } from './visualizations/last';
 import { RxMapComponent } from './visualizations/map';
 import { RxMapToComponent } from './visualizations/map-to';
+import { RxMaterializeComponent } from './visualizations/materialize';
 import { RxMaxComponent } from './visualizations/max';
-import { RxMergeComponent } from './visualizations/merge';
 import { RxMergeAllComponent } from './visualizations/merge-all';
 import { RxMergeMapComponent } from './visualizations/merge-map';
 import { RxMergeMapToComponent } from './visualizations/merge-map-to';
 import { RxMergeScanComponent } from './visualizations/merge-scan';
 import { RxMinComponent } from './visualizations/min';
+import { RxMulticastComponent } from './visualizations/multicast';
+import { RxObserveOnComponent } from './visualizations/observe-on';
+import { RxOnErrorResumeNextComponent } from './visualizations/on-error-resume-next';
 import { RxPairwiseComponent } from './visualizations/pairwise';
 import { RxPartitionComponent } from './visualizations/partition';
 import { RxPluckComponent } from './visualizations/pluck';
 import { RxPublishComponent } from './visualizations/publish';
+import { RxPublishBehaviorComponent } from './visualizations/publish-behavior';
+import { RxPublishLastComponent } from './visualizations/publish-last';
+import { RxPublishReplayComponent } from './visualizations/publish-replay';
 import { RxRaceComponent } from './visualizations/race';
 import { RxReduceComponent } from './visualizations/reduce';
+import { RxRefCountComponent } from './visualizations/ref-count';
 import { RxRepeatComponent } from './visualizations/repeat';
 import { RxRepeatWhenComponent } from './visualizations/repeat-when';
 import { RxRetryComponent } from './visualizations/retry';
@@ -107,7 +117,6 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxCatchErrorComponent,
     RxCombineAllComponent,
     RxCombineLatestComponent,
-    RxConcatComponent,
     RxConcatAllComponent,
     RxConcatMapComponent,
     RxConcatMapToComponent,
@@ -115,39 +124,50 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxDebounceComponent,
     RxDebounceTimeComponent,
     RxDefaultIfEmptyComponent,
+    RxDematerializeComponent,
     RxDelayComponent,
     RxDelayWhenComponent,
     RxDistinctComponent,
     RxDistinctUntilChangedComponent,
     RxDistinctUntilKeyChangedComponent,
     RxTapComponent,
+    RxEndWithComponent,
     RxElementAtComponent,
     RxEveryComponent,
     RxExhaustComponent,
     RxExhaustMapComponent,
     RxExpandComponent,
     RxFilterComponent,
+    RxFinalizeComponent,
     RxFindComponent,
     RxFindIndexComponent,
     RxFirstComponent,
     RxGroupByComponent,
+    RxIgnoreElementsComponent,
     RxIsEmptyComponent,
     RxLastComponent,
     RxMapComponent,
     RxMapToComponent,
+    RxMaterializeComponent,
     RxMaxComponent,
-    RxMergeComponent,
     RxMergeAllComponent,
     RxMergeMapComponent,
     RxMergeMapToComponent,
     RxMergeScanComponent,
     RxMinComponent,
+    RxMulticastComponent,
+    RxObserveOnComponent,
+    RxOnErrorResumeNextComponent,
     RxPairwiseComponent,
     RxPartitionComponent,
     RxPluckComponent,
     RxPublishComponent,
+    RxPublishBehaviorComponent,
+    RxPublishLastComponent,
+    RxPublishReplayComponent,
     RxRaceComponent,
     RxReduceComponent,
+    RxRefCountComponent,
     RxRepeatComponent,
     RxRepeatWhenComponent,
     RxRetryComponent,

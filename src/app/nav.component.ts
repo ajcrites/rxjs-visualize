@@ -29,6 +29,8 @@ export class RxNavComponent implements OnInit {
       filter(file => /\.ts$/.test(file)).map(file =>
       file.replace('.ts', '')
     ).map(operator => ({ file: operator, name: camelCase(operator) }))
+    .concat([{ file: 'merge-map', name: 'flatMap' }])
+    .sort((a, b) => a.name < b.name ? -1 : 1);
   `;
 
   constructor(private router: Router) {}

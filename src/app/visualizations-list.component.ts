@@ -22,6 +22,10 @@ import { ActivatedRoute } from '@angular/router';
         select and share operators you'd like other people to see.
       </p>
       <p>
+        <strong>Note:</strong> deprecated operators are not included. If you
+        can't find an operator here that you're using, it's probably deprecated.
+      </p>
+      <p>
         See the
         <a href="https://rxjs-dev.firebaseapp.com/api"
           >RxJS operator API documentation</a
@@ -59,7 +63,7 @@ export class VisualizationsListComponent {
     this.route.url.subscribe(
       segments =>
         (this.visualizations = segments.length
-          ? segments[0].path.split(',')
+          ? segments[0].path.split(',').filter(Boolean)
           : []),
     );
   }

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
     <ul class="operators-list">
       <li *ngFor="let operator of operators">
         <input
+          role="nav"
+          aria-label="Select Visualization"
           type="checkbox"
           (change)="select(operator.file, $event)"
           [checked]="hasSelectedOperator(operator)"

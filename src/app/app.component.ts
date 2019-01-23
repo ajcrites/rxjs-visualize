@@ -47,7 +47,7 @@ import {
       </nav>
       <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
         <header class="header">
-          <a routerLink="/"><img src="assets/rxjs-logo.png"/></a>
+          <a routerLink="/"><img src="assets/rxjs-logo.png" alt="home"/></a>
           <h1 class="page-title">RxJS Visualize</h1>
         </header>
         <aside class="small-screen-warning">

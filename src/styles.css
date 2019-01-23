@@ -88,3 +88,23 @@ marble {
     transform: rotate(360deg);
   }
 }
+
+.visualization {
+  position: relative;
+}
+.visualization pre {
+  white-space: pre-wrap;
+}
+
+.refresh-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+.refresh-button:active {
+  top: 12px;
+  right: 8px;
+}

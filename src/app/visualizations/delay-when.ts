@@ -6,7 +6,7 @@ import { delayWhen, take, mapTo } from 'rxjs/operators';
 @Component({
   selector: 'rx-delay-when',
   template: `
-    <h1>Delay</h1>
+    <h1>Delay When</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble>

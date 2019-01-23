@@ -75,3 +75,16 @@ marble {
 .guide.error::before {
   transform: scale(1) rotate(-45deg);
 }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%), rotate(0);
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-nav',
@@ -33,9 +34,15 @@ export class RxNavComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.selectedOperators = window.location.pathname
-      .replace(/^\//, '')
-      .split(',');
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(({ url }: NavigationEnd) => url),
+        startWith(window.location.pathname),
+      )
+      .subscribe(url => {
+        this.selectedOperators = url.replace(/^\//, '').split(',');
+      });
   }
 
   navigate(file) {

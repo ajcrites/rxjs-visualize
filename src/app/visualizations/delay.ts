@@ -7,6 +7,7 @@ import { delay, take } from 'rxjs/operators';
   selector: 'rx-delay',
   template: `
     <h1>Delay</h1>
+    <p>This delays <em>once</em>, the first emission of the Observable.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="delayed"></marble>

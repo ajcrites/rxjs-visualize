@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'rx-visualization',
   template: `
     <div class="visualization">
-      <button class="refresh-button" (click)="refresh()">
+      <button class="refresh-button" (click)="refresh()" *ngIf="showRefresh">
         <img src="assets/refresh.png" alt="refresh" />
       </button>
       <ng-container [ngSwitch]="visualization" *ngIf="show">
@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
         <rx-buffer-toggle *ngSwitchCase="'buffer-toggle'"></rx-buffer-toggle>
         <rx-buffer-when *ngSwitchCase="'buffer-when'"></rx-buffer-when>
         <rx-buffer *ngSwitchCase="'buffer'"></rx-buffer>
-        <rx-catch *ngSwitchCase="'catch'"></rx-catch>
+        <rx-catch-error *ngSwitchCase="'catch-error'"></rx-catch-error>
         <rx-combine-all *ngSwitchCase="'combine-all'"></rx-combine-all>
         <rx-combine-latest *ngSwitchCase="'combine-latest'"></rx-combine-latest>
         <rx-concat-all *ngSwitchCase="'concat-all'"></rx-concat-all>
@@ -37,7 +37,7 @@ import { Component, Input } from '@angular/core';
           *ngSwitchCase="'distinct-until-key-changed'"
         ></rx-distinct-until-key-changed>
         <rx-distinct *ngSwitchCase="'distinct'"></rx-distinct>
-        <rx-do *ngSwitchCase="'do'"></rx-do>
+        <rx-tap *ngSwitchCase="'tap'"></rx-tap>
         <rx-element-at *ngSwitchCase="'element-at'"></rx-element-at>
         <rx-every *ngSwitchCase="'every'"></rx-every>
         <rx-exhaust-map *ngSwitchCase="'exhaust-map'"></rx-exhaust-map>
@@ -94,18 +94,35 @@ import { Component, Input } from '@angular/core';
         <rx-with-latest-from
           *ngSwitchCase="'with-latest-from'"
         ></rx-with-latest-from>
+        <section *ngSwitchDefault #noOperator>
+          <p>
+            The <code>{{ visualization }}</code> operator doesn't have a
+            visualization yet or doesn't exist.
+          </p>
+          <p>
+            You can select operators from the menu on the left, or
+            <a routerLink="/">go home</a>.
+          </p>
+        </section>
       </ng-container>
     </div>
   `,
 })
-export class VisualizationComponent {
-  @Input() visualization = 'distinct-until-key-changed';
-  show = true;
+export class VisualizationComponent implements AfterViewInit {
+  @Input() visualization;
+  @ViewChild('noOperator') noOperator;
 
-  constructor() {}
+  show = true;
+  showRefresh = false;
 
   refresh() {
     this.show = false;
     setTimeout(() => (this.show = true));
+  }
+
+  ngAfterViewInit() {
+    // Run asynchronously so Angular doesn't compain about view changing after
+    // it's been checked
+    setTimeout(() => (this.showRefresh = !this.noOperator));
   }
 }

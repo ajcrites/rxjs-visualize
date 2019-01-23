@@ -7,6 +7,10 @@ import { distinctUntilKeyChanged, map, take } from 'rxjs/operators';
   selector: 'rx-distinct-until-key-changed',
   template: `
     <h1>Distinct Until Key Changed</h1>
+    <p>
+      Works like <code>distinctUntilChanged</code> except for objects. You
+      provide a key to compare between objects.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="display"></marble> <marble [source]="distinct"></marble>
@@ -20,6 +24,7 @@ export class RxDistinctUntilKeyChangedComponent {
     map(key => ({ key: this.values[key] })),
     take(this.values.length),
   );
+  // This is fed from the input Observable and is the first diagram below
   display = this.input.pipe(map(val => val.key));
   distinct = this.input.pipe(
     distinctUntilKeyChanged('key'),

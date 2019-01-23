@@ -72,7 +72,7 @@ import { RxSkipComponent } from './visualizations/skip';
 import { RxSkipUntilComponent } from './visualizations/skip-until';
 import { RxSkipWhileComponent } from './visualizations/skip-while';
 import { RxStartWithComponent } from './visualizations/start-with';
-import { RxSwitchComponent } from './visualizations/switch';
+import { RxSwitchAllComponent } from './visualizations/switch-all';
 import { RxSwitchMapComponent } from './visualizations/switch-map';
 import { RxSwitchMapToComponent } from './visualizations/switch-map-to';
 import { RxTakeComponent } from './visualizations/take';
@@ -161,7 +161,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxSkipUntilComponent,
     RxSkipWhileComponent,
     RxStartWithComponent,
-    RxSwitchComponent,
+    RxSwitchAllComponent,
     RxSwitchMapComponent,
     RxSwitchMapToComponent,
     RxTakeComponent,

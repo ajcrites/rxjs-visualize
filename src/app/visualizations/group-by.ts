@@ -7,6 +7,12 @@ import { groupBy, map, take, mergeAll } from 'rxjs/operators';
   selector: 'rx-group-by',
   template: `
     <h1>Group By</h1>
+    <p>
+      Group By is interesting in that it emits an Observable
+      (<code>GroupedObservable</code>) from non-Obsevable values. Here I create
+      keys '1' and '0' and use these two Observables as sources for the
+      visualizations.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="even"></marble>
@@ -29,6 +35,8 @@ export class RxGroupByComponent {
       }
       return obs;
     }),
+    // This is done so the input Observable emits its values. Otherwise, it
+    // would emit the GroupedObservable `mergeMap` could also be used.
     mergeAll(),
   );
 }

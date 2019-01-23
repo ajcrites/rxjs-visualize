@@ -8,6 +8,10 @@ import { retryWhen, take, map, mapTo } from 'rxjs/operators';
   selector: 'rx-retry-when',
   template: `
     <h1>Retry When</h1>
+    <p>
+      I think that the retry Observable is supposed to be based on the error
+      Observable, so this example can be improved.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="retry" color="yellow"></marble>

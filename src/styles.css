@@ -25,6 +25,7 @@ i {
   font-style: normal;
   font-family: sans-serif;
   box-shadow: 2px 2px 3px #ccc;
+  mix-blend-mode: lighten;
 }
 i:nth-child(4n + 2), i.yellow {
   background-color: #FFCB46;

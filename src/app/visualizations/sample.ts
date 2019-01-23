@@ -23,6 +23,7 @@ export class RxSampleComponent {
     mapNumberToChar(),
     take(10),
   );
+  // Using `sampleTime(1600)` would work the same way
   sample = interval(1600).pipe(mapTo('x'));
   output = this.input.pipe(sample(this.sample));
 }

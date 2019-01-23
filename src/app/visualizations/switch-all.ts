@@ -6,9 +6,9 @@ import { switchAll, map, take } from 'rxjs/operators';
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
-  selector: 'rx-switch',
+  selector: 'rx-switch-all',
   template: `
-    <h1>Switch</h1>
+    <h1>Switch All (formerly <code>.switch</code>)</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble>
@@ -20,7 +20,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <marble [source]="firstOrder"></marble>
   `,
 })
-export class RxSwitchComponent {
+export class RxSwitchAllComponent {
   code = preval`module.exports = require('./codefile')(__filename)`;
 
   initTime = new Date().getTime();

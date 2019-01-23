@@ -7,6 +7,13 @@ import { take, partition } from 'rxjs/operators';
   selector: 'rx-partition',
   template: `
     <h1>Partition</h1>
+    <p>
+      This cannot function as an operator. See:
+      <a href="https://github.com/ReactiveX/rxjs/issues/4419">
+        https://github.com/ReactiveX/rxjs/issues/4419</a
+      >.
+    </p>
+
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="satisfies"></marble>

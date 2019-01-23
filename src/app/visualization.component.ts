@@ -80,7 +80,7 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-start-with *ngSwitchCase="'start-with'"></rx-start-with>
         <rx-switch-map-to *ngSwitchCase="'switch-map-to'"></rx-switch-map-to>
         <rx-switch-map *ngSwitchCase="'switch-map'"></rx-switch-map>
-        <rx-switch *ngSwitchCase="'switch'"></rx-switch>
+        <rx-switch-all *ngSwitchCase="'switch-all'"></rx-switch-all>
         <rx-take-last *ngSwitchCase="'take-last'"></rx-take-last>
         <rx-take-until *ngSwitchCase="'take-until'"></rx-take-until>
         <rx-take-while *ngSwitchCase="'take-while'"></rx-take-while>

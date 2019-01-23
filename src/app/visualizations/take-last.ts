@@ -9,6 +9,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   selector: 'rx-take-last',
   template: `
     <h1>Take Last</h1>
+    <p>This will emit the taken values simultaneously.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

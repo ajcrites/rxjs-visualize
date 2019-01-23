@@ -7,6 +7,10 @@ import { scan, take } from 'rxjs/operators';
   selector: 'rx-scan',
   template: `
     <h1>Scan</h1>
+    <p>
+      This is similar to <code>reduce</code> except that it emits every time the
+      source emits except of only emitting on completion.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

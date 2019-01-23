@@ -7,6 +7,7 @@ import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
   selector: 'rx-expand',
   template: `
     <h1>Expand</h1>
+    <p>This visualization is broken</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble>

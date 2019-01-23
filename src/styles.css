@@ -25,6 +25,7 @@ i {
   font-style: normal;
   font-family: sans-serif;
   box-shadow: 2px 2px 3px #ccc;
+  mix-blend-mode: lighten;
 }
 i:nth-child(4n + 2), i.yellow {
   background-color: #FFCB46;
@@ -74,4 +75,37 @@ marble {
 }
 .guide.error::before {
   transform: scale(1) rotate(-45deg);
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%), rotate(0);
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.visualization {
+  position: relative;
+}
+.visualization pre {
+  white-space: pre-wrap;
+}
+
+.refresh-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+.refresh-button:active {
+  top: 12px;
+  right: 8px;
 }

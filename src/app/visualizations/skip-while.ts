@@ -6,12 +6,15 @@ import { skipWhile, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-skip-while',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Skip While</h2>
-    <marble [source]="output"></marble>
+    <h1>Skip While</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxSkipWhileComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(take(6));
   output = this.input.pipe(skipWhile(val => val !== 3));
 }

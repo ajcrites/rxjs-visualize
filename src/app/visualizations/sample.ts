@@ -8,17 +8,22 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-sample',
   template: `
+    <h1>Sample</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input"></marble>
     <marble [source]="sample" color="green" [main]="input"></marble>
-    <h2>Sample</h2>
     <marble [source]="output"></marble>
   `,
 })
 export class RxSampleComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(
     mapNumberToChar(),
     take(10),
   );
+  // Using `sampleTime(1600)` would work the same way
   sample = interval(1600).pipe(mapTo('x'));
   output = this.input.pipe(sample(this.sample));
 }

@@ -6,12 +6,19 @@ import { take, reduce } from 'rxjs/operators';
 @Component({
   selector: 'rx-reduce',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Reduce</h2>
-    <marble [source]="output"></marble>
+    <h1>Reduce</h1>
+    <p>
+      This is similar to <code>scan</code>, but it waits until the source
+      completes before emitting.
+    </p>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxReduceComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(reduce((acc, curr) => acc + curr, 1));
 }

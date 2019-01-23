@@ -8,13 +8,17 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-window-when',
   template: `
+    <h1>Window When</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input"></marble>
     <marble [source]="notifier" [main]="input" color="blue"></marble>
-    <h2>Window When</h2>
     <marble [source]="output"></marble>
   `,
 })
 export class RxWindowWhenComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   // I don't understand this one fully
   input = interval(1000).pipe(
     mapNumberToChar(),

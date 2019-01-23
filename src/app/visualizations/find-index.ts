@@ -8,12 +8,15 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-find-index',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Find Index</h2>
-    <marble [source]="output"></marble>
+    <h1>Find Index</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxFindIndexComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(
     take(5),
     mapNumberToChar(),

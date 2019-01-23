@@ -6,13 +6,23 @@ import { every, mapTo, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-every',
   template: `
+    <h1>Every</h1>
+    <p>
+      This checks that every element in an Observable matches some predicate. If
+      <code>every</code> fails, it will emit <code>false</code> immediately and
+      complete. Otherwise you have to wait until the source completes to see if
+      it passed.
+    </p>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="passEvery"></marble>
-    <marble [source]="failEvery"></marble>
-    <h2>Every</h2>
-    <marble [source]="passed"></marble> <marble [source]="failed"></marble>
+    <marble [source]="failEvery"></marble> <marble [source]="passed"></marble>
+    <marble [source]="failed"></marble>
   `,
 })
 export class RxEveryComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   passEvery = interval(1000).pipe(
     take(5),
     mapTo('a'),

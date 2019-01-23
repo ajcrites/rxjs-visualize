@@ -1,15 +1,23 @@
 import { Component } from '@angular/core';
 
 import { empty } from 'rxjs';
-import { defaultIfEmpty } from 'rxjs/operators';
+import { delay, defaultIfEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-default-if-empty',
   template: `
-    <h2>Default If Empty</h2>
+    <h1>Default If Empty</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="default"></marble>
   `,
 })
 export class RxDefaultIfEmptyComponent {
-  default = empty().pipe(defaultIfEmpty('e'));
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
+  // If delay is not used, the visualization will run instantly and look strange
+  default = empty().pipe(
+    delay(1000),
+    defaultIfEmpty('e'),
+  );
 }

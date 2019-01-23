@@ -8,13 +8,17 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-window-toggle',
   template: `
+    <h1>Window Toggle</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input"></marble>
     <marble [source]="notifier" [main]="input" color="blue"></marble>
-    <h2>Window Toggle</h2>
     <marble [source]="output"></marble>
   `,
 })
 export class RxWindowToggleComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(
     mapNumberToChar(),
     take(20),

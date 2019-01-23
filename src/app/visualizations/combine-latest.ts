@@ -8,12 +8,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-combine-latest',
   template: `
+    <h1>Combine Latest</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="first"></marble> <marble [source]="second"></marble>
-    <h2>Combine Latest</h2>
     <marble [source]="combined"></marble>
   `,
 })
 export class RxCombineLatestComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   first = interval(1500).pipe(
     take(15),
     mapNumberToChar(),

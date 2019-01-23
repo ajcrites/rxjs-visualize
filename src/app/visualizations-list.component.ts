@@ -37,7 +37,7 @@ import { ActivatedRoute } from '@angular/router';
           <a routerLink="/filter"><code>filter</code></a>
         </li>
         <li>
-          <a routerLink="/catch"><code>catch</code></a>
+          <a routerLink="/catch-error"><code>catchError</code></a>
         </li>
         <li>
           <a routerLink="/take"><code>take</code></a>

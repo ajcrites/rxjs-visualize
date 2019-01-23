@@ -6,12 +6,15 @@ import { distinct, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-distinct',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Distinct</h2>
-    <marble [source]="distinct"></marble>
+    <h1>Distinct</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="distinct"></marble>
   `,
 })
 export class RxDistinctComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(
     map(val => (val % 2 ? val : 0)),
     take(20),

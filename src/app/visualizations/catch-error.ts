@@ -6,16 +6,16 @@ import { tap, take, map, catchError, finalize } from 'rxjs/operators';
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
-  selector: 'rx-catch',
+  selector: 'rx-catch-error',
   template: `
-    <h1>Catch</h1>
+    <h1>Catch Error (formerly <code>.catch</code>)</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preCatch"></marble>
     <marble [source]="postCatch"></marble> <marble [source]="caught"></marble>
   `,
 })
-export class RxCatchComponent {
+export class RxCatchErrorComponent {
   code = preval`module.exports = require('./codefile')(__filename)`;
 
   // Throw an error on the 5th emission. Then, create a new observable

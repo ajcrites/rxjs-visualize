@@ -8,19 +8,16 @@ import { take, bufferTime } from 'rxjs/operators';
   template: `
     <h1>Buffer Time</h1>
     <p>Similar to how <code>auditTime</code> works, but for buffers.</p>
-    <pre>
-      preBuffer = Observable.interval(1000).take(20);
-      // Practically equivalent to <code>.buffer(Observable.interval(3000))</code>
-      postBuffer = this.preBuffer.bufferTime(3000);
-    </pre
-    >
+    <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preBuffer"></marble>
     <marble [source]="postBuffer"></marble>
   `,
 })
 export class RxBufferTimeComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   preBuffer = interval(1000).pipe(take(20));
-  // Practically equivalent to <code>.buffer(Observable.interval(3000))</code>
+  // Practically equivalent to `buffer(interval(3000))`
   postBuffer = this.preBuffer.pipe(bufferTime(3000));
 }

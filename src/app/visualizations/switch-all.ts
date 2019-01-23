@@ -6,19 +6,23 @@ import { switchAll, map, take } from 'rxjs/operators';
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
-  selector: 'rx-switch',
+  selector: 'rx-switch-all',
   template: `
+    <h1>Switch All (formerly <code>.switch</code>)</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble>
     <marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Switch</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
-export class RxSwitchComponent {
+export class RxSwitchAllComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   lowerOrders = [];
   higherOrder = interval(2000).pipe(

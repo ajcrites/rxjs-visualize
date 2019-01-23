@@ -8,17 +8,21 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-window-count',
   template: `
+    <h1>Window Count</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="input"></marble>
     <marble
       *ngFor="let source of windows"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Window Count</h2>
     <marble [source]="output"></marble>
   `,
 })
 export class RxWindowCountComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   input = interval(1000).pipe(
     mapNumberToChar(),

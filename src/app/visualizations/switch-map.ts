@@ -8,17 +8,21 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-switch-map',
   template: `
+    <h1>Switch Map</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="higherOrder"></marble>
     <marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
     ></marble>
-    <h2>Switch Map</h2>
     <marble [source]="firstOrder"></marble>
   `,
 })
 export class RxSwitchMapComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   initTime = new Date().getTime();
   lowerOrders = [];
   higherOrder = interval(2000).pipe(

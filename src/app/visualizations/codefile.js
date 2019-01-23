@@ -11,9 +11,8 @@ module.exports = filename => {
     .toString()
     // Extract class declaration contents
     .replace(/[\s\S]*export class[\s\S]*?{([\s\S]*)}/, '$1')
-    // Allow `{` to be displayed in the Angular template
     // Remove the line that sets this `code` property for display
     .replace(/\s+code.*[\n]*/, '')
     // Dedent all lines
-    .replace(/(^|\n)\s\s/g, '$1')
+    .replace(/(^|\n+)\s\s/g, '$1')
 };

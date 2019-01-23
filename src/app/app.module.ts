@@ -15,7 +15,7 @@ import { RxBufferCountComponent } from './visualizations/buffer-count';
 import { RxBufferTimeComponent } from './visualizations/buffer-time';
 import { RxBufferToggleComponent } from './visualizations/buffer-toggle';
 import { RxBufferWhenComponent } from './visualizations/buffer-when';
-import { RxCatchComponent } from './visualizations/catch';
+import { RxCatchErrorComponent } from './visualizations/catch-error';
 import { RxCombineAllComponent } from './visualizations/combine-all';
 import { RxCombineLatestComponent } from './visualizations/combine-latest';
 import { RxConcatComponent } from './visualizations/concat';
@@ -31,7 +31,7 @@ import { RxDelayWhenComponent } from './visualizations/delay-when';
 import { RxDistinctComponent } from './visualizations/distinct';
 import { RxDistinctUntilChangedComponent } from './visualizations/distinct-until-changed';
 import { RxDistinctUntilKeyChangedComponent } from './visualizations/distinct-until-key-changed';
-import { RxDoComponent } from './visualizations/do';
+import { RxTapComponent } from './visualizations/tap';
 import { RxElementAtComponent } from './visualizations/element-at';
 import { RxEveryComponent } from './visualizations/every';
 import { RxExhaustComponent } from './visualizations/exhaust';
@@ -72,7 +72,7 @@ import { RxSkipComponent } from './visualizations/skip';
 import { RxSkipUntilComponent } from './visualizations/skip-until';
 import { RxSkipWhileComponent } from './visualizations/skip-while';
 import { RxStartWithComponent } from './visualizations/start-with';
-import { RxSwitchComponent } from './visualizations/switch';
+import { RxSwitchAllComponent } from './visualizations/switch-all';
 import { RxSwitchMapComponent } from './visualizations/switch-map';
 import { RxSwitchMapToComponent } from './visualizations/switch-map-to';
 import { RxTakeComponent } from './visualizations/take';
@@ -104,7 +104,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxBufferTimeComponent,
     RxBufferToggleComponent,
     RxBufferWhenComponent,
-    RxCatchComponent,
+    RxCatchErrorComponent,
     RxCombineAllComponent,
     RxCombineLatestComponent,
     RxConcatComponent,
@@ -120,7 +120,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxDistinctComponent,
     RxDistinctUntilChangedComponent,
     RxDistinctUntilKeyChangedComponent,
-    RxDoComponent,
+    RxTapComponent,
     RxElementAtComponent,
     RxEveryComponent,
     RxExhaustComponent,
@@ -161,7 +161,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxSkipUntilComponent,
     RxSkipWhileComponent,
     RxStartWithComponent,
-    RxSwitchComponent,
+    RxSwitchAllComponent,
     RxSwitchMapComponent,
     RxSwitchMapToComponent,
     RxTakeComponent,

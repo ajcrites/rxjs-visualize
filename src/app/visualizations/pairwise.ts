@@ -6,12 +6,15 @@ import { take, pairwise } from 'rxjs/operators';
 @Component({
   selector: 'rx-pairwise',
   template: `
-    <marble [source]="input"></marble>
-    <h2>Pairwise</h2>
-    <marble [source]="output"></marble>
+    <h1>Pairwise</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxPairwiseComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   input = interval(1000).pipe(take(10));
   output = this.input.pipe(pairwise());
 }

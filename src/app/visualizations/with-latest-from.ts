@@ -8,12 +8,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-with-latest-from',
   template: `
+    <h1>With Latest From</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="letters"></marble> <marble [source]="numbers"></marble>
-    <h2>With Latest From</h2>
     <marble [source]="combined"></marble>
   `,
 })
 export class RxWithLatestFromComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   letters = interval(1500).pipe(
     mapNumberToChar(),
     take(7),

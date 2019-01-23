@@ -8,12 +8,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-concat',
   template: `
+    <h1>Concat</h1>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
     <marble [source]="first"></marble> <marble [source]="second"></marble>
-    <h2>Concat</h2>
     <marble [source]="concatenated"></marble>
   `,
 })
 export class RxConcatComponent {
+  code = preval`module.exports = require('./codefile')(__filename)`;
+
   first = interval(1000).pipe(
     take(10),
     mapNumberToChar(),

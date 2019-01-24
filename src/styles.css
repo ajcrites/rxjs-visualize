@@ -27,20 +27,20 @@ i {
   box-shadow: 2px 2px 3px #ccc;
   mix-blend-mode: lighten;
 }
-i:nth-child(4n + 2), i.yellow {
+i:nth-of-type(4n + 2), i.yellow {
   background-color: #FFCB46;
   background-image: radial-gradient(circle at 25% 25%, #ffe4a2, #ffcb46, #a27400);
 }
-i:nth-child(4n + 3), i.blue {
+i:nth-of-type(4n + 3), i.blue {
   background-color: #3EA1CB;
   background-image: radial-gradient(circle at 25% 25%, #8ec8e1, #3EA1CB, #226581);
 }
-i:nth-child(4n + 4), i.green {
+i:nth-of-type(4n + 4), i.green {
   background-color: #82D736;
   background-image: radial-gradient(circle at 25% 25%, #b7e88c, #82D736, #508d1c);
 }
 
-marble {
+marble, .marble {
   display: block;
   height: 60px;
   position: relative;
@@ -75,6 +75,14 @@ marble {
 }
 .guide.error::before {
   transform: scale(1) rotate(-45deg);
+}
+.guide.example-guide {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  top: 0;
+  left: 0;
 }
 
 .loading {

@@ -66,7 +66,6 @@ import { RxPublishComponent } from './visualizations/publish';
 import { RxPublishBehaviorComponent } from './visualizations/publish-behavior';
 import { RxPublishLastComponent } from './visualizations/publish-last';
 import { RxPublishReplayComponent } from './visualizations/publish-replay';
-import { RxRaceComponent } from './visualizations/race';
 import { RxReduceComponent } from './visualizations/reduce';
 import { RxRefCountComponent } from './visualizations/ref-count';
 import { RxRepeatComponent } from './visualizations/repeat';
@@ -176,7 +175,6 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxPublishBehaviorComponent,
     RxPublishLastComponent,
     RxPublishReplayComponent,
-    RxRaceComponent,
     RxReduceComponent,
     RxRefCountComponent,
     RxRepeatComponent,

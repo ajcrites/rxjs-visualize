@@ -78,7 +78,6 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         ></rx-publish-behavior>
         <rx-publish-last *ngSwitchCase="'publish-last'"></rx-publish-last>
         <rx-publish-replay *ngSwitchCase="'publish-replay'"></rx-publish-replay>
-        <rx-race *ngSwitchCase="'race'"></rx-race>
         <rx-reduce *ngSwitchCase="'reduce'"></rx-reduce>
         <rx-ref-count *ngSwitchCase="'ref-count'"></rx-ref-count>
         <rx-repeat-when *ngSwitchCase="'repeat-when'"></rx-repeat-when>

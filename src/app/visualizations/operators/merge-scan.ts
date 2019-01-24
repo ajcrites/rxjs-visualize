@@ -19,7 +19,7 @@ import { mergeScan, skip, take, map } from 'rxjs/operators';
   `,
 })
 export class RxMergeScanComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   // I don't fully understand this one yet; will revisit after `scan`
   initTime = new Date().getTime();

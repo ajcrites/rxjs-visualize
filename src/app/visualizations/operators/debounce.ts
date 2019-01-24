@@ -13,7 +13,7 @@ import { take, mergeMap, map, debounce } from 'rxjs/operators';
   `,
 })
 export class RxDebounceComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   // Debounce timer starts over when a value is emitted
   // Emit multiple values, but then do not emit another value until after 1 second

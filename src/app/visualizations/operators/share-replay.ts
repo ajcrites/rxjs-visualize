@@ -17,7 +17,7 @@ import { take, shareReplay, mergeMapTo } from 'rxjs/operators';
   `,
 })
 export class RxShareReplayComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(4));
   subject = this.input.pipe(shareReplay(1));

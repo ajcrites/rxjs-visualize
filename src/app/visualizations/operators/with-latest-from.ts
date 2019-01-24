@@ -16,7 +16,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   `,
 })
 export class RxWithLatestFromComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   letters = interval(1500).pipe(
     mapNumberToChar(),

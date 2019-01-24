@@ -13,7 +13,7 @@ import { take, map, pluck } from 'rxjs/operators';
   `,
 })
 export class RxPluckComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   values = [1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4, 4, 3, 1, 1, 2];
   input = interval(1000).pipe(

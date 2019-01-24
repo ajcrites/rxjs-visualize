@@ -20,7 +20,7 @@ import { take, timeInterval, pluck } from 'rxjs/operators';
   `,
 })
 export class RxTimeIntervalComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(950).pipe(take(20));
   // not shown

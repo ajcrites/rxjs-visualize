@@ -20,7 +20,7 @@ import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
   `,
 })
 export class RxExpandComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
   lowerOrders = [];

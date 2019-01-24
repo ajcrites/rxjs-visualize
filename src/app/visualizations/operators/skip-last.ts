@@ -17,7 +17,7 @@ import { take, skipLast } from 'rxjs/operators';
   `,
 })
 export class RxSkipLastComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(skipLast(2));

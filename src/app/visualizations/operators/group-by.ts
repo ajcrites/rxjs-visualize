@@ -20,7 +20,7 @@ import { groupBy, map, take, mergeAll } from 'rxjs/operators';
   `,
 })
 export class RxGroupByComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   even = new Subject();
   odd = new Subject();

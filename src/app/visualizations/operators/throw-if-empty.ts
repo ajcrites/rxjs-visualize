@@ -13,7 +13,7 @@ import { mergeMapTo, throwIfEmpty } from 'rxjs/operators';
   `,
 })
 export class RxThrowIfEmptyComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   throws = timer(2000).pipe(
     mergeMapTo(EMPTY),

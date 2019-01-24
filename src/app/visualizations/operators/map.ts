@@ -13,7 +13,7 @@ import { take, map } from 'rxjs/operators';
   `,
 })
 export class RxMapComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(20));
   output = this.input.pipe(map(val => val * 10));

@@ -18,7 +18,7 @@ import { observeOn, take } from 'rxjs/operators';
   `,
 })
 export class RxObserveOnComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(observeOn(animationFrameScheduler, 100));

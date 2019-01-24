@@ -13,7 +13,7 @@ import { tap, take } from 'rxjs/operators';
   `,
 })
 export class RxTapComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(20));
   // tslint:disable-next-line:no-console ... open your console!

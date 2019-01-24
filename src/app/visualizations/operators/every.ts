@@ -21,7 +21,7 @@ import { every, mapTo, map, take } from 'rxjs/operators';
   `,
 })
 export class RxEveryComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   passEvery = interval(1000).pipe(
     take(5),

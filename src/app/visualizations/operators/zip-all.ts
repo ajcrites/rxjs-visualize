@@ -20,7 +20,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   `,
 })
 export class RxZipAllComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     mapNumberToChar(),

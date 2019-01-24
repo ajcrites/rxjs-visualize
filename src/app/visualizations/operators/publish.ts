@@ -13,7 +13,7 @@ import { tap, take, publish } from 'rxjs/operators';
   `,
 })
 export class RxPublishComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     take(20),

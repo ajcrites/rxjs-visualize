@@ -17,7 +17,7 @@ import { tap, take, mapTo, publishLast } from 'rxjs/operators';
   `,
 })
 export class RxPublishLastComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     take(5),

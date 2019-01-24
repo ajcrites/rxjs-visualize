@@ -13,7 +13,7 @@ import { take, repeat } from 'rxjs/operators';
   `,
 })
 export class RxRepeatComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(3));
   output = this.input.pipe(repeat(3));

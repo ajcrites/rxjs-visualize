@@ -17,7 +17,7 @@ import { scan, take } from 'rxjs/operators';
   `,
 })
 export class RxScanComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(scan((acc, curr) => acc + curr, 1));

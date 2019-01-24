@@ -19,7 +19,7 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
   `,
 })
 export class RxRepeatWhenComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(3000).pipe(
     take(3),

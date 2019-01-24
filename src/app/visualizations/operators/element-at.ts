@@ -14,7 +14,7 @@ import { elementAt, take } from 'rxjs/operators';
   `,
 })
 export class RxElementAtComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   elementAt = this.input.pipe(elementAt(2));

@@ -94,6 +94,7 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-skip *ngSwitchCase="'skip'"></rx-skip>
         <rx-start-with *ngSwitchCase="'start-with'"></rx-start-with>
         <rx-share-replay *ngSwitchCase="'share-replay'"></rx-share-replay>
+        <rx-share *ngSwitchCase="'share'"></rx-share>
         <rx-skip-last *ngSwitchCase="'skip-last'"></rx-skip-last>
         <rx-subscribe-on *ngSwitchCase="'subscribe-on'"></rx-subscribe-on>
         <rx-switch-map-to *ngSwitchCase="'switch-map-to'"></rx-switch-map-to>

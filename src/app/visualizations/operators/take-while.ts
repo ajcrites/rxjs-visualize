@@ -13,7 +13,7 @@ import { takeWhile, take } from 'rxjs/operators';
   `,
 })
 export class RxTakeWhileComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(takeWhile(val => val !== 3));

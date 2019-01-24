@@ -13,7 +13,7 @@ import { take, map, min } from 'rxjs/operators';
   `,
 })
 export class RxMinComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   values = [1, -1, 2, 4, 0];
   input = interval(1000).pipe(

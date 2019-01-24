@@ -14,7 +14,7 @@ import { mergeMapTo, mapTo, take } from 'rxjs/operators';
   `,
 })
 export class RxMergeMapToComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   higherOrder = interval(1000).pipe(
     take(4),

@@ -19,7 +19,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   `,
 })
 export class RxEndWithComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     take(3),

@@ -21,7 +21,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   `,
 })
 export class RxMergeMapComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
   lowerOrders = [];

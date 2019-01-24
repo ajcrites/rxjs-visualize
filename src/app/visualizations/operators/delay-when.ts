@@ -19,7 +19,7 @@ import { delayWhen, take, mapTo } from 'rxjs/operators';
   `,
 })
 export class RxDelayWhenComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
   delays = [];

@@ -15,7 +15,7 @@ import { take, bufferTime } from 'rxjs/operators';
   `,
 })
 export class RxBufferTimeComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   preBuffer = interval(1000).pipe(take(20));
   // Practically equivalent to `buffer(interval(3000))`

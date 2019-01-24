@@ -13,7 +13,7 @@ import { skipWhile, take } from 'rxjs/operators';
   `,
 })
 export class RxSkipWhileComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(6));
   output = this.input.pipe(skipWhile(val => val !== 3));

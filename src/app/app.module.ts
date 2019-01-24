@@ -77,6 +77,7 @@ import { RxSampleComponent } from './visualizations/operators/sample';
 import { RxSampleTimeComponent } from './visualizations/operators/sample-time';
 import { RxScanComponent } from './visualizations/operators/scan';
 import { RxSequenceEqualComponent } from './visualizations/operators/sequence-equal';
+import { RxShareComponent } from './visualizations/operators/share';
 import { RxShareReplayComponent } from './visualizations/operators/share-replay';
 import { RxSingleComponent } from './visualizations/operators/single';
 import { RxSkipLastComponent } from './visualizations/operators/skip-last';
@@ -186,6 +187,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxSampleTimeComponent,
     RxScanComponent,
     RxSequenceEqualComponent,
+    RxShareComponent,
     RxShareReplayComponent,
     RxSkipLastComponent,
     RxSingleComponent,

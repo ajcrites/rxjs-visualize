@@ -19,7 +19,7 @@ import { retryWhen, take, map, mapTo } from 'rxjs/operators';
   `,
 })
 export class RxRetryWhenComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   retry = interval(4000).pipe(
     take(2),

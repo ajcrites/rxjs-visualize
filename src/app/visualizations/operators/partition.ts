@@ -21,7 +21,7 @@ import { take, partition } from 'rxjs/operators';
   `,
 })
 export class RxPartitionComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(20));
   partitioned = partition((val: number) => !!(val % 2))(this.input);

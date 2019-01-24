@@ -19,7 +19,7 @@ import { exhaustMap, map, take } from 'rxjs/operators';
   `,
 })
 export class RxExhaustMapComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
   lowerOrders = [];

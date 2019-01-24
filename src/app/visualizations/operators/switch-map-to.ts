@@ -14,7 +14,7 @@ import { switchMapTo, mapTo, take } from 'rxjs/operators';
   `,
 })
 export class RxSwitchMapToComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   higherOrder = interval(2000).pipe(
     take(4),

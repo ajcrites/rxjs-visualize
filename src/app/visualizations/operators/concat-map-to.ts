@@ -14,7 +14,7 @@ import { take, mapTo, concatMapTo } from 'rxjs/operators';
   `,
 })
 export class RxConcatMapToComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   higherOrder = interval(1000).pipe(
     take(4),

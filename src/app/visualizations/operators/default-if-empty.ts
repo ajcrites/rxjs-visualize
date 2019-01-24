@@ -13,7 +13,7 @@ import { delay, defaultIfEmpty } from 'rxjs/operators';
   `,
 })
 export class RxDefaultIfEmptyComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   // If delay is not used, the visualization will run instantly and look strange
   default = EMPTY.pipe(

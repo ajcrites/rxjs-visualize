@@ -17,7 +17,7 @@ import { take, pairwise } from 'rxjs/operators';
   `,
 })
 export class RxPairwiseComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(10));
   output = this.input.pipe(pairwise());

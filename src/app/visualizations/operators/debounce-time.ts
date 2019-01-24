@@ -13,7 +13,7 @@ import { take, mergeMap, map, debounceTime } from 'rxjs/operators';
   `,
 })
 export class RxDebounceTimeComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   // This is essentially the same as `debounce`, with `interval`.
   input = interval(2000).pipe(

@@ -13,7 +13,7 @@ import { retry, map } from 'rxjs/operators';
   `,
 })
 export class RxRetryComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     map(val => {

@@ -25,7 +25,7 @@ import { take, mapTo, buffer } from 'rxjs/operators';
   `,
 })
 export class RxBufferComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   preBuffer = interval(1000).pipe(take(20));
   buffer = interval(3000).pipe(mapTo('B'));

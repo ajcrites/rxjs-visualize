@@ -17,7 +17,7 @@ import { sequenceEqual, take, mapTo } from 'rxjs/operators';
   `,
 })
 export class RxSequenceEqualComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   compare = interval(1000).pipe(take(5));
   compareTo = interval(1200).pipe(take(5));

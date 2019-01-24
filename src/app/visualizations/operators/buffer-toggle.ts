@@ -16,7 +16,7 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
   `,
 })
 export class RxBufferToggleComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   preBuffer = interval(1000).pipe(take(20));
   openBuffer = interval(4250).pipe(mapTo('o'));

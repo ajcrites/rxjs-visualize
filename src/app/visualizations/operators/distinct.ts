@@ -13,7 +13,7 @@ import { distinct, map, take } from 'rxjs/operators';
   `,
 })
 export class RxDistinctComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     map(val => (val % 2 ? val : 0)),

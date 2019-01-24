@@ -18,7 +18,7 @@ import { tap, take, publishReplay, mergeMapTo } from 'rxjs/operators';
   `,
 })
 export class RxPublishReplayComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
     take(5),

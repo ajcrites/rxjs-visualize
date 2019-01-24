@@ -15,7 +15,7 @@ import { tap, take, map, combineAll } from 'rxjs/operators';
   `,
 })
 export class RxCombineAllComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   outer = interval(1000).pipe(take(20));
   inner = new Subject();

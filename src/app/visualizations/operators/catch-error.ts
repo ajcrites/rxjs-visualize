@@ -16,7 +16,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   `,
 })
 export class RxCatchErrorComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   // Throw an error on the 5th emission. Then, create a new observable
   // and keep going. This also switches letters to numbers; it essentially

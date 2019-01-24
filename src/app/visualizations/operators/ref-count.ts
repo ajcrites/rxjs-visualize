@@ -19,7 +19,7 @@ import { take, publish, refCount, mergeMapTo } from 'rxjs/operators';
   `,
 })
 export class RxRefCountComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(20));
   subject = this.input.pipe(

@@ -13,7 +13,7 @@ import { take, first } from 'rxjs/operators';
   `,
 })
 export class RxFirstComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(3));
   output = this.input.pipe(first());

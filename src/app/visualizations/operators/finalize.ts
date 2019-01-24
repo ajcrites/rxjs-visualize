@@ -13,7 +13,7 @@ import { take, finalize } from 'rxjs/operators';
   `,
 })
 export class RxFinalizeComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   // tslint:disable-next-line:no-console ... open your console!

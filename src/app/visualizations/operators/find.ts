@@ -14,7 +14,7 @@ import { take, find } from 'rxjs/operators';
   `,
 })
 export class RxFindComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(take(5));
   output = this.input.pipe(find(val => val > 1));

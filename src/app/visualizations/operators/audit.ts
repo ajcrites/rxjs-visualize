@@ -13,7 +13,7 @@ import { take, audit } from 'rxjs/operators';
   `,
 })
 export class RxAuditComponent {
-  code = preval`module.exports = require('./codefile')(__filename)`;
+  code = preval`module.exports = require('../codefile')(__filename)`;
 
   preAudit = interval(1000).pipe(take(20));
   // Interestingly, when the source Observable (preAudit) completes, the

@@ -20,6 +20,7 @@ export class RxPluckComponent {
     map(key => ({ key: this.values[key] })),
     take(this.values.length),
   );
+  // These funciton identically
   display = this.input.pipe(map(val => val.key));
   output = this.input.pipe(pluck('key'));
 }

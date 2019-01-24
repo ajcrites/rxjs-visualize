@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-merge-map',
   template: `
-    <h1>Merge Map</h1>
+    <h1>Merge Map (aka <code>flatMap</code>)</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble>

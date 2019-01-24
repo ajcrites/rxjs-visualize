@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
 
 import { interval } from 'rxjs';
-import { take, count } from 'rxjs/operators';
+import { windowTime, map, take, mergeAll } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
-  selector: 'rx-count',
+  selector: 'rx-window-time',
   template: `
-    <h1>Count</h1>
+    <h1>windowTime</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="count"></marble>
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
-export class RxCountComponent {
+export class RxWindowTimeComponent {
   code = preval`module.exports = require('./codefile')(__filename)`;
 
   input = interval(1000).pipe(
-    take(5),
     mapNumberToChar(),
+    take(10),
   );
-  count = this.input.pipe(count());
+  output = this.input.pipe(
+    windowTime(3500),
+    map(win => win.pipe(take(2))),
+    mergeAll(),
+  );
 }

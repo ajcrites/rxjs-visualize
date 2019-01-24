@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animations } from './visualizations.animations';
 
-import { never } from 'rxjs';
+import { NEVER } from 'rxjs';
 
 @Component({
   animations,
@@ -35,7 +35,7 @@ export class Marble implements OnInit {
   // Main Observable for the example. When it completes, stop the source
   // This is only needed if the source will not stop on its own in a
   // reasonable way
-  @Input() main = never();
+  @Input() main = NEVER;
 
   // Force color to simplify tracking of some inputs
   @Input() color = '';

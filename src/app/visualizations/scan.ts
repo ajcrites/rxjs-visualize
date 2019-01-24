@@ -9,7 +9,7 @@ import { scan, take } from 'rxjs/operators';
     <h1>Scan</h1>
     <p>
       This is similar to <code>reduce</code> except that it emits every time the
-      source emits except of only emitting on completion.
+      source emits instead of only emitting on completion.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

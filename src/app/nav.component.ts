@@ -5,18 +5,21 @@ import { filter, map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'rx-nav',
   template: `
-    <ul class="operators-list">
-      <li *ngFor="let operator of operators">
-        <input
-          role="nav"
-          aria-label="Select Visualization"
-          type="checkbox"
-          (change)="select(operator.file, $event)"
-          [checked]="hasSelectedOperator(operator)"
-        />
-        <a (click)="navigate(operator.file)">{{ operator.name }}</a>
-      </li>
-    </ul>
+    <h1 class="menu-section-title">Operators</h1>
+    <div class="nav-list-container">
+      <ul class="operators-list">
+        <li *ngFor="let operator of operators">
+          <input
+            role="nav"
+            aria-label="Select Visualization"
+            type="checkbox"
+            (change)="select(operator.file, $event)"
+            [checked]="hasSelectedOperator(operator)"
+          />
+          <a (click)="navigate(operator.file)">{{ operator.name }}</a>
+        </li>
+      </ul>
+    </div>
   `,
 })
 export class RxNavComponent implements OnInit {
@@ -25,7 +28,7 @@ export class RxNavComponent implements OnInit {
   operators = preval`
     const fs = require('fs');
     const { camelCase } = require('lodash');
-    module.exports = fs.readdirSync(__dirname + '/visualizations').
+    module.exports = fs.readdirSync(__dirname + '/visualizations/operators').
       filter(file => /\.ts$/.test(file)).map(file =>
       file.replace('.ts', '')
     ).map(operator => ({ file: operator, name: camelCase(operator) }))

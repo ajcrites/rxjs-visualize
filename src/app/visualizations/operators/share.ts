@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { interval, from } from 'rxjs';
-import { take, tap, share, map } from 'rxjs/operators';
+import { interval, from, timer } from 'rxjs';
+import { take, tap, share, map, mergeMapTo } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -26,6 +26,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
     <marble [source]="input"></marble> <marble [source]="subject"></marble>
     <marble [source]="outputa"></marble> <marble [source]="outputb"></marble>
+    <marble [source]="outputc"></marble>
   `,
 })
 export class RxShareComponent {
@@ -39,4 +40,6 @@ export class RxShareComponent {
   subject = this.input.pipe(share());
   outputa = from(this.subject).pipe(map(val => val + 3));
   outputb = from(this.subject).pipe(mapNumberToChar());
+  // `share` does not replay values
+  outputc = timer(3500).pipe(mergeMapTo(this.subject));
 }

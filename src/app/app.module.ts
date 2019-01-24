@@ -77,11 +77,14 @@ import { RxSampleComponent } from './visualizations/sample';
 import { RxSampleTimeComponent } from './visualizations/sample-time';
 import { RxScanComponent } from './visualizations/scan';
 import { RxSequenceEqualComponent } from './visualizations/sequence-equal';
+import { RxShareReplayComponent } from './visualizations/share-replay';
 import { RxSingleComponent } from './visualizations/single';
-import { RxSkipComponent } from './visualizations/skip';
+import { RxSkipLastComponent } from './visualizations/skip-last';
 import { RxSkipUntilComponent } from './visualizations/skip-until';
 import { RxSkipWhileComponent } from './visualizations/skip-while';
+import { RxSkipComponent } from './visualizations/skip';
 import { RxStartWithComponent } from './visualizations/start-with';
+import { RxSubscribeOnComponent } from './visualizations/subscribe-on';
 import { RxSwitchAllComponent } from './visualizations/switch-all';
 import { RxSwitchMapComponent } from './visualizations/switch-map';
 import { RxSwitchMapToComponent } from './visualizations/switch-map-to';
@@ -91,11 +94,19 @@ import { RxTakeUntilComponent } from './visualizations/take-until';
 import { RxTakeWhileComponent } from './visualizations/take-while';
 import { RxThrottleComponent } from './visualizations/throttle';
 import { RxThrottleTimeComponent } from './visualizations/throttle-time';
+import { RxThrowIfEmptyComponent } from './visualizations/throw-if-empty';
+import { RxTimeIntervalComponent } from './visualizations/time-interval';
+import { RxTimeoutComponent } from './visualizations/timeout';
+import { RxTimeoutWithComponent } from './visualizations/timeout-with';
+import { RxTimestampComponent } from './visualizations/timestamp';
+import { RxToArrayComponent } from './visualizations/to-array';
 import { RxWindowComponent } from './visualizations/window';
 import { RxWindowCountComponent } from './visualizations/window-count';
+import { RxWindowTimeComponent } from './visualizations/window-time';
 import { RxWindowToggleComponent } from './visualizations/window-toggle';
 import { RxWindowWhenComponent } from './visualizations/window-when';
 import { RxWithLatestFromComponent } from './visualizations/with-latest-from';
+import { RxZipAllComponent } from './visualizations/zip-all';
 
 import { Marble } from './marble';
 
@@ -176,11 +187,14 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxSampleTimeComponent,
     RxScanComponent,
     RxSequenceEqualComponent,
+    RxShareReplayComponent,
+    RxSkipLastComponent,
     RxSingleComponent,
     RxSkipComponent,
     RxSkipUntilComponent,
     RxSkipWhileComponent,
     RxStartWithComponent,
+    RxSubscribeOnComponent,
     RxSwitchAllComponent,
     RxSwitchMapComponent,
     RxSwitchMapToComponent,
@@ -190,11 +204,19 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxTakeWhileComponent,
     RxThrottleComponent,
     RxThrottleTimeComponent,
+    RxThrowIfEmptyComponent,
+    RxTimeIntervalComponent,
+    RxTimeoutComponent,
+    RxTimeoutWithComponent,
+    RxTimestampComponent,
+    RxToArrayComponent,
     RxWindowComponent,
     RxWindowCountComponent,
+    RxWindowTimeComponent,
     RxWindowToggleComponent,
     RxWindowWhenComponent,
     RxWithLatestFromComponent,
+    RxZipAllComponent,
 
     Marble,
   ],

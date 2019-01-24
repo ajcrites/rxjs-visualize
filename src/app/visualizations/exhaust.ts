@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, empty } from 'rxjs';
+import { interval, EMPTY } from 'rxjs';
 import { exhaust, map, take } from 'rxjs/operators';
 
 @Component({
@@ -36,7 +36,7 @@ export class RxExhaustComponent {
         this.lowerOrders.push(lowerOrder);
         return lowerOrder;
       }
-      return empty();
+      return EMPTY;
     }),
     exhaust(),
   );

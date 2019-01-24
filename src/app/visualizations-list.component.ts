@@ -18,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
         selection.
       </p>
       <p>
-        Operators are stored in the route (url) of your browser so you can
+        Operators are stored in the pathname (url) of your browser so you can
         select and share operators you'd like other people to see.
       </p>
       <p>

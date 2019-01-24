@@ -8,6 +8,10 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
   selector: 'rx-repeat-when',
   template: `
     <h1>Repeat When</h1>
+    <p>
+      This mirrors the source Observable <em>and</em> resubscribes to the source
+      upon completion.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input" color="yellow"></marble>

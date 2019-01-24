@@ -47,8 +47,19 @@ import {
       </nav>
       <div class="content" [ngClass]="navOpen ? 'nav-open' : null">
         <header class="header">
-          <a routerLink="/"><img src="assets/rxjs-logo.png" alt="home"/></a>
+          <a routerLink="/"><img src="assets/rxjs-logo.png" alt="Home"/></a>
           <h1 class="page-title">RxJS Visualize</h1>
+          <a
+            href="https://github.com/ajcrites/rxjs-visualize"
+            class="github-icon"
+          >
+            <img
+              width="32"
+              height="32"
+              src="assets/github-icon.png"
+              alt="GitHub Repository"
+            />
+          </a>
         </header>
         <aside class="small-screen-warning">
           <strong>Warning:</strong> This app is intended to be viewed on a

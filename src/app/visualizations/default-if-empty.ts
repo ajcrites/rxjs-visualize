@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { empty } from 'rxjs';
+import { EMPTY } from 'rxjs';
 import { delay, defaultIfEmpty } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,7 @@ export class RxDefaultIfEmptyComponent {
   code = preval`module.exports = require('./codefile')(__filename)`;
 
   // If delay is not used, the visualization will run instantly and look strange
-  default = empty().pipe(
+  default = EMPTY.pipe(
     delay(1000),
     defaultIfEmpty('e'),
   );

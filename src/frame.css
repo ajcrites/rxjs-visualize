@@ -8,6 +8,7 @@
   white-space: nowrap;
   transition: padding .5s;
   padding-left: 35px;
+  position: relative;
 }
 
 .nav-open .header {
@@ -18,6 +19,11 @@
   font-size: 25px;
   color: white;
   text-shadow: 1px 1px 1px #777;
+}
+
+.github-icon {
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .small-screen-warning {

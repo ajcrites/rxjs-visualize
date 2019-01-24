@@ -7,6 +7,10 @@ import { take, pairwise } from 'rxjs/operators';
   selector: 'rx-pairwise',
   template: `
     <h1>Pairwise</h1>
+    <p>
+      Emits an array with two elements each time the source emits. The source
+      must have admitted at least twice.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

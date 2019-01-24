@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, empty } from 'rxjs';
+import { interval, EMPTY } from 'rxjs';
 import { delay, take, map, isEmpty } from 'rxjs/operators';
 
 @Component({
@@ -25,7 +25,7 @@ export class RxIsEmptyComponent {
     isEmpty(),
     map(Number),
   );
-  yesEmpty = empty().pipe(
+  yesEmpty = EMPTY.pipe(
     delay(1000),
     isEmpty(),
     map(Number),

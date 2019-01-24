@@ -33,6 +33,7 @@ export class RxMaterializeComponent {
       return val;
     }),
   );
+  // not shown
   materialized = this.input.pipe(materialize());
   materializedDisplay = this.materialized.pipe(map(({ value }) => value));
 }

@@ -94,6 +94,9 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-skip-while *ngSwitchCase="'skip-while'"></rx-skip-while>
         <rx-skip *ngSwitchCase="'skip'"></rx-skip>
         <rx-start-with *ngSwitchCase="'start-with'"></rx-start-with>
+        <rx-share-replay *ngSwitchCase="'share-replay'"></rx-share-replay>
+        <rx-skip-last *ngSwitchCase="'skip-last'"></rx-skip-last>
+        <rx-subscribe-on *ngSwitchCase="'subscribe-on'"></rx-subscribe-on>
         <rx-switch-map-to *ngSwitchCase="'switch-map-to'"></rx-switch-map-to>
         <rx-switch-map *ngSwitchCase="'switch-map'"></rx-switch-map>
         <rx-switch-all *ngSwitchCase="'switch-all'"></rx-switch-all>
@@ -103,13 +106,21 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-take *ngSwitchCase="'take'"></rx-take>
         <rx-throttle-time *ngSwitchCase="'throttle-time'"></rx-throttle-time>
         <rx-throttle *ngSwitchCase="'throttle'"></rx-throttle>
+        <rx-throw-if-empty *ngSwitchCase="'throw-if-empty'"></rx-throw-if-empty>
+        <rx-time-interval *ngSwitchCase="'time-interval'"></rx-time-interval>
+        <rx-timeout *ngSwitchCase="'timeout'"></rx-timeout>
+        <rx-timeout-with *ngSwitchCase="'timeout-with'"></rx-timeout-with>
+        <rx-timestamp *ngSwitchCase="'timestamp'"></rx-timestamp>
+        <rx-to-array *ngSwitchCase="'to-array'"></rx-to-array>
         <rx-window-count *ngSwitchCase="'window-count'"></rx-window-count>
+        <rx-window-time *ngSwitchCase="'window-time'"></rx-window-time>
         <rx-window-toggle *ngSwitchCase="'window-toggle'"></rx-window-toggle>
         <rx-window-when *ngSwitchCase="'window-when'"></rx-window-when>
         <rx-window *ngSwitchCase="'window'"></rx-window>
         <rx-with-latest-from
           *ngSwitchCase="'with-latest-from'"
         ></rx-with-latest-from>
+        <rx-zip-all *ngSwitchCase="'zip-all'"></rx-zip-all>
         <section *ngSwitchDefault #noOperator>
           <p>
             The <code>{{ visualization }}</code> operator doesn't have a

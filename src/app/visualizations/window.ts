@@ -25,6 +25,7 @@ export class RxWindowComponent {
   );
   notifier = interval(3500).pipe(mapTo('w'));
   output = this.input.pipe(
+    // this could be `windowTime(3500)`
     window(this.notifier),
     map(win => win.pipe(take(2))),
     mergeAll(),

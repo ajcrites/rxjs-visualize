@@ -18,15 +18,16 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
       subscriptions to the subject without resubscribing to the source.
     </p>
     <p>
-      This example is functionally identical to
-      <a routerLink="/multicast"><code>multicast</code></a
-      >.
+      This example is similar to
+      <a routerLink="/multicast"><code>multicast</code></a> except that it
+      subscribes immediately and handles resubscriptions.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="subject"></marble>
     <marble [source]="outputa"></marble> <marble [source]="outputb"></marble>
-    <marble [source]="outputc"></marble>
+    <marble [source]="delayedOutput"></marble>
+    <marble [source]="lateOutput"></marble>
   `,
 })
 export class RxShareComponent {
@@ -40,6 +41,8 @@ export class RxShareComponent {
   subject = this.input.pipe(share());
   outputa = from(this.subject).pipe(map(val => val + 3));
   outputb = from(this.subject).pipe(mapNumberToChar());
-  // `share` does not replay values
-  outputc = timer(3500).pipe(mergeMapTo(this.subject));
+  // previously emitted values are not replayed
+  delayedOutput = timer(3500).pipe(mergeMapTo(this.subject));
+  // this resubscribes, so it starts over
+  lateOutput = timer(5500).pipe(mergeMapTo(this.subject));
 }

@@ -24,7 +24,8 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
     <marble [source]="input"></marble> <marble [source]="multi"></marble>
     <marble [source]="outputa"></marble> <marble [source]="outputb"></marble>
-    <marble [source]="outputc"></marble>
+    <marble [source]="delayedOutput"></marble>
+    <marble [source]="lateOutput"></marble>
   `,
 })
 export class RxMulticastComponent {
@@ -48,5 +49,8 @@ export class RxMulticastComponent {
   outputa = from(this.multi).pipe(map((val: number) => val + 3));
   outputb = from(this.multi).pipe(mapNumberToChar());
   // previously emitted values are not replayed
-  outputc = timer(4500).pipe(mergeMapTo(this.multi));
+  delayedOutput = timer(4500).pipe(mergeMapTo(this.multi));
+  // this never emits because multicast does not handle resubscriptions
+  // and `multi` will have already completed at this point.
+  lateOutput = timer(6500).pipe(mergeMapTo(this.multi));
 }

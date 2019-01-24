@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { interval, timer } from 'rxjs';
-import { take, publish, refCount, mergeMapTo } from 'rxjs/operators';
+import { take, publish, refCount, tap, mergeMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-ref-count',
@@ -14,18 +14,29 @@ import { take, publish, refCount, mergeMapTo } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="outputa"></marble>
-    <marble [source]="outputb"></marble>
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
+    <marble [source]="delayedOutput"></marble>
+    <marble [source]="resubscriber"></marble>
   `,
 })
 export class RxRefCountComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(20));
+  input = interval(1000).pipe(
+    // tslint:disable-next-line:no-console ... open your console!
+    tap(val => val === 0 && console.log('Subscribed!')),
+    take(20),
+  );
   subject = this.input.pipe(
     publish(),
     refCount(),
   );
-  outputa = this.subject.pipe(take(2));
-  outputb = timer(3000).pipe(mergeMapTo(this.subject));
+  output = this.subject.pipe(take(2));
+  // `refCount` has not dropped to 0, so values are not replayed
+  delayedOutput = timer(1000).pipe(
+    mergeMapTo(this.subject),
+    take(1),
+  );
+  // `refCount` is 0, so this will resubscribe to the source and start over
+  resubscriber = timer(3000).pipe(mergeMapTo(this.subject));
 }

@@ -8,6 +8,15 @@ import { VisualizationsListComponent } from './visualizations-list.component';
 import { VisualizationComponent } from './visualization.component';
 import { RxNavComponent } from './nav.component';
 
+import { RxBindCallbackComponent } from './visualizations/observable-creators/bindCallback';
+import { RxIntervalComponent } from './visualizations/observable-creators/interval';
+import { RxConcatComponent } from './visualizations/observable-creators/concat';
+import { RxMergeComponent } from './visualizations/observable-creators/merge';
+import { RxFromEventComponent } from './visualizations/observable-creators/fromEvent';
+import { RxForkJoinComponent } from './visualizations/observable-creators/forkJoin';
+import { RxOfComponent } from './visualizations/observable-creators/of';
+import { RxFromComponent } from './visualizations/observable-creators/from';
+
 import { RxAuditComponent } from './visualizations/operators/audit';
 import { RxAuditTimeComponent } from './visualizations/operators/auditTime';
 import { RxBufferComponent } from './visualizations/operators/buffer';
@@ -119,6 +128,14 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     VisualizationsListComponent,
     VisualizationComponent,
     RxNavComponent,
+    RxBindCallbackComponent,
+    RxIntervalComponent,
+    RxConcatComponent,
+    RxMergeComponent,
+    RxFromEventComponent,
+    RxForkJoinComponent,
+    RxOfComponent,
+    RxFromComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,

@@ -8,6 +8,15 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <img src="assets/refresh.png" alt="refresh" />
       </button>
       <ng-container [ngSwitch]="visualization" *ngIf="show">
+        <rx-bind-callback *ngSwitchCase="'bindCallback'"></rx-bind-callback>
+        <rx-interval *ngSwitchCase="'interval'"></rx-interval>
+        <rx-concat *ngSwitchCase="'concat'"></rx-concat>
+        <rx-merge *ngSwitchCase="'merge'"></rx-merge>
+        <rx-from-event *ngSwitchCase="'fromEvent'"></rx-from-event>
+        <rx-fork-join *ngSwitchCase="'forkJoin'"></rx-fork-join>
+        <rx-of *ngSwitchCase="'of'"></rx-of>
+        <rx-from *ngSwitchCase="'from'"></rx-from>
+
         <rx-audit-time *ngSwitchCase="'auditTime'"></rx-audit-time>
         <rx-audit *ngSwitchCase="'audit'"></rx-audit>
         <rx-buffer-count *ngSwitchCase="'bufferCount'"></rx-buffer-count>

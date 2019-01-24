@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { interval, from, Subject, ConnectableObservable } from 'rxjs';
-import { multicast, take, map, tap } from 'rxjs/operators';
+import { interval, from, timer, Subject, ConnectableObservable } from 'rxjs';
+import { multicast, take, map, tap, mergeMapTo } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -24,13 +24,14 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
     <marble [source]="input"></marble> <marble [source]="multi"></marble>
     <marble [source]="outputa"></marble> <marble [source]="outputb"></marble>
+    <marble [source]="outputc"></marble>
   `,
 })
 export class RxMulticastComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   input = interval(1000).pipe(
-    take(3),
+    take(4),
     tap(val => {
       if (val === 1) {
         // tslint:disable:no-console -- this will be logged twice since the
@@ -46,4 +47,6 @@ export class RxMulticastComponent {
   ) as ConnectableObservable<number>;
   outputa = from(this.multi).pipe(map((val: number) => val + 3));
   outputb = from(this.multi).pipe(mapNumberToChar());
+  // previously emitted values are not replayed
+  outputc = timer(4500).pipe(mergeMapTo(this.multi));
 }

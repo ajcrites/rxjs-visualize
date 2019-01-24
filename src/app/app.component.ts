@@ -41,7 +41,7 @@ import {
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
           </svg>
 
-          <h1 class="menu-title">RxJS Operators</h1>
+          <h1 class="menu-title">RxJS Functions</h1>
         </div>
         <rx-nav></rx-nav>
       </nav>

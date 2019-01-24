@@ -6,7 +6,7 @@ import { delay, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-delay',
   template: `
-    <h1>Delay</h1>
+    <h1>delay</h1>
     <p>This delays <em>once</em>, the first emission of the Observable.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

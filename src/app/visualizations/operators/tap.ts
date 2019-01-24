@@ -6,7 +6,7 @@ import { tap, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-tap',
   template: `
-    <h1>Tap (formerly <code>.do</code>)</h1>
+    <h1>tap (formerly <code>.do</code>)</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

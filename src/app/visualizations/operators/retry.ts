@@ -6,7 +6,7 @@ import { retry, map } from 'rxjs/operators';
 @Component({
   selector: 'rx-retry',
   template: `
-    <h1>Retry</h1>
+    <h1>retry</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

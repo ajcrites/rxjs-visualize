@@ -6,7 +6,7 @@ import { take, finalize } from 'rxjs/operators';
 @Component({
   selector: 'rx-finalize',
   template: `
-    <h1>Finalize</h1>
+    <h1>finalize</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

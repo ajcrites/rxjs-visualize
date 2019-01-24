@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-sample',
   template: `
-    <h1>Sample</h1>
+    <h1>sample</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble>

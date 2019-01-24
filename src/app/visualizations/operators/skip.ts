@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-skip',
   template: `
-    <h1>Skip</h1>
+    <h1>skip</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

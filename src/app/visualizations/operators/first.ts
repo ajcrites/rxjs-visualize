@@ -6,7 +6,7 @@ import { take, first } from 'rxjs/operators';
 @Component({
   selector: 'rx-first',
   template: `
-    <h1>First</h1>
+    <h1>first</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-multicast',
   template: `
-    <h1>Multicast</h1>
+    <h1>multicast</h1>
     <p>
       This creates a <code>ConnectableObservable</code>. When connected (via)
       <code>connect</code>, it emits a Subject with the provided factory

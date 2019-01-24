@@ -6,7 +6,7 @@ import { take, repeat } from 'rxjs/operators';
 @Component({
   selector: 'rx-repeat',
   template: `
-    <h1>Repeat</h1>
+    <h1>repeat</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

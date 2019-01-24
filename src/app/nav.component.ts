@@ -32,7 +32,7 @@ export class RxNavComponent implements OnInit {
       filter(file => /\.ts$/.test(file)).map(file =>
       file.replace('.ts', '')
     ).map(operator => ({ file: operator, name: camelCase(operator) }))
-    .concat([{ file: 'merge-map', name: 'flatMap' }])
+    .concat([{ file: 'mergeMap', name: 'flatMap' }])
     .sort((a, b) => a.name < b.name ? -1 : 1);
   `;
 

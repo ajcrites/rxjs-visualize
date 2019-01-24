@@ -6,7 +6,7 @@ import { exhaust, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-exhaust',
   template: `
-    <h1>Exhaust</h1>
+    <h1>exhaust</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble>

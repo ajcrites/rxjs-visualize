@@ -6,7 +6,7 @@ import { take, partition } from 'rxjs/operators';
 @Component({
   selector: 'rx-partition',
   template: `
-    <h1>Partition</h1>
+    <h1>partition</h1>
     <p>
       This cannot function as an operator. See:
       <a href="https://github.com/ReactiveX/rxjs/issues/4419">

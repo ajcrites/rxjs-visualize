@@ -6,7 +6,7 @@ import { take, mergeMap, map, debounce } from 'rxjs/operators';
 @Component({
   selector: 'rx-debounce',
   template: `
-    <h1>Debounce</h1>
+    <h1>debounce</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="debounced"></marble>

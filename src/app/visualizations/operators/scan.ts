@@ -6,7 +6,7 @@ import { scan, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-scan',
   template: `
-    <h1>Scan</h1>
+    <h1>scan</h1>
     <p>
       This is similar to <code>reduce</code> except that it emits every time the
       source emits instead of only emitting on completion.

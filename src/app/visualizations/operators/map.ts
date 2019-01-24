@@ -6,7 +6,7 @@ import { take, map } from 'rxjs/operators';
 @Component({
   selector: 'rx-map',
   template: `
-    <h1>Map</h1>
+    <h1>map</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

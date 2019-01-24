@@ -6,7 +6,7 @@ import { take, filter } from 'rxjs/operators';
 @Component({
   selector: 'rx-filter',
   template: `
-    <h1>Filter</h1>
+    <h1>filter</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

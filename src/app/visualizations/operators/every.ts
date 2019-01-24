@@ -6,7 +6,7 @@ import { every, mapTo, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-every',
   template: `
-    <h1>Every</h1>
+    <h1>every</h1>
     <p>
       This checks that every element in an Observable matches some predicate. If
       <code>every</code> fails, it will emit <code>false</code> immediately and

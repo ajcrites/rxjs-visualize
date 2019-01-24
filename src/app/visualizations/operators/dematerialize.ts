@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-dematerialize',
   template: `
-    <h1>Dematerialize</h1>
+    <h1>dematerialize</h1>
     <p>
       This is for working with Notifications which are objects that have a value
       and associated metadata. <code>dematerialize</code> takes emitted

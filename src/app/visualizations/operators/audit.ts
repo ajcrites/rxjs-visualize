@@ -6,7 +6,7 @@ import { take, audit } from 'rxjs/operators';
 @Component({
   selector: 'rx-audit',
   template: `
-    <h1>Audit</h1>
+    <h1>audit</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preAudit"></marble> <marble [source]="postAudit"></marble>

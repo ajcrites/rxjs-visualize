@@ -6,7 +6,7 @@ import { take, max } from 'rxjs/operators';
 @Component({
   selector: 'rx-max',
   template: `
-    <h1>Max</h1>
+    <h1>max</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

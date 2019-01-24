@@ -6,7 +6,7 @@ import { take, map, pluck } from 'rxjs/operators';
 @Component({
   selector: 'rx-pluck',
   template: `
-    <h1>Pluck</h1>
+    <h1>pluck</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="display"></marble> <marble [source]="output"></marble>

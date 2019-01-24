@@ -6,7 +6,7 @@ import { take, map, min } from 'rxjs/operators';
 @Component({
   selector: 'rx-min',
   template: `
-    <h1>Min</h1>
+    <h1>min</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="min"></marble>

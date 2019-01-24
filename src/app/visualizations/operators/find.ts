@@ -6,7 +6,7 @@ import { take, find } from 'rxjs/operators';
 @Component({
   selector: 'rx-find',
   template: `
-    <h1>Find</h1>
+    <h1>find</h1>
     <p>This emits as soon as the value you're trying to find is emitted.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

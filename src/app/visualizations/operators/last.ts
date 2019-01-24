@@ -6,7 +6,7 @@ import { take, last } from 'rxjs/operators';
 @Component({
   selector: 'rx-last',
   template: `
-    <h1>Last</h1>
+    <h1>last</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="last"></marble>

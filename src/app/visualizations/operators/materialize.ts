@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-materialize',
   template: `
-    <h1>Materialize</h1>
+    <h1>materialize</h1>
     <p>
       This is for working with Notifications which are objects that have a value
       and associated metadata. <code>Materialize</code> takes values and

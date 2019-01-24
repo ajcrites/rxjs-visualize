@@ -6,7 +6,7 @@ import { take, pairwise } from 'rxjs/operators';
 @Component({
   selector: 'rx-pairwise',
   template: `
-    <h1>Pairwise</h1>
+    <h1>pairwise</h1>
     <p>
       Emits an array with two elements each time the source emits. The source
       must have admitted at least twice.

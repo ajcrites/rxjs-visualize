@@ -16,7 +16,8 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <p>
       The key difference with <code>forkJoin</code> is that it does not emit
       until all source Observables complete. Once that happens, it emits
-      <em>once</em>: an array of the last values that were emitted.
+      <em>once</em>: an array of the last values that were emitted by the source
+      Observables.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

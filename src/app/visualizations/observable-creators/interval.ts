@@ -12,7 +12,10 @@ import { take } from 'rxjs/operators';
     </p>
     <p>
       This functions like <code>setInterval</code> except it's an Observable
-      that emits for the given period rather than calling a callback.
+      that emits for the given period rather than calling a callback. Note the
+      delay on the initial emission and compare to
+      <a routerLink="/timer"><code>timer</code></a
+      >.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

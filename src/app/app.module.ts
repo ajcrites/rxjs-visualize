@@ -16,6 +16,11 @@ import { RxFromEventComponent } from './visualizations/observable-creators/fromE
 import { RxForkJoinComponent } from './visualizations/observable-creators/forkJoin';
 import { RxOfComponent } from './visualizations/observable-creators/of';
 import { RxFromComponent } from './visualizations/observable-creators/from';
+import { RxIifComponent } from './visualizations/observable-creators/iif';
+import { RxZipComponent } from './visualizations/observable-creators/zip';
+import { RxCombineLatestComponent } from './visualizations/observable-creators/combineLatest';
+import { RxGenerateComponent } from './visualizations/observable-creators/generate';
+import { RxTimerComponent } from './visualizations/observable-creators/timer';
 
 import { RxAuditComponent } from './visualizations/operators/audit';
 import { RxAuditTimeComponent } from './visualizations/operators/auditTime';
@@ -26,7 +31,6 @@ import { RxBufferToggleComponent } from './visualizations/operators/bufferToggle
 import { RxBufferWhenComponent } from './visualizations/operators/bufferWhen';
 import { RxCatchErrorComponent } from './visualizations/operators/catchError';
 import { RxCombineAllComponent } from './visualizations/operators/combineAll';
-import { RxCombineLatestComponent } from './visualizations/operators/combineLatest';
 import { RxConcatAllComponent } from './visualizations/operators/concatAll';
 import { RxConcatMapComponent } from './visualizations/operators/concatMap';
 import { RxConcatMapToComponent } from './visualizations/operators/concatMapTo';
@@ -136,6 +140,10 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxForkJoinComponent,
     RxOfComponent,
     RxFromComponent,
+    RxIifComponent,
+    RxZipComponent,
+    RxGenerateComponent,
+    RxTimerComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,

@@ -90,9 +90,10 @@ output = this.input.pipe(mapNumberToChar)
         improved. For now, the marbles displays are blended like so:
       </p>
       <div class="marble">
-        <div class="guide complete" style="width: 95px;"></div>
+        <div class="guide complete" style="width: 150px;"></div>
         <i style="left: 25px;">1</i> <i style="left: 35px;">2</i>
-        <i style="left: 45px;">3</i>
+        <i style="left: 45px;">3</i> <i style="left: 105px;">a0</i>
+        <i style="left: 105px;">b1</i>
       </div>
       <p>
         It can be a bit tough to tell exactly what's going on with overlapping

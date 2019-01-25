@@ -16,6 +16,11 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-fork-join *ngSwitchCase="'forkJoin'"></rx-fork-join>
         <rx-of *ngSwitchCase="'of'"></rx-of>
         <rx-from *ngSwitchCase="'from'"></rx-from>
+        <rx-iif *ngSwitchCase="'iif'"></rx-iif>
+        <rx-zip *ngSwitchCase="'zip'"></rx-zip>
+        <rx-combine-latest *ngSwitchCase="'combine-latest'"></rx-combine-latest>
+        <rx-generate *ngSwitchCase="'generate'"></rx-generate>
+        <rx-timer *ngSwitchCase="'timer'"></rx-timer>
 
         <rx-audit-time *ngSwitchCase="'auditTime'"></rx-audit-time>
         <rx-audit *ngSwitchCase="'audit'"></rx-audit>

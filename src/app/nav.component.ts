@@ -54,8 +54,19 @@ export class RxNavComponent implements OnInit {
     module.exports = fs.readdirSync(__dirname + '/visualizations/observable-creators').
       filter(file => /\.ts$/.test(file)).map(file =>
       file.replace('.ts', '')
-    ).map(fn => ({ file: fn, name: camelCase(fn) }))
+    ).map(fn => ({ file: getFnObc(fn), name: camelCase(fn) }))
     .sort((a, b) => a.name < b.name ? -1 : 1);
+
+  // Some operator names are the same as some Observable Creator names. We
+  // append 'Obc' to these for navigation purposes.
+  function getFnObc(fn) {
+    switch(fn) {
+      case 'onErrorResumeNext':
+        return 'onErrorResumeNextObc';
+      default:
+        return fn;
+    }
+  }
   `;
 
   constructor(private router: Router) {}

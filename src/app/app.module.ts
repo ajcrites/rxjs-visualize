@@ -9,10 +9,13 @@ import { VisualizationComponent } from './visualization.component';
 import { RxNavComponent } from './nav.component';
 
 import { RxBindCallbackComponent } from './visualizations/observable-creators/bindCallback';
+import { RxBindNodeCallbackComponent } from './visualizations/observable-creators/bindNodeCallback';
 import { RxIntervalComponent } from './visualizations/observable-creators/interval';
 import { RxConcatComponent } from './visualizations/observable-creators/concat';
+import { RxDeferComponent } from './visualizations/observable-creators/defer';
 import { RxMergeComponent } from './visualizations/observable-creators/merge';
 import { RxFromEventComponent } from './visualizations/observable-creators/fromEvent';
+import { RxFromEventPatternComponent } from './visualizations/observable-creators/fromEventPattern';
 import { RxForkJoinComponent } from './visualizations/observable-creators/forkJoin';
 import { RxOfComponent } from './visualizations/observable-creators/of';
 import { RxFromComponent } from './visualizations/observable-creators/from';
@@ -20,7 +23,13 @@ import { RxIifComponent } from './visualizations/observable-creators/iif';
 import { RxZipComponent } from './visualizations/observable-creators/zip';
 import { RxCombineLatestComponent } from './visualizations/observable-creators/combineLatest';
 import { RxGenerateComponent } from './visualizations/observable-creators/generate';
+import { RxPairsComponent } from './visualizations/observable-creators/pairs';
+import { RxRaceComponent } from './visualizations/observable-creators/race';
+import { RxRangeComponent } from './visualizations/observable-creators/range';
 import { RxTimerComponent } from './visualizations/observable-creators/timer';
+import { RxUsingComponent } from './visualizations/observable-creators/using';
+// tslint:disable-next-line:max-line-length
+import { RxOnErrorResumeNextObcComponent } from './visualizations/observable-creators/onErrorResumeNext';
 
 import { RxAuditComponent } from './visualizations/operators/audit';
 import { RxAuditTimeComponent } from './visualizations/operators/auditTime';
@@ -133,17 +142,25 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     VisualizationComponent,
     RxNavComponent,
     RxBindCallbackComponent,
+    RxBindNodeCallbackComponent,
     RxIntervalComponent,
     RxConcatComponent,
+    RxDeferComponent,
     RxMergeComponent,
     RxFromEventComponent,
+    RxFromEventPatternComponent,
     RxForkJoinComponent,
     RxOfComponent,
     RxFromComponent,
     RxIifComponent,
     RxZipComponent,
     RxGenerateComponent,
+    RxPairsComponent,
+    RxRaceComponent,
+    RxRangeComponent,
+    RxUsingComponent,
     RxTimerComponent,
+    RxOnErrorResumeNextObcComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,

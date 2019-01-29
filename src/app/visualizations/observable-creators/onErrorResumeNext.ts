@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
-import { onErrorResumeNext, map, take } from 'rxjs/operators';
+import { timer, onErrorResumeNext } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({
-  selector: 'rx-on-error-resume-next',
+  selector: 'rx-on-error-resume-next-obc',
   template: `
-    <h1>onErrorResumeNext (Operator)</h1>
+    <h1>onErrorResumeNext (Observable Creator)</h1>
     <p>
-      There is also an Observable creator
-      <a routerLink="/onErrorResumeNextObc"><code>onErrorResumeNext</code></a
+      There is also an operator
+      <a routerLink="/onErrorResumeNext"><code>onErrorResumeNext</code></a
       >.
     </p>
     <p>
       This is a bit of a mixture between <code>concat</code> and
       <code>catchError</code>. You can provide a list of Observables to switch
-      to if the source Observable completes <em>or</em> errors.
+      to if the source Observable completes <em>or</em> errors. This Observable
+      Creator starts with the first provided Observable;
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
@@ -26,7 +27,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <marble [source]="inputs[2]"></marble> <marble [source]="output"></marble>
   `,
 })
-export class RxOnErrorResumeNextComponent {
+export class RxOnErrorResumeNextObcComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   inputs = [
@@ -57,7 +58,5 @@ export class RxOnErrorResumeNextComponent {
       map(val => val.toUpperCase()),
     ),
   ];
-  output = (this.inputs[0] as any).pipe(
-    onErrorResumeNext(this.inputs[1], this.inputs[2]),
-  );
+  output = onErrorResumeNext(...this.inputs);
 }

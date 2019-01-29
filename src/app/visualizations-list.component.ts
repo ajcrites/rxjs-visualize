@@ -35,13 +35,13 @@ import { ActivatedRoute } from '@angular/router';
       <p>Don't know where to start? Try some of my favorites:</p>
       <ul>
         <li>
-          <a routerLink="/switch-map"><code>switchMap</code></a>
+          <a routerLink="/switchMap"><code>switchMap</code></a>
         </li>
         <li>
           <a routerLink="/filter"><code>filter</code></a>
         </li>
         <li>
-          <a routerLink="/catch-error"><code>catchError</code></a>
+          <a routerLink="/catchError"><code>catchError</code></a>
         </li>
         <li>
           <a routerLink="/take"><code>take</code></a>

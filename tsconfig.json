@@ -2,5 +2,6 @@
   "extends": "./node_modules/ts-config-mobiquity-angular/tsconfig.json",
   "compilerOptions": {
     "baseUrl": "."
-  }
+  },
+  "include": ["src"]
 }

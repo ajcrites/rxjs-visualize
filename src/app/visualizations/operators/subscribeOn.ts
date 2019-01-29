@@ -9,7 +9,7 @@ import { subscribeOn, take } from 'rxjs/operators';
     <h1>subscribeOn</h1>
     <p>
       I'm honestly not sure what makes this different from
-      <a routerLink="/observe-on"><code>observeOn</code></a>
+      <a routerLink="/observeOn"><code>observeOn</code></a>
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

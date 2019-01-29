@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { delay, take } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +16,6 @@ import { delay, take } from 'rxjs/operators';
 export class RxDelayComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(20));
+  input = timer(0, 1000).pipe(take(20));
   delayed = this.input.pipe(delay(1000));
 }

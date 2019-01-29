@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { elementAt, take } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,7 @@ import { elementAt, take } from 'rxjs/operators';
 export class RxElementAtComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   elementAt = this.input.pipe(elementAt(2));
   elementAtUnknown = this.input.pipe(elementAt<number | string>(21, 'n'));
 }

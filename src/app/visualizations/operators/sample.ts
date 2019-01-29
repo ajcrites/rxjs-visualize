@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { sample, mapTo, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,11 +19,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxSampleComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     mapNumberToChar(),
     take(10),
   );
   // Using `sampleTime(1600)` would work the same way
-  sample = interval(1600).pipe(mapTo('x'));
+  sample = timer(0, 1600).pipe(mapTo('x'));
   output = this.input.pipe(sample(this.sample));
 }

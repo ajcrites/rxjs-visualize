@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConnectableObservable, interval, timer } from 'rxjs';
+import { ConnectableObservable, timer } from 'rxjs';
 import { tap, take, publishReplay, mergeMapTo } from 'rxjs/operators';
 
 @Component({
@@ -20,7 +20,7 @@ import { tap, take, publishReplay, mergeMapTo } from 'rxjs/operators';
 export class RxPublishReplayComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(5),
     tap(val => {
       if (0 === val) {
@@ -31,5 +31,5 @@ export class RxPublishReplayComponent {
   subject = this.input.pipe(publishReplay(2)) as ConnectableObservable<number>;
   // This skips over the 0th value since `publishReplay` will already have
   // bufferred three values. All replayed values are emitted simultaneously.
-  output = timer(4500).pipe(mergeMapTo(this.subject));
+  output = timer(3500).pipe(mergeMapTo(this.subject));
 }

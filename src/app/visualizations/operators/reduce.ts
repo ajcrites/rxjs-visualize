@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, reduce } from 'rxjs/operators';
 
 @Component({
@@ -19,6 +19,6 @@ import { take, reduce } from 'rxjs/operators';
 export class RxReduceComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   output = this.input.pipe(reduce((acc, curr) => acc + curr, 1));
 }

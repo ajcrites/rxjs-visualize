@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { window, map, take, mapTo, mergeAll } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,11 +19,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxWindowComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     mapNumberToChar(),
     take(10),
   );
-  notifier = interval(3500).pipe(mapTo('w'));
+  notifier = timer(0, 3500).pipe(mapTo('w'));
   output = this.input.pipe(
     // this could be `windowTime(3500)`
     window(this.notifier),

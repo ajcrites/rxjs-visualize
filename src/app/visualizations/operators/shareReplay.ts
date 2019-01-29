@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, shareReplay, mergeMapTo } from 'rxjs/operators';
 
 @Component({
@@ -37,7 +37,7 @@ import { take, shareReplay, mergeMapTo } from 'rxjs/operators';
 export class RxShareReplayComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(4));
+  input = timer(0, 1000).pipe(take(4));
   subject = this.input.pipe(shareReplay(2));
   output = timer(3500).pipe(mergeMapTo(this.subject));
 }

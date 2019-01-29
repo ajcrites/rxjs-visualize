@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
 
 @Component({
@@ -24,13 +24,13 @@ export class RxExpandComponent {
 
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(500).pipe(
+  higherOrder = timer(0, 500).pipe(
     skip(3),
     take(3),
   );
   expanded = this.higherOrder.pipe(
     expand(val => {
-      const lowerOrder = interval(500).pipe(
+      const lowerOrder = timer(0, 500).pipe(
         skip(3),
         map(innerVal => val * innerVal),
         take(3),

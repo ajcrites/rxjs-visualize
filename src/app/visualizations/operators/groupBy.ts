@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject, interval } from 'rxjs';
+import { timer, Subject } from 'rxjs';
 import { groupBy, map, take, mergeAll } from 'rxjs/operators';
 
 @Component({
@@ -24,7 +24,7 @@ export class RxGroupByComponent {
 
   even = new Subject();
   odd = new Subject();
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(20),
     groupBy(val => val % 2),
     map(obs => {

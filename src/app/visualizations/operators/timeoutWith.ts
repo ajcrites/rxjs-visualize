@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, filter, timeoutWith } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -22,7 +22,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxTimeoutWithComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(20));
+  input = timer(0, 1000).pipe(take(20));
   mappedInput = this.input.pipe(mapNumberToChar());
   checkFive = this.input.pipe(filter(val => val > 5));
   output = this.checkFive.pipe(timeoutWith(3000, this.mappedInput));

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, animationFrameScheduler } from 'rxjs';
+import { timer, animationFrameScheduler } from 'rxjs';
 import { subscribeOn, take } from 'rxjs/operators';
 
 @Component({
@@ -19,6 +19,6 @@ import { subscribeOn, take } from 'rxjs/operators';
 export class RxSubscribeOnComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   output = this.input.pipe(subscribeOn(animationFrameScheduler, 100));
 }

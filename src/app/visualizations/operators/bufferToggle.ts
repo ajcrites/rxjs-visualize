@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject, interval } from 'rxjs';
+import { timer, interval, Subject } from 'rxjs';
 import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
 
 @Component({
@@ -11,15 +11,15 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
 
     <marble [source]="preBuffer"></marble>
     <marble [source]="openBuffer" [main]="preBuffer" color="blue"></marble>
-    <marble [source]="closeBuffer" color="blue"></marble>
+    <marble [source]="closeBuffer" [main]="preBuffer" color="blue"></marble>
     <marble [source]="postBuffer"></marble>
   `,
 })
 export class RxBufferToggleComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  preBuffer = interval(1000).pipe(take(20));
-  openBuffer = interval(4250).pipe(mapTo('o'));
+  preBuffer = timer(0, 1000).pipe(take(20));
+  openBuffer = timer(0, 4250).pipe(mapTo('o'));
   // Used for displaying when the closing buffer is triggered, but does not
   // impact the output observable
   closeBuffer = new Subject();

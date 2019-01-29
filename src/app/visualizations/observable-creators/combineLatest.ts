@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { combineLatest, interval } from 'rxjs';
+import { combineLatest, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -23,9 +23,9 @@ export class RxCombineLatestComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   inputs = [
-    interval(1000).pipe(take(7)),
-    interval(1300).pipe(take(5)),
-    interval(1800).pipe(take(3)),
+    timer(0, 1000).pipe(take(7)),
+    timer(0, 1300).pipe(take(5)),
+    timer(0, 1800).pipe(take(3)),
   ];
   combined = combineLatest(...this.inputs);
 }

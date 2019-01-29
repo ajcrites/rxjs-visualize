@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, map, pluck } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,7 @@ export class RxPluckComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   values = [1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4, 4, 3, 1, 1, 2];
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     map(key => ({ key: this.values[key] })),
     take(this.values.length),
   );

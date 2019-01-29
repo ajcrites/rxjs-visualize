@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { single, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -17,7 +17,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxSingleComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(3),
     mapNumberToChar(),
   );

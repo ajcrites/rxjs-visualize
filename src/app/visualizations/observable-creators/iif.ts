@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { iif, interval } from 'rxjs';
+import { iif, timer } from 'rxjs';
 import { take, mapTo } from 'rxjs/operators';
 
 @Component({
@@ -23,11 +23,11 @@ import { take, mapTo } from 'rxjs/operators';
 export class RxIifComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  t = interval(1000).pipe(
+  t = timer(0, 1000).pipe(
     mapTo('T'),
     take(5),
   );
-  f = interval(1000).pipe(
+  f = timer(0, 1000).pipe(
     mapTo('F'),
     take(5),
   );

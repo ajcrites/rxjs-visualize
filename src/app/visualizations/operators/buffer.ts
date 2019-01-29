@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, mapTo, buffer } from 'rxjs/operators';
 
 @Component({
@@ -27,7 +27,7 @@ import { take, mapTo, buffer } from 'rxjs/operators';
 export class RxBufferComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  preBuffer = interval(1000).pipe(take(20));
-  buffer = interval(3000).pipe(mapTo('B'));
+  preBuffer = timer(0, 1000).pipe(take(20));
+  buffer = timer(0, 3000).pipe(mapTo('B'));
   postBuffer = this.preBuffer.pipe(buffer(this.buffer));
 }

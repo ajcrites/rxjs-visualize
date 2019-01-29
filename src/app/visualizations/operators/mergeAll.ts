@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { mergeAll, take, map } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -25,13 +25,13 @@ export class RxMergeAllComponent {
 
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(1000).pipe(
+  higherOrder = timer(0, 1000).pipe(
     take(4),
     mapNumberToChar(),
   );
   firstOrder = this.higherOrder.pipe(
     map(val => {
-      const lowerOrder = interval(1000).pipe(
+      const lowerOrder = timer(0, 1000).pipe(
         take(4),
         map(innerVal => val + innerVal),
       );

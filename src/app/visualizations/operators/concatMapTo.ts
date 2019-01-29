@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { take, mapTo, concatMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-concat-map-to',
   template: `
-    <h1>concatMap</h1>
+    <h1>concatMapTo</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble> <marble [source]="inner"></marble>
@@ -16,7 +16,7 @@ import { take, mapTo, concatMapTo } from 'rxjs/operators';
 export class RxConcatMapToComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  higherOrder = interval(1000).pipe(
+  higherOrder = timer(0, 1000).pipe(
     take(4),
     mapTo('a'),
   );

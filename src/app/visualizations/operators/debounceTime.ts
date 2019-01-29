@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, mergeMap, map, debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -15,10 +15,10 @@ import { take, mergeMap, map, debounceTime } from 'rxjs/operators';
 export class RxDebounceTimeComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  // This is essentially the same as `debounce`, with `interval`.
-  input = interval(2000).pipe(
+  // This is essentially the same as `debounce`, with `timer`.
+  input = timer(0, 2000).pipe(
     mergeMap(val =>
-      interval(250).pipe(
+      timer(0, 250).pipe(
         map(innerVal => val + innerVal),
         take(3),
       ),

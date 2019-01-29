@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { delayWhen, take, mapTo } from 'rxjs/operators';
 
 @Component({
@@ -23,7 +23,7 @@ export class RxDelayWhenComponent {
 
   initTime = new Date().getTime();
   delays = [];
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   delayed = this.input.pipe(
     delayWhen(val => {
       const obs = interval(val * 1000).pipe(

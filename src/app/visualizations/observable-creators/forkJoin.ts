@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { forkJoin, interval } from 'rxjs';
+import { forkJoin, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -29,12 +29,12 @@ export class RxForkJoinComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   inputs = [
-    interval(1000).pipe(take(3)),
-    interval(1000).pipe(
+    timer(0, 1000).pipe(take(3)),
+    timer(0, 1000).pipe(
       mapNumberToChar(),
       take(3),
     ),
-    interval(1000).pipe(
+    timer(0, 1000).pipe(
       map(val => val * 3),
       take(3),
     ),

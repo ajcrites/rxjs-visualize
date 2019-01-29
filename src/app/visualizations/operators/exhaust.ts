@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, EMPTY } from 'rxjs';
+import { timer, EMPTY } from 'rxjs';
 import { exhaust, map, take } from 'rxjs/operators';
 
 @Component({
@@ -23,11 +23,11 @@ export class RxExhaustComponent {
 
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(1000).pipe(take(18));
+  higherOrder = timer(0, 1000).pipe(take(18));
   firstOrder = this.higherOrder.pipe(
     map(val => {
       if (val % 2) {
-        const lowerOrder = interval(1000).pipe(
+        const lowerOrder = timer(0, 1000).pipe(
           take(3),
           map(innerVal =>
             String.fromCharCode(Math.floor(val / 2) * 3 + innerVal + 97),

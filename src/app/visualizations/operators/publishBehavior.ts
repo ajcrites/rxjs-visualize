@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConnectableObservable, interval } from 'rxjs';
+import { timer, ConnectableObservable } from 'rxjs';
 import { tap, take, publishBehavior } from 'rxjs/operators';
 
 @Component({
@@ -21,7 +21,7 @@ import { tap, take, publishBehavior } from 'rxjs/operators';
 export class RxPublishBehaviorComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(20),
     tap(val => {
       if (5 === val) {

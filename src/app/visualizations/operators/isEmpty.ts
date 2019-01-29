@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, EMPTY } from 'rxjs';
+import { timer, EMPTY } from 'rxjs';
 import { delay, take, map, isEmpty } from 'rxjs/operators';
 
 @Component({
@@ -20,7 +20,7 @@ import { delay, take, map, isEmpty } from 'rxjs/operators';
 export class RxIsEmptyComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(2));
+  input = timer(0, 1000).pipe(take(2));
   notEmpty = this.input.pipe(
     isEmpty(),
     map(Number),

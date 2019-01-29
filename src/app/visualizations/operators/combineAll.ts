@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject, interval } from 'rxjs';
+import { timer, interval, Subject } from 'rxjs';
 import { tap, take, map, combineAll } from 'rxjs/operators';
 
 @Component({
@@ -17,7 +17,7 @@ import { tap, take, map, combineAll } from 'rxjs/operators';
 export class RxCombineAllComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  outer = interval(1000).pipe(take(20));
+  outer = timer(0, 1000).pipe(take(20));
   inner = new Subject();
   combined = this.outer.pipe(
     map(() =>

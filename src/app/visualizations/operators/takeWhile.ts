@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { takeWhile, take } from 'rxjs/operators';
 
 @Component({
@@ -15,6 +15,6 @@ import { takeWhile, take } from 'rxjs/operators';
 export class RxTakeWhileComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   output = this.input.pipe(takeWhile(val => val !== 3));
 }

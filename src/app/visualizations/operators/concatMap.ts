@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { take, map, concatMap } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -25,7 +25,7 @@ export class RxConcatMapComponent {
 
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(1000).pipe(
+  higherOrder = timer(0, 1000).pipe(
     take(4),
     mapNumberToChar(),
   );

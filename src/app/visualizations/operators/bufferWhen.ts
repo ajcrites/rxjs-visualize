@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Subject, interval } from 'rxjs';
+import { timer, interval, Subject } from 'rxjs';
 import { tap, take, bufferWhen } from 'rxjs/operators';
 
 @Component({
@@ -22,7 +22,7 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
 export class RxBufferWhenComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  preBuffer = interval(1000).pipe(take(20));
+  preBuffer = timer(0, 1000).pipe(take(20));
   closingBuffer = new Subject();
   postBuffer = this.preBuffer.pipe(
     bufferWhen(() =>

@@ -1,7 +1,7 @@
 // It's unclear to me why one of the emissions is skipped
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { interval, timer } from 'rxjs';
 import { retryWhen, take, map, mapTo } from 'rxjs/operators';
 
 @Component({
@@ -25,7 +25,7 @@ export class RxRetryWhenComponent {
     take(2),
     mapTo('r'),
   );
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     map(val => {
       if (2 === val) {
         throw new Error();

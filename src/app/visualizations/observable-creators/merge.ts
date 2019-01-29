@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { merge, interval } from 'rxjs';
+import { merge, timer } from 'rxjs';
 import { delay, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,8 +19,8 @@ export class RxMergeComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   inputs = [
-    interval(1000).pipe(take(5)),
-    interval(1000).pipe(
+    timer(0, 1000).pipe(take(5)),
+    timer(0, 1000).pipe(
       delay(500),
       mapNumberToChar(),
       take(5),

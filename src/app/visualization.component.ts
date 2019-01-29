@@ -141,6 +141,11 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
             visualization yet or doesn't exist.
           </p>
           <p>
+            Deprecated operators are not included. Keep in mind that operators
+            are camelCase (<code>zipall</code> does not exist, but
+            <code>zipAll</code> does)
+          </p>
+          <p>
             You can select operators from the menu on the left, or
             <a routerLink="/">go home</a>.
           </p>

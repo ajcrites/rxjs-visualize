@@ -8,8 +8,12 @@ import { take } from 'rxjs/operators';
   template: `
     <h1>timer</h1>
     <p>
+      The prince of Observable creators as far as RxJS Visualize is concerned.
+    </p>
+    <p>
       Similar to <code>interval</code> except that you can provide an initial
-      delay. If none is provided, <code>timer</code> will emit only once.
+      delay as the first argument and the period as the second. If no period is
+      provided, <code>timer</code> will emit only once.
     </p>
     <p>
       If the initial delay is 0, <code>timer</code> will emit immediately and

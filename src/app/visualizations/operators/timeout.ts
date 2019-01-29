@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, filter, timeout } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,7 @@ import { take, filter, timeout } from 'rxjs/operators';
 export class RxTimeoutComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(20));
+  input = timer(0, 1000).pipe(take(20));
   checkFive = this.input.pipe(filter(val => val > 5));
   output = this.checkFive.pipe(timeout(3000));
 }

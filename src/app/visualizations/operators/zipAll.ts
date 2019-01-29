@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, of } from 'rxjs';
+import { timer, of } from 'rxjs';
 import { zipAll, take, map } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -22,7 +22,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxZipAllComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     mapNumberToChar(),
     take(2),
   );

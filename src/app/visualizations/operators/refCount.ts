@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, publish, refCount, tap, mergeMapTo } from 'rxjs/operators';
 
 @Component({
@@ -22,7 +22,7 @@ import { take, publish, refCount, tap, mergeMapTo } from 'rxjs/operators';
 export class RxRefCountComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     // tslint:disable-next-line:no-console ... open your console!
     tap(val => val === 0 && console.log('Subscribed!')),
     take(20),

@@ -1,7 +1,7 @@
 // This one confuses me
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, mapTo, repeatWhen } from 'rxjs/operators';
 
 @Component({
@@ -21,9 +21,9 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
 export class RxRepeatWhenComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(3000).pipe(
+  input = timer(0, 3000).pipe(
     take(3),
     mapTo('r'),
   );
-  output = this.input.pipe(repeatWhen(() => interval(1000).pipe(take(2))));
+  output = this.input.pipe(repeatWhen(() => timer(0, 1000).pipe(take(2))));
 }

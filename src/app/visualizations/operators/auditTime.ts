@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, auditTime } from 'rxjs/operators';
 
 @Component({
@@ -19,7 +19,7 @@ import { take, auditTime } from 'rxjs/operators';
 export class RxAuditTimeComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  preAudit = interval(1000).pipe(take(20));
+  preAudit = timer(0, 1000).pipe(take(20));
   // Practically equivalent to `audit(() => interval(2500))`
   postAudit = this.preAudit.pipe(auditTime(2500));
 }

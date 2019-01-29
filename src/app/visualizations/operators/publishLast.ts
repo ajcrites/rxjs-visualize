@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConnectableObservable, interval } from 'rxjs';
+import { timer, ConnectableObservable } from 'rxjs';
 import { tap, take, mapTo, publishLast } from 'rxjs/operators';
 
 @Component({
@@ -19,7 +19,7 @@ import { tap, take, mapTo, publishLast } from 'rxjs/operators';
 export class RxPublishLastComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(5),
     tap(val => {
       if (0 === val) {

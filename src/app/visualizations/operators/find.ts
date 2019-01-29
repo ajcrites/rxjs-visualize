@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, find } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +16,6 @@ import { take, find } from 'rxjs/operators';
 export class RxFindComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(5));
+  input = timer(0, 1000).pipe(take(5));
   output = this.input.pipe(find(val => val > 1));
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { mergeScan, skip, take, map } from 'rxjs/operators';
 
 @Component({
@@ -24,13 +24,13 @@ export class RxMergeScanComponent {
   // I don't fully understand this one yet; will revisit after `scan`
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(1000).pipe(
+  higherOrder = timer(0, 1000).pipe(
     take(3),
     skip(1),
   );
   firstOrder = this.higherOrder.pipe(
     mergeScan((acc, val) => {
-      const lowerOrder = interval(1000 * val).pipe(
+      const lowerOrder = timer(0, 1000 * val).pipe(
         take(3),
         map(innerVal => acc + innerVal),
       );

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { takeUntil, mapTo, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,11 +19,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxTakeUntilComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     mapNumberToChar(),
     take(7),
   );
-  notifier = interval(4500).pipe(
+  notifier = timer(0, 4500).pipe(
     mapTo('z'),
     take(1),
   );

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { generate, interval, zip } from 'rxjs';
+import { generate, timer, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -25,9 +25,9 @@ export class RxGenerateComponent {
     condition: x => x < 5,
     iterate: x => x + 1,
   }).pipe(map(val => val + 'o'));
-  // zipping with the interval allows us to emit the other Observable values on
+  // zipping with the timer allows us to emit the other Observable values on
   // a timer. Otherwise, they would emit immediately.
-  output = zip(this.generated, this.generatedObj, interval(1000)).pipe(
+  output = zip(this.generated, this.generatedObj, timer(0, 1000)).pipe(
     map(([g1, g2]) => [g1, g2]),
   );
 }

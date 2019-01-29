@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { windowToggle, take, mapTo, mergeAll } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,13 +19,13 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxWindowToggleComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     mapNumberToChar(),
     take(20),
   );
-  notifier = interval(3500).pipe(mapTo('w'));
+  notifier = timer(0, 3500).pipe(mapTo('w'));
   output = this.input.pipe(
-    windowToggle(this.notifier, () => interval(2000)),
+    windowToggle(this.notifier, () => timer(2000)),
     mergeAll(),
   );
 }

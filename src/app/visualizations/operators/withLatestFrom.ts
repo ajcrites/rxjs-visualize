@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { withLatestFrom, take, skip } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -18,11 +18,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxWithLatestFromComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  letters = interval(1500).pipe(
+  letters = timer(0, 1500).pipe(
     mapNumberToChar(),
     take(7),
   );
-  numbers = interval(1000).pipe(
+  numbers = timer(0, 1000).pipe(
     skip(1),
     take(8),
   );

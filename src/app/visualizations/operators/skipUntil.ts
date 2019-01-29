@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { skipUntil, mapTo, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -19,11 +19,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxSkipUntilComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(5),
     mapNumberToChar(),
   );
-  skipper = interval(3400).pipe(
+  skipper = timer(0, 3400).pipe(
     take(1),
     mapTo('x'),
   );

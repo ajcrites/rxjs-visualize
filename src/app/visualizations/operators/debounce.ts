@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, mergeMap, map, debounce } from 'rxjs/operators';
 
 @Component({
@@ -21,14 +21,14 @@ export class RxDebounceComponent {
   // Essentially, the difference has to be between the final inner emission (at
   // 750ms) and the next outer observable emission (at 2s, more than a 1s
   // difference)
-  input = interval(2000).pipe(
+  input = timer(0, 2000).pipe(
     mergeMap(val =>
-      interval(250).pipe(
+      timer(0, 250).pipe(
         map(innerVal => val + innerVal),
         take(3),
       ),
     ),
     take(20),
   );
-  debounced = this.input.pipe(debounce(() => interval(1000)));
+  debounced = this.input.pipe(debounce(() => timer(1000)));
 }

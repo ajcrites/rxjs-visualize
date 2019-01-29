@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { switchMap, map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -25,13 +25,13 @@ export class RxSwitchMapComponent {
 
   initTime = new Date().getTime();
   lowerOrders = [];
-  higherOrder = interval(2000).pipe(
+  higherOrder = timer(0, 2000).pipe(
     take(4),
     mapNumberToChar(),
   );
   firstOrder = this.higherOrder.pipe(
     switchMap(val => {
-      const lowerOrder = interval(1000).pipe(
+      const lowerOrder = timer(0, 1000).pipe(
         take(4),
         map(innerVal => val + innerVal),
       );

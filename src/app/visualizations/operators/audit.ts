@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { take, audit } from 'rxjs/operators';
 
 @Component({
@@ -15,7 +15,7 @@ import { take, audit } from 'rxjs/operators';
 export class RxAuditComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  preAudit = interval(1000).pipe(take(20));
+  preAudit = timer(0, 1000).pipe(take(20));
   // Interestingly, when the source Observable (preAudit) completes, the
   // last value it emitted is _not_ emitted by `.audit` even after the
   // duration Observable completes.

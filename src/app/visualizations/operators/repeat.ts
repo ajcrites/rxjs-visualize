@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, repeat } from 'rxjs/operators';
 
 @Component({
@@ -15,6 +15,6 @@ import { take, repeat } from 'rxjs/operators';
 export class RxRepeatComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(3));
+  input = timer(0, 1000).pipe(take(3));
   output = this.input.pipe(repeat(3));
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { onErrorResumeNext, map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -26,7 +26,7 @@ export class RxOnErrorResumeNextComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   inputs = [
-    interval(1000).pipe(
+    timer(0, 1000).pipe(
       take(3),
       map(val => {
         if (val === 2) {
@@ -36,7 +36,7 @@ export class RxOnErrorResumeNextComponent {
       }),
     ),
 
-    interval(1000).pipe(
+    timer(0, 1000).pipe(
       take(3),
       mapNumberToChar(),
       map(val => {
@@ -47,7 +47,7 @@ export class RxOnErrorResumeNextComponent {
       }),
     ),
 
-    interval(1000).pipe(
+    timer(0, 1000).pipe(
       take(3),
       mapNumberToChar(),
       map(val => val.toUpperCase()),

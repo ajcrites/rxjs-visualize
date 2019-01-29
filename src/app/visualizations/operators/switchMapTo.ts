@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { switchMapTo, mapTo, take } from 'rxjs/operators';
 
 @Component({
@@ -16,10 +16,10 @@ import { switchMapTo, mapTo, take } from 'rxjs/operators';
 export class RxSwitchMapToComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  higherOrder = interval(2000).pipe(
+  higherOrder = timer(0, 2000).pipe(
     take(4),
     mapTo('a'),
   );
-  inner = interval(1000).pipe(take(3));
+  inner = timer(0, 1000).pipe(take(3));
   firstOrder = this.higherOrder.pipe(switchMapTo(this.inner));
 }

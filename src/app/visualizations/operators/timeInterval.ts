@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, timeInterval, pluck } from 'rxjs/operators';
 
 @Component({
@@ -22,7 +22,7 @@ import { take, timeInterval, pluck } from 'rxjs/operators';
 export class RxTimeIntervalComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(950).pipe(take(20));
+  input = timer(0, 950).pipe(take(20));
   // not shown
   timeIntervals = this.input.pipe(timeInterval());
   intervals = this.timeIntervals.pipe(pluck('interval'));

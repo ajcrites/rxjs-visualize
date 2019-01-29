@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-retry',
   template: `
-    <h1>Retry</h1>
+    <h1>retry</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>
@@ -15,7 +15,7 @@ import { retry, map } from 'rxjs/operators';
 export class RxRetryComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     map(val => {
       if (3 === val) {
         throw new Error();

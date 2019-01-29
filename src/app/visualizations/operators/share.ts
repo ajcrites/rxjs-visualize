@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, from, timer } from 'rxjs';
+import { from, timer } from 'rxjs';
 import { take, tap, share, map, mergeMapTo } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -33,7 +33,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxShareComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(4),
     // tslint:disable-next-line:no-console ... open your console!
     tap(val => val === 0 && console.log('Connecting automatically!')),

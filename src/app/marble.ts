@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animations } from './visualizations.animations';
 
-import { NEVER } from 'rxjs';
+import { NEVER, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   animations,
@@ -12,16 +13,13 @@ import { NEVER } from 'rxjs';
       class="guide"
       [class.complete]="complete"
       [class.error]="error"
-      [style.width.px]="
-        sourceValues[sourceValues.length - 1]?.left +
-        (complete || error ? 15 : 0)
-      "
+      [style.width.px]="guideLength + (error || complete ? 15 : 0)"
       [style.left.px]="leftPad - 35"
     ></div>
     <i
       [@appear]
       *ngFor="let elem of sourceValues"
-      [style.left.px]="elem.left - 25"
+      [style.left.px]="elem.left"
       [class]="color"
       >{{ elem.value }}</i
     >
@@ -53,18 +51,28 @@ export class Marble implements OnInit {
   // Source Observable encountered an error
   error = false;
 
+  guideLength = 0;
+
   ngOnInit() {
     const initTime = this.initTime;
-    const sourceSubscription = this.source.subscribe({
-      next: value =>
+    const completer = new Subject();
+    this.source.pipe(takeUntil(completer)).subscribe({
+      next: value => {
+        const left =
+          ((new Date().getTime() - initTime) / 1000) * this.leftPad + 20;
         this.sourceValues.push({
           value,
-          left: ((new Date().getTime() - initTime) / 1000) * this.leftPad,
-        }),
+          left,
+        });
+        this.guideLength = left + 25;
+      },
       error: () => (this.error = true),
       complete: () => (this.complete = true),
     });
 
-    this.main.subscribe(null, null, () => sourceSubscription.unsubscribe());
+    this.main.subscribe(null, null, () => {
+      completer.next();
+      completer.complete();
+    });
   }
 }

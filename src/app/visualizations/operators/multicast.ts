@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval, from, timer, Subject, ConnectableObservable } from 'rxjs';
+import { from, timer, Subject, ConnectableObservable } from 'rxjs';
 import { multicast, take, map, tap, mergeMapTo } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -8,7 +8,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 @Component({
   selector: 'rx-multicast',
   template: `
-    <h1>Multicast</h1>
+    <h1>multicast</h1>
     <p>
       This creates a <code>ConnectableObservable</code>. When connected (via)
       <code>connect</code>, it emits a Subject with the provided factory
@@ -31,7 +31,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxMulticastComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(4),
     tap(val => {
       if (val === 1) {

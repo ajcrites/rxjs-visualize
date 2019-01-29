@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { every, mapTo, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-every',
   template: `
-    <h1>Every</h1>
+    <h1>every</h1>
     <p>
       This checks that every element in an Observable matches some predicate. If
       <code>every</code> fails, it will emit <code>false</code> immediately and
@@ -23,11 +23,11 @@ import { every, mapTo, map, take } from 'rxjs/operators';
 export class RxEveryComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  passEvery = interval(1000).pipe(
+  passEvery = timer(0, 1000).pipe(
     take(5),
     mapTo('a'),
   );
-  failEvery = interval(1000).pipe(
+  failEvery = timer(0, 1000).pipe(
     take(5),
     map(val => (val % 2 ? 'b' : 'a')),
   );

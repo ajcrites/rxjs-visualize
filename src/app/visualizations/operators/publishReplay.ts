@@ -1,0 +1,35 @@
+import { Component } from '@angular/core';
+
+import { ConnectableObservable, timer } from 'rxjs';
+import { tap, take, publishReplay, mergeMapTo } from 'rxjs/operators';
+
+@Component({
+  selector: 'rx-publish-replay',
+  template: `
+    <h1>publishReplay</h1>
+    <p>
+      This is similar to <code>publish</code> except it emits a
+      <code>ReplaySubject</code> mirroring the source.
+    </p>
+    <pre prism-highlight="typescript">{{ code }}</pre>
+
+    <marble [source]="input"></marble> <marble [source]="subject"></marble>
+    <marble [source]="output"></marble>
+  `,
+})
+export class RxPublishReplayComponent {
+  code = preval`module.exports = require('../codefile')(__filename)`;
+
+  input = timer(0, 1000).pipe(
+    take(5),
+    tap(val => {
+      if (0 === val) {
+        this.subject.connect();
+      }
+    }),
+  );
+  subject = this.input.pipe(publishReplay(2)) as ConnectableObservable<number>;
+  // This skips over the 0th value since `publishReplay` will already have
+  // bufferred three values. All replayed values are emitted simultaneously.
+  output = timer(3500).pipe(mergeMapTo(this.subject));
+}

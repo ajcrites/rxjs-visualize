@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, partition } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-partition',
   template: `
-    <h1>Partition</h1>
+    <h1>partition</h1>
     <p>
       This cannot function as an operator. See:
       <a href="https://github.com/ReactiveX/rxjs/issues/4419">
@@ -23,7 +23,7 @@ import { take, partition } from 'rxjs/operators';
 export class RxPartitionComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(20));
+  input = timer(0, 1000).pipe(take(20));
   partitioned = partition((val: number) => !!(val % 2))(this.input);
   satisfies = this.partitioned[0];
   doesNotSatisfy = this.partitioned[1];

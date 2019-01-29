@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, first } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-first',
   template: `
-    <h1>First</h1>
+    <h1>first</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>
@@ -15,6 +15,6 @@ import { take, first } from 'rxjs/operators';
 export class RxFirstComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(3));
+  input = timer(0, 1000).pipe(take(3));
   output = this.input.pipe(first());
 }

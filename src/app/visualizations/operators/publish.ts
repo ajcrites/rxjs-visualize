@@ -6,7 +6,13 @@ import { tap, take, publish } from 'rxjs/operators';
 @Component({
   selector: 'rx-publish',
   template: `
-    <h1>Publish</h1>
+    <h1>publish</h1>
+    <p>
+      The <code>publish</code> use
+      <a routerLink="/multicast"><code>multicast</code></a> with various
+      Subjects. This uses
+      <code prism-highlight="typescript">new Subject()</code>
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>

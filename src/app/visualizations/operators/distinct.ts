@@ -6,7 +6,7 @@ import { distinct, map, take } from 'rxjs/operators';
 @Component({
   selector: 'rx-distinct',
   template: `
-    <h1>Distinct</h1>
+    <h1>distinct</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="distinct"></marble>

@@ -5,21 +5,33 @@ import { filter, map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'rx-nav',
   template: `
+    <h1 class="menu-section-title">Observable Creators</h1>
+    <ul class="operators-list">
+      <li *ngFor="let fn of observableCreators">
+        <input
+          role="nav"
+          aria-label="Select Visualization"
+          type="checkbox"
+          (change)="select(fn.file, $event)"
+          [checked]="hasSelectedOperator(fn)"
+        />
+        <a (click)="navigate(fn.file)">{{ fn.name }}</a>
+      </li>
+    </ul>
+
     <h1 class="menu-section-title">Operators</h1>
-    <div class="nav-list-container">
-      <ul class="operators-list">
-        <li *ngFor="let operator of operators">
-          <input
-            role="nav"
-            aria-label="Select Visualization"
-            type="checkbox"
-            (change)="select(operator.file, $event)"
-            [checked]="hasSelectedOperator(operator)"
-          />
-          <a (click)="navigate(operator.file)">{{ operator.name }}</a>
-        </li>
-      </ul>
-    </div>
+    <ul class="operators-list">
+      <li *ngFor="let operator of operators">
+        <input
+          role="nav"
+          aria-label="Select Visualization"
+          type="checkbox"
+          (change)="select(operator.file, $event)"
+          [checked]="hasSelectedOperator(operator)"
+        />
+        <a (click)="navigate(operator.file)">{{ operator.name }}</a>
+      </li>
+    </ul>
   `,
 })
 export class RxNavComponent implements OnInit {
@@ -32,7 +44,17 @@ export class RxNavComponent implements OnInit {
       filter(file => /\.ts$/.test(file)).map(file =>
       file.replace('.ts', '')
     ).map(operator => ({ file: operator, name: camelCase(operator) }))
-    .concat([{ file: 'merge-map', name: 'flatMap' }])
+    .concat([{ file: 'mergeMap', name: 'flatMap' }])
+    .sort((a, b) => a.name < b.name ? -1 : 1);
+  `;
+
+  observableCreators = preval`
+    const fs = require('fs');
+    const { camelCase } = require('lodash');
+    module.exports = fs.readdirSync(__dirname + '/visualizations/observable-creators').
+      filter(file => /\.ts$/.test(file)).map(file =>
+      file.replace('.ts', '')
+    ).map(fn => ({ file: fn, name: camelCase(fn) }))
     .sort((a, b) => a.name < b.name ? -1 : 1);
   `;
 

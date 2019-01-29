@@ -8,106 +8,119 @@ import { VisualizationsListComponent } from './visualizations-list.component';
 import { VisualizationComponent } from './visualization.component';
 import { RxNavComponent } from './nav.component';
 
+import { RxBindCallbackComponent } from './visualizations/observable-creators/bindCallback';
+import { RxIntervalComponent } from './visualizations/observable-creators/interval';
+import { RxConcatComponent } from './visualizations/observable-creators/concat';
+import { RxMergeComponent } from './visualizations/observable-creators/merge';
+import { RxFromEventComponent } from './visualizations/observable-creators/fromEvent';
+import { RxForkJoinComponent } from './visualizations/observable-creators/forkJoin';
+import { RxOfComponent } from './visualizations/observable-creators/of';
+import { RxFromComponent } from './visualizations/observable-creators/from';
+import { RxIifComponent } from './visualizations/observable-creators/iif';
+import { RxZipComponent } from './visualizations/observable-creators/zip';
+import { RxCombineLatestComponent } from './visualizations/observable-creators/combineLatest';
+import { RxGenerateComponent } from './visualizations/observable-creators/generate';
+import { RxTimerComponent } from './visualizations/observable-creators/timer';
+
 import { RxAuditComponent } from './visualizations/operators/audit';
-import { RxAuditTimeComponent } from './visualizations/operators/audit-time';
+import { RxAuditTimeComponent } from './visualizations/operators/auditTime';
 import { RxBufferComponent } from './visualizations/operators/buffer';
-import { RxBufferCountComponent } from './visualizations/operators/buffer-count';
-import { RxBufferTimeComponent } from './visualizations/operators/buffer-time';
-import { RxBufferToggleComponent } from './visualizations/operators/buffer-toggle';
-import { RxBufferWhenComponent } from './visualizations/operators/buffer-when';
-import { RxCatchErrorComponent } from './visualizations/operators/catch-error';
-import { RxCombineAllComponent } from './visualizations/operators/combine-all';
-import { RxCombineLatestComponent } from './visualizations/operators/combine-latest';
-import { RxConcatAllComponent } from './visualizations/operators/concat-all';
-import { RxConcatMapComponent } from './visualizations/operators/concat-map';
-import { RxConcatMapToComponent } from './visualizations/operators/concat-map-to';
+import { RxBufferCountComponent } from './visualizations/operators/bufferCount';
+import { RxBufferTimeComponent } from './visualizations/operators/bufferTime';
+import { RxBufferToggleComponent } from './visualizations/operators/bufferToggle';
+import { RxBufferWhenComponent } from './visualizations/operators/bufferWhen';
+import { RxCatchErrorComponent } from './visualizations/operators/catchError';
+import { RxCombineAllComponent } from './visualizations/operators/combineAll';
+import { RxConcatAllComponent } from './visualizations/operators/concatAll';
+import { RxConcatMapComponent } from './visualizations/operators/concatMap';
+import { RxConcatMapToComponent } from './visualizations/operators/concatMapTo';
 import { RxCountComponent } from './visualizations/operators/count';
 import { RxDebounceComponent } from './visualizations/operators/debounce';
-import { RxDebounceTimeComponent } from './visualizations/operators/debounce-time';
-import { RxDefaultIfEmptyComponent } from './visualizations/operators/default-if-empty';
+import { RxDebounceTimeComponent } from './visualizations/operators/debounceTime';
+import { RxDefaultIfEmptyComponent } from './visualizations/operators/defaultIfEmpty';
 import { RxDematerializeComponent } from './visualizations/operators/dematerialize';
 import { RxDelayComponent } from './visualizations/operators/delay';
-import { RxDelayWhenComponent } from './visualizations/operators/delay-when';
+import { RxDelayWhenComponent } from './visualizations/operators/delayWhen';
 import { RxDistinctComponent } from './visualizations/operators/distinct';
-import { RxDistinctUntilChangedComponent } from './visualizations/operators/distinct-until-changed';
+import { RxDistinctUntilChangedComponent } from './visualizations/operators/distinctUntilChanged';
 // tslint:disable-next-line:max-line-length
-import { RxDistinctUntilKeyChangedComponent } from './visualizations/operators/distinct-until-key-changed';
+import { RxDistinctUntilKeyChangedComponent } from './visualizations/operators/distinctUntilKeyChanged';
 import { RxTapComponent } from './visualizations/operators/tap';
-import { RxEndWithComponent } from './visualizations/operators/end-with';
-import { RxElementAtComponent } from './visualizations/operators/element-at';
+import { RxEndWithComponent } from './visualizations/operators/endWith';
+import { RxElementAtComponent } from './visualizations/operators/elementAt';
 import { RxEveryComponent } from './visualizations/operators/every';
 import { RxExhaustComponent } from './visualizations/operators/exhaust';
-import { RxExhaustMapComponent } from './visualizations/operators/exhaust-map';
+import { RxExhaustMapComponent } from './visualizations/operators/exhaustMap';
 import { RxExpandComponent } from './visualizations/operators/expand';
 import { RxFilterComponent } from './visualizations/operators/filter';
 import { RxFinalizeComponent } from './visualizations/operators/finalize';
 import { RxFindComponent } from './visualizations/operators/find';
-import { RxFindIndexComponent } from './visualizations/operators/find-index';
+import { RxFindIndexComponent } from './visualizations/operators/findIndex';
 import { RxFirstComponent } from './visualizations/operators/first';
-import { RxGroupByComponent } from './visualizations/operators/group-by';
-import { RxIgnoreElementsComponent } from './visualizations/operators/ignore-elements';
-import { RxIsEmptyComponent } from './visualizations/operators/is-empty';
+import { RxGroupByComponent } from './visualizations/operators/groupBy';
+import { RxIgnoreElementsComponent } from './visualizations/operators/ignoreElements';
+import { RxIsEmptyComponent } from './visualizations/operators/isEmpty';
 import { RxLastComponent } from './visualizations/operators/last';
 import { RxMapComponent } from './visualizations/operators/map';
-import { RxMapToComponent } from './visualizations/operators/map-to';
+import { RxMapToComponent } from './visualizations/operators/mapTo';
 import { RxMaterializeComponent } from './visualizations/operators/materialize';
 import { RxMaxComponent } from './visualizations/operators/max';
-import { RxMergeAllComponent } from './visualizations/operators/merge-all';
-import { RxMergeMapComponent } from './visualizations/operators/merge-map';
-import { RxMergeMapToComponent } from './visualizations/operators/merge-map-to';
-import { RxMergeScanComponent } from './visualizations/operators/merge-scan';
+import { RxMergeAllComponent } from './visualizations/operators/mergeAll';
+import { RxMergeMapComponent } from './visualizations/operators/mergeMap';
+import { RxMergeMapToComponent } from './visualizations/operators/mergeMapTo';
+import { RxMergeScanComponent } from './visualizations/operators/mergeScan';
 import { RxMinComponent } from './visualizations/operators/min';
 import { RxMulticastComponent } from './visualizations/operators/multicast';
-import { RxObserveOnComponent } from './visualizations/operators/observe-on';
-import { RxOnErrorResumeNextComponent } from './visualizations/operators/on-error-resume-next';
+import { RxObserveOnComponent } from './visualizations/operators/observeOn';
+import { RxOnErrorResumeNextComponent } from './visualizations/operators/onErrorResumeNext';
 import { RxPairwiseComponent } from './visualizations/operators/pairwise';
 import { RxPartitionComponent } from './visualizations/operators/partition';
 import { RxPluckComponent } from './visualizations/operators/pluck';
 import { RxPublishComponent } from './visualizations/operators/publish';
-import { RxPublishBehaviorComponent } from './visualizations/operators/publish-behavior';
-import { RxPublishLastComponent } from './visualizations/operators/publish-last';
-import { RxPublishReplayComponent } from './visualizations/operators/publish-replay';
+import { RxPublishBehaviorComponent } from './visualizations/operators/publishBehavior';
+import { RxPublishLastComponent } from './visualizations/operators/publishLast';
+import { RxPublishReplayComponent } from './visualizations/operators/publishReplay';
 import { RxReduceComponent } from './visualizations/operators/reduce';
-import { RxRefCountComponent } from './visualizations/operators/ref-count';
+import { RxRefCountComponent } from './visualizations/operators/refCount';
 import { RxRepeatComponent } from './visualizations/operators/repeat';
-import { RxRepeatWhenComponent } from './visualizations/operators/repeat-when';
+import { RxRepeatWhenComponent } from './visualizations/operators/repeatWhen';
 import { RxRetryComponent } from './visualizations/operators/retry';
-import { RxRetryWhenComponent } from './visualizations/operators/retry-when';
+import { RxRetryWhenComponent } from './visualizations/operators/retryWhen';
 import { RxSampleComponent } from './visualizations/operators/sample';
-import { RxSampleTimeComponent } from './visualizations/operators/sample-time';
+import { RxSampleTimeComponent } from './visualizations/operators/sampleTime';
 import { RxScanComponent } from './visualizations/operators/scan';
-import { RxSequenceEqualComponent } from './visualizations/operators/sequence-equal';
+import { RxSequenceEqualComponent } from './visualizations/operators/sequenceEqual';
 import { RxShareComponent } from './visualizations/operators/share';
-import { RxShareReplayComponent } from './visualizations/operators/share-replay';
+import { RxShareReplayComponent } from './visualizations/operators/shareReplay';
 import { RxSingleComponent } from './visualizations/operators/single';
-import { RxSkipLastComponent } from './visualizations/operators/skip-last';
-import { RxSkipUntilComponent } from './visualizations/operators/skip-until';
-import { RxSkipWhileComponent } from './visualizations/operators/skip-while';
+import { RxSkipLastComponent } from './visualizations/operators/skipLast';
+import { RxSkipUntilComponent } from './visualizations/operators/skipUntil';
+import { RxSkipWhileComponent } from './visualizations/operators/skipWhile';
 import { RxSkipComponent } from './visualizations/operators/skip';
-import { RxStartWithComponent } from './visualizations/operators/start-with';
-import { RxSubscribeOnComponent } from './visualizations/operators/subscribe-on';
-import { RxSwitchAllComponent } from './visualizations/operators/switch-all';
-import { RxSwitchMapComponent } from './visualizations/operators/switch-map';
-import { RxSwitchMapToComponent } from './visualizations/operators/switch-map-to';
+import { RxStartWithComponent } from './visualizations/operators/startWith';
+import { RxSubscribeOnComponent } from './visualizations/operators/subscribeOn';
+import { RxSwitchAllComponent } from './visualizations/operators/switchAll';
+import { RxSwitchMapComponent } from './visualizations/operators/switchMap';
+import { RxSwitchMapToComponent } from './visualizations/operators/switchMapTo';
 import { RxTakeComponent } from './visualizations/operators/take';
-import { RxTakeLastComponent } from './visualizations/operators/take-last';
-import { RxTakeUntilComponent } from './visualizations/operators/take-until';
-import { RxTakeWhileComponent } from './visualizations/operators/take-while';
+import { RxTakeLastComponent } from './visualizations/operators/takeLast';
+import { RxTakeUntilComponent } from './visualizations/operators/takeUntil';
+import { RxTakeWhileComponent } from './visualizations/operators/takeWhile';
 import { RxThrottleComponent } from './visualizations/operators/throttle';
-import { RxThrottleTimeComponent } from './visualizations/operators/throttle-time';
-import { RxThrowIfEmptyComponent } from './visualizations/operators/throw-if-empty';
-import { RxTimeIntervalComponent } from './visualizations/operators/time-interval';
+import { RxThrottleTimeComponent } from './visualizations/operators/throttleTime';
+import { RxThrowIfEmptyComponent } from './visualizations/operators/throwIfEmpty';
+import { RxTimeIntervalComponent } from './visualizations/operators/timeInterval';
 import { RxTimeoutComponent } from './visualizations/operators/timeout';
-import { RxTimeoutWithComponent } from './visualizations/operators/timeout-with';
+import { RxTimeoutWithComponent } from './visualizations/operators/timeoutWith';
 import { RxTimestampComponent } from './visualizations/operators/timestamp';
-import { RxToArrayComponent } from './visualizations/operators/to-array';
+import { RxToArrayComponent } from './visualizations/operators/toArray';
 import { RxWindowComponent } from './visualizations/operators/window';
-import { RxWindowCountComponent } from './visualizations/operators/window-count';
-import { RxWindowTimeComponent } from './visualizations/operators/window-time';
-import { RxWindowToggleComponent } from './visualizations/operators/window-toggle';
-import { RxWindowWhenComponent } from './visualizations/operators/window-when';
-import { RxWithLatestFromComponent } from './visualizations/operators/with-latest-from';
-import { RxZipAllComponent } from './visualizations/operators/zip-all';
+import { RxWindowCountComponent } from './visualizations/operators/windowCount';
+import { RxWindowTimeComponent } from './visualizations/operators/windowTime';
+import { RxWindowToggleComponent } from './visualizations/operators/windowToggle';
+import { RxWindowWhenComponent } from './visualizations/operators/windowWhen';
+import { RxWithLatestFromComponent } from './visualizations/operators/withLatestFrom';
+import { RxZipAllComponent } from './visualizations/operators/zipAll';
 
 import { Marble } from './marble';
 
@@ -119,6 +132,18 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     VisualizationsListComponent,
     VisualizationComponent,
     RxNavComponent,
+    RxBindCallbackComponent,
+    RxIntervalComponent,
+    RxConcatComponent,
+    RxMergeComponent,
+    RxFromEventComponent,
+    RxForkJoinComponent,
+    RxOfComponent,
+    RxFromComponent,
+    RxIifComponent,
+    RxZipComponent,
+    RxGenerateComponent,
+    RxTimerComponent,
     RxAuditComponent,
     RxAuditTimeComponent,
     RxBufferComponent,

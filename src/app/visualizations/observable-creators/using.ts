@@ -21,7 +21,6 @@ import { take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble *ngFor="let input of inputs" [source]="input"></marble>
     <marble [source]="output"></marble>
   `,
 })

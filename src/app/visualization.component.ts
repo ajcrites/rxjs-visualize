@@ -9,10 +9,17 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
       </button>
       <ng-container [ngSwitch]="visualization" *ngIf="show">
         <rx-bind-callback *ngSwitchCase="'bindCallback'"></rx-bind-callback>
+        <rx-bind-node-callback
+          *ngSwitchCase="'bindNodeCallback'"
+        ></rx-bind-node-callback>
         <rx-interval *ngSwitchCase="'interval'"></rx-interval>
         <rx-concat *ngSwitchCase="'concat'"></rx-concat>
+        <rx-defer *ngSwitchCase="'defer'"></rx-defer>
         <rx-merge *ngSwitchCase="'merge'"></rx-merge>
         <rx-from-event *ngSwitchCase="'fromEvent'"></rx-from-event>
+        <rx-from-event-pattern
+          *ngSwitchCase="'fromEventPattern'"
+        ></rx-from-event-pattern>
         <rx-fork-join *ngSwitchCase="'forkJoin'"></rx-fork-join>
         <rx-of *ngSwitchCase="'of'"></rx-of>
         <rx-from *ngSwitchCase="'from'"></rx-from>
@@ -21,6 +28,13 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
         <rx-combine-latest *ngSwitchCase="'combine-latest'"></rx-combine-latest>
         <rx-generate *ngSwitchCase="'generate'"></rx-generate>
         <rx-timer *ngSwitchCase="'timer'"></rx-timer>
+        <rx-pairs *ngSwitchCase="'pairs'"></rx-pairs>
+        <rx-race *ngSwitchCase="'race'"></rx-race>
+        <rx-range *ngSwitchCase="'range'"></rx-range>
+        <rx-using *ngSwitchCase="'using'"></rx-using>
+        <rx-on-error-resume-next-obc
+          *ngSwitchCase="'onErrorResumeNextObc'"
+        ></rx-on-error-resume-next-obc>
 
         <rx-audit-time *ngSwitchCase="'auditTime'"></rx-audit-time>
         <rx-audit *ngSwitchCase="'audit'"></rx-audit>

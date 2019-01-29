@@ -25,7 +25,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.build.json",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.css",

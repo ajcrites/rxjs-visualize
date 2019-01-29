@@ -2,6 +2,9 @@
   "name": "rxjs-visualize",
   "version": "0.0.0",
   "license": "MIT",
+  "scripts": {
+    "lint": "tsc && tslint --project tsconfig.json"
+  },
   "lint-staged": {
     "**/*.ts": [
       "prettier --write --parser typescript --single-quote --trailing-comma all",
@@ -49,7 +52,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && yarn lint"
     }
   }
 }

@@ -29,4 +29,4 @@ This was built using the Angular framework.
 * [x] Include static operators (`Observable`) -- now Observable Creators.
 * [ ] Include versions with other arguments
 * [ ] Allow users to manipulate arguments
-* [ ] Support HMR
+* [x] Support HMR

@@ -35,6 +35,14 @@
             "scripts": []
           },
           "configurations": {
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -67,6 +75,9 @@
             "browserTarget": "rxjs-visualize:build"
           },
           "configurations": {
+            "hmr": {
+              "browserTarget": "rxjs-visualize:build:hmr"
+            },
             "production": {
               "browserTarget": "rxjs-visualize:build:production"
             }

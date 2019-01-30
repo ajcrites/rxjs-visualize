@@ -78,6 +78,8 @@ export class RxVisualizationsAppComponent implements OnInit {
   navOpen = true;
 
   ngOnInit() {
-    this.fadeInState = 'in';
+    if (!module['hot']) {
+      this.fadeInState = 'in';
+    }
   }
 }

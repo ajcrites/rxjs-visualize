@@ -8,7 +8,7 @@ import { take, mapTo } from 'rxjs/operators';
   template: `
     <h1>iif</h1>
     <p>
-      <code>if</code> is a reserved work or else this would probaby just be
+      <code>if</code> is a reserved word or else this would probaby just be
       <code>if</code>. I'm not sure that the extra i represents anything. It's
       just easier to type.
     </p>

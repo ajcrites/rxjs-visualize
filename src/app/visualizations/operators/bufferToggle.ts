@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer, interval, Subject } from 'rxjs';
+import { timer, Subject } from 'rxjs';
 import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
 
 @Component({
@@ -25,10 +25,7 @@ export class RxBufferToggleComponent {
   closeBuffer = new Subject();
   postBuffer = this.preBuffer.pipe(
     bufferToggle(this.openBuffer, () =>
-      interval(1750).pipe(
-        take(1),
-        tap(() => this.closeBuffer.next('c')),
-      ),
+      timer(1750).pipe(tap(() => this.closeBuffer.next('c'))),
     ),
   );
 }

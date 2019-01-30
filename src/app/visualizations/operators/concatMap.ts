@@ -9,6 +9,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
   selector: 'rx-concat-map',
   template: `
     <h1>concatMap</h1>
+    <p>
+      This visualization differs from <code>concatAll</code> because each lower
+      order Observable has to wait for the previous Observable to complete
+      before it is created (the <code>concatMap</code> callback is run again).
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="higherOrder"></marble>
@@ -24,11 +29,13 @@ export class RxConcatMapComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
-  lowerOrders = [];
   higherOrder = timer(0, 1000).pipe(
     take(4),
     mapNumberToChar(),
   );
+  // Four of these are created, one each second, and displayed below the
+  // higher order Observable and above the resulting first order Observable.
+  lowerOrders = [];
   firstOrder = this.higherOrder.pipe(
     concatMap(val => {
       const lowerOrder = interval(1000).pipe(

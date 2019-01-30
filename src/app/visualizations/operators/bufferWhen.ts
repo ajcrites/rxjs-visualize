@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer, interval, Subject } from 'rxjs';
+import { timer, Subject } from 'rxjs';
 import { tap, take, bufferWhen } from 'rxjs/operators';
 
 @Component({
@@ -15,7 +15,7 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="preBuffer"></marble>
-    <marble [source]="closingBuffer" color="blue"></marble>
+    <marble [source]="closingBuffer" [main]="preBuffer" color="blue"></marble>
     <marble [source]="postBuffer"></marble>
   `,
 })
@@ -26,7 +26,7 @@ export class RxBufferWhenComponent {
   closingBuffer = new Subject();
   postBuffer = this.preBuffer.pipe(
     bufferWhen(() =>
-      interval(1000 + Math.random() * 4000).pipe(
+      timer(1000 + Math.random() * 4000).pipe(
         tap(() => this.closingBuffer.next('s')),
       ),
     ),

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { animations } from './visualizations.animations';
 
 import { NEVER, Subject } from 'rxjs';
@@ -26,7 +26,7 @@ import { takeUntil } from 'rxjs/operators';
   `,
 })
 // tslint:disable-next-line:component-class-suffix
-export class Marble implements OnInit {
+export class Marble implements OnInit, OnDestroy {
   // Source Observable for the marble diagram
   @Input() source;
 
@@ -53,10 +53,12 @@ export class Marble implements OnInit {
 
   guideLength = 0;
 
+  // clean up input Observables
+  completer = new Subject();
+
   ngOnInit() {
     const initTime = this.initTime;
-    const completer = new Subject();
-    this.source.pipe(takeUntil(completer)).subscribe({
+    this.source.pipe(takeUntil(this.completer)).subscribe({
       next: value => {
         const left =
           ((new Date().getTime() - initTime) / 1000) * this.leftPad + 20;
@@ -70,9 +72,14 @@ export class Marble implements OnInit {
       complete: () => (this.complete = true),
     });
 
-    this.main.subscribe(null, null, () => {
-      completer.next();
-      completer.complete();
+    this.main.pipe(takeUntil(this.completer)).subscribe(null, null, () => {
+      this.completer.next();
+      this.completer.complete();
     });
+  }
+
+  ngOnDestroy() {
+    this.completer.next();
+    this.completer.complete();
   }
 }

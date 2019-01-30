@@ -1,7 +1,7 @@
 // This one confuses me
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { take, mapTo, repeatWhen } from 'rxjs/operators';
 
 @Component({
@@ -25,5 +25,6 @@ export class RxRepeatWhenComponent {
     take(3),
     mapTo('r'),
   );
-  output = this.input.pipe(repeatWhen(() => timer(0, 1000).pipe(take(2))));
+  // I'm not quite sure why this ends up emitting 5 additional times.
+  output = this.input.pipe(repeatWhen(() => interval(1000).pipe(take(2))));
 }

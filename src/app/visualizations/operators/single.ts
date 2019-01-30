@@ -12,6 +12,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="output"></marble>
+    <marble [source]="notSingle"></marble> <marble [source]="notFound"></marble>
   `,
 })
 export class RxSingleComponent {
@@ -21,5 +22,10 @@ export class RxSingleComponent {
     take(3),
     mapNumberToChar(),
   );
+  // Emits the value when the source completes, if it's found
   output = this.input.pipe(single(val => val === 'b'));
+  // Errors and emits nothing if there is more than one matching value
+  notSingle = this.input.pipe(single(val => val === 'b' || val === 'a'));
+  // Emits undefined
+  notFound = this.input.pipe(single(val => val === 'd'));
 }

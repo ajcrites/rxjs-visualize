@@ -7,6 +7,9 @@ import { distinctUntilChanged, map, take } from 'rxjs/operators';
   selector: 'rx-distinct-until-changed',
   template: `
     <h1>distinctUntilChanged</h1>
+    <p>
+      Unlink <code>distinct</code>, this can emit the same value more than once.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble> <marble [source]="distinct"></marble>

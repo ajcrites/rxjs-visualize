@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
+import { timer, interval } from 'rxjs';
 import { take, mapTo, buffer } from 'rxjs/operators';
 
 @Component({
@@ -20,7 +20,8 @@ import { take, mapTo, buffer } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble> <marble [source]="buffer"></marble>
+    <marble [source]="preBuffer"></marble>
+    <marble [source]="buffer" [main]="preBuffer"></marble>
     <marble [source]="postBuffer"></marble>
   `,
 })
@@ -28,6 +29,6 @@ export class RxBufferComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   preBuffer = timer(0, 1000).pipe(take(20));
-  buffer = timer(0, 3000).pipe(mapTo('B'));
+  buffer = interval(3000).pipe(mapTo('B'));
   postBuffer = this.preBuffer.pipe(buffer(this.buffer));
 }

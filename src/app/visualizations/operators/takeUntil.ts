@@ -23,9 +23,6 @@ export class RxTakeUntilComponent {
     mapNumberToChar(),
     take(7),
   );
-  notifier = timer(0, 4500).pipe(
-    mapTo('z'),
-    take(1),
-  );
+  notifier = timer(3500).pipe(mapTo('z'));
   output = this.input.pipe(takeUntil(this.notifier));
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConnectableObservable, interval } from 'rxjs';
+import { ConnectableObservable, timer } from 'rxjs';
 import { tap, take, publish } from 'rxjs/operators';
 
 @Component({
@@ -8,9 +8,9 @@ import { tap, take, publish } from 'rxjs/operators';
   template: `
     <h1>publish</h1>
     <p>
-      The <code>publish</code> use
-      <a routerLink="/multicast"><code>multicast</code></a> with various
-      Subjects. This uses
+      The <code>publish</code> operators use
+      <a routerLink="/multicast"><code>multicast</code></a> with various types
+      of Subjects. This one, <code>publish</code>, uses
       <code prism-highlight="typescript">new Subject()</code>
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
@@ -21,7 +21,7 @@ import { tap, take, publish } from 'rxjs/operators';
 export class RxPublishComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(
+  input = timer(0, 1000).pipe(
     take(20),
     tap(val => {
       if (5 === val) {

@@ -19,8 +19,7 @@ export class RxCatchErrorComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   // Throw an error on the 5th emission. Then, create a new observable
-  // and keep going. This also switches letters to numbers; it essentially
-  // mirrors the example from the ReactiveX docs
+  // and keep going. This also switches letters to numbers.
   preCatch = timer(0, 1000).pipe(
     map(i => {
       if (4 === i) {

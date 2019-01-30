@@ -12,7 +12,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="input"></marble>
-    <marble [source]="skipper" color="green"></marble>
+    <marble [source]="stopSkipper" color="green"></marble>
     <marble [source]="output"></marble>
   `,
 })
@@ -23,9 +23,6 @@ export class RxSkipUntilComponent {
     take(5),
     mapNumberToChar(),
   );
-  skipper = timer(0, 3400).pipe(
-    take(1),
-    mapTo('x'),
-  );
-  output = this.input.pipe(skipUntil(this.skipper));
+  stopSkipper = timer(2400).pipe(mapTo('x'));
+  output = this.input.pipe(skipUntil(this.stopSkipper));
 }

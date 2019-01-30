@@ -17,8 +17,9 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <p>
       This is a bit of a mixture between <code>concat</code> and
       <code>catchError</code>. You can provide a list of Observables to switch
-      to if the source Observable completes <em>or</em> errors. This Observable
-      Creator starts with the first provided Observable;
+      to if the current source Observable completes <em>or</em> errors. This
+      Observable creator starts with the first provided Observable in the
+      arguments list.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

@@ -75,6 +75,7 @@ main {
   overflow: auto;
   height: 100vh;
   width: 100vw;
+  isolation: isolate;
 }
 .nav-open.content {
   width: calc(100vw - 250px);

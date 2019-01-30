@@ -17,7 +17,8 @@ import { take } from 'rxjs/operators';
     </p>
     <p>
       It seems like this would be handy in cases where you are explicitly
-      calling cleanup functions when Observable complete.
+      calling cleanup functions when Observables complete -- you can switch to
+      this instead so the cleanup is implicit.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

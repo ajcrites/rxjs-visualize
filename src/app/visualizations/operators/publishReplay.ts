@@ -29,7 +29,8 @@ export class RxPublishReplayComponent {
     }),
   );
   subject = this.input.pipe(publishReplay(2)) as ConnectableObservable<number>;
-  // This skips over the 0th value since `publishReplay` will already have
-  // bufferred three values. All replayed values are emitted simultaneously.
+  // This skips over the 0th and 1th values since `publishReplay` will already
+  // have bufferred three values. All replayed values are emitted
+  // simultaneously which may be a bit tough to see, but they're there.
   output = timer(3500).pipe(mergeMapTo(this.subject));
 }

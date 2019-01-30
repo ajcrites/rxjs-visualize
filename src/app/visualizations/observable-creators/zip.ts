@@ -10,12 +10,15 @@ import { take } from 'rxjs/operators';
     <p>
       Similar to <code>merge</code> and <code>combineLatest</code>. The key
       difference is that <code>zip</code> will only emit when all of its sources
-      have emitted since the last time <code>zip</code> emitted, and those
-      values are emitted.
+      have emitted since the last time <code>zip</code> emitted. For example,
+      after Observable 1, 2, and 3 have emitted, then zip emits. It will not
+      emit again until all of Observable 1, 2, and 3 have emitted again. It
+      buffers emissions so that all corresponding emissions are provided in
+      order. This also contrasts with <code>combineLatest</code>.
     </p>
     <p>
       Correspondingly, <code>zip</code> will complete when any of its sources
-      complete.
+      completes.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

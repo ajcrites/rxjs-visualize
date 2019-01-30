@@ -9,8 +9,8 @@ import { delay, pluck } from 'rxjs/operators';
     <h1>bindCallback</h1>
     <p>
       Create an Observable from a function that takes a callback. The Observable
-      will when the callback would have normally been called. This is useful for
-      interop with APIs that use callbacks.
+      will emit and complete when the callback would have normally been called.
+      This is useful for interop with APIs that use callbacks.
     </p>
     <p>
       This example won't use your location for anything except to display the

@@ -11,6 +11,11 @@ import { distinctUntilKeyChanged, map, take } from 'rxjs/operators';
       Works like <code>distinctUntilChanged</code> except for objects. You
       provide a key to compare between objects.
     </p>
+    <p>
+      This name is could be a bit misleading since it's the <em>value</em> of
+      the provided key that has to change since the previous emission rather
+      than the key itself.
+    </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
     <marble [source]="display"></marble> <marble [source]="distinct"></marble>

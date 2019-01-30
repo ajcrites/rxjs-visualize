@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 import { take, toArray } from 'rxjs/operators';
 
 @Component({
@@ -20,6 +20,6 @@ import { take, toArray } from 'rxjs/operators';
 export class RxToArrayComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  input = interval(1000).pipe(take(2));
+  input = timer(0, 1000).pipe(take(2));
   output = this.input.pipe(toArray());
 }

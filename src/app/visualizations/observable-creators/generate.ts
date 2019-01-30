@@ -25,7 +25,7 @@ export class RxGenerateComponent {
     condition: x => x < 5,
     iterate: x => x + 1,
   }).pipe(map(val => val + 'o'));
-  // zipping with the timer allows us to emit the other Observable values on
+  // zipping with the timer allows us to emit the generate Observable values on
   // a timer. Otherwise, they would emit immediately.
   output = zip(this.generated, this.generatedObj, timer(0, 1000)).pipe(
     map(([g1, g2]) => [g1, g2]),

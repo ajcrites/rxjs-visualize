@@ -16,7 +16,7 @@ export class RxRangeComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   ranged = range(24, 32);
-  // zipping with the timer allows us to emit the other Observable values on
+  // zipping with the timer allows us to emit the range Observable values on
   // a timer. Otherwise, they would emit immediately.
   output = zip(this.ranged, timer(0, 1000)).pipe(map(([val]) => [val]));
 }

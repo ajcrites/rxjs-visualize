@@ -14,8 +14,7 @@ import { tap, take, publishBehavior } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble>
-    <marble [source]="output" [initTime]="outputInitTime"></marble>
+    <marble [source]="input"></marble> <marble [source]="output"></marble>
   `,
 })
 export class RxPublishBehaviorComponent {
@@ -29,7 +28,6 @@ export class RxPublishBehaviorComponent {
       }
     }),
   );
-  outputInitTime = new Date().getTime() - 1000;
   output = this.input.pipe(publishBehavior(-1)) as ConnectableObservable<
     number
   >;

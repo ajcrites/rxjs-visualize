@@ -28,6 +28,7 @@ export class RxRefCountComponent {
     take(20),
   );
   subject = this.input.pipe(
+    // refCount must be used with a ConnectableObservable
     publish(),
     refCount(),
   );
@@ -37,6 +38,7 @@ export class RxRefCountComponent {
     mergeMapTo(this.subject),
     take(1),
   );
-  // `refCount` is 0, so this will resubscribe to the source and start over
+  // `refCount` is 0, so this will resubscribe to the source and start over.
+  // Notice that 'Subscribed!' is logged again when this one starts.
   resubscriber = timer(3000).pipe(mergeMapTo(this.subject));
 }

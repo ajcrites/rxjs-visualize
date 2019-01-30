@@ -30,6 +30,7 @@ import { RxTimerComponent } from './visualizations/observable-creators/timer';
 import { RxUsingComponent } from './visualizations/observable-creators/using';
 // tslint:disable-next-line:max-line-length
 import { RxOnErrorResumeNextObcComponent } from './visualizations/observable-creators/onErrorResumeNext';
+import { RxPartitionComponent } from './visualizations/observable-creators/partition';
 
 import { RxAuditComponent } from './visualizations/operators/audit';
 import { RxAuditTimeComponent } from './visualizations/operators/auditTime';
@@ -83,7 +84,6 @@ import { RxMulticastComponent } from './visualizations/operators/multicast';
 import { RxObserveOnComponent } from './visualizations/operators/observeOn';
 import { RxOnErrorResumeNextComponent } from './visualizations/operators/onErrorResumeNext';
 import { RxPairwiseComponent } from './visualizations/operators/pairwise';
-import { RxPartitionComponent } from './visualizations/operators/partition';
 import { RxPluckComponent } from './visualizations/operators/pluck';
 import { RxPublishComponent } from './visualizations/operators/publish';
 import { RxPublishBehaviorComponent } from './visualizations/operators/publishBehavior';

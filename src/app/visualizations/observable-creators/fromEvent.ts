@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { fromEvent, timer } from 'rxjs';
-import { takeUntil, throwIfEmpty, mapTo } from 'rxjs/operators';
+import { takeUntil, throwIfEmpty, mergeMapTo, mapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-from-event',
@@ -18,7 +18,10 @@ export class RxFromEventComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   timeout = timer(10000).pipe(mapTo('done'));
-  clicks = fromEvent(document, 'click').pipe(
+
+  // Debounce initial navigation click
+  clicks = timer(200).pipe(
+    mergeMapTo(fromEvent(document, 'click')),
     takeUntil(this.timeout),
     mapTo('c'),
     throwIfEmpty(),

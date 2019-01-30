@@ -24,11 +24,13 @@ export class RxConcatAllComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
-  lowerOrders = [];
   higherOrder = timer(0, 1000).pipe(
     take(4),
     mapNumberToChar(),
   );
+  // Four of these are created, one each second, and displayed below the
+  // higher order Observable and above the resulting first order Observable.
+  lowerOrders = [];
   firstOrder = this.higherOrder.pipe(
     map(val => {
       const lowerOrder = interval(1000).pipe(

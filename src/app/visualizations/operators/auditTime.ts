@@ -20,6 +20,6 @@ export class RxAuditTimeComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   preAudit = timer(0, 1000).pipe(take(20));
-  // Practically equivalent to `audit(() => interval(2500))`
+  // Practically equivalent to `audit(() => timer(2500))`
   postAudit = this.preAudit.pipe(auditTime(2500));
 }

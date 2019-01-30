@@ -8,7 +8,8 @@ import { take, partition } from 'rxjs/operators';
   template: `
     <h1>partition</h1>
     <p>
-      This cannot function as an operator. See:
+      The official documentation lists this as an operator, but it is actually
+      an Observable creator. See:
       <a href="https://github.com/ReactiveX/rxjs/issues/4419">
         https://github.com/ReactiveX/rxjs/issues/4419</a
       >.

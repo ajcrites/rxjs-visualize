@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
+import { timer, pipe } from 'rxjs';
 import { every, mapTo, map, take } from 'rxjs/operators';
 
 @Component({
@@ -31,12 +31,11 @@ export class RxEveryComponent {
     take(5),
     map(val => (val % 2 ? 'b' : 'a')),
   );
-  passed = this.passEvery.pipe(
+  // not shown; this reuses the logic for the every check and display
+  predicate = pipe(
     every(val => 'a' === val),
     map(val => (val ? 1 : 0)),
   );
-  failed = this.failEvery.pipe(
-    every(val => 'a' === val),
-    map(val => (val ? 1 : 0)),
-  );
+  passed = this.passEvery.pipe(this.predicate);
+  failed = this.failEvery.pipe(this.predicate);
 }

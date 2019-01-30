@@ -9,7 +9,7 @@ import { take, pairwise } from 'rxjs/operators';
     <h1>pairwise</h1>
     <p>
       Emits an array with two elements each time the source emits. The source
-      must have admitted at least twice.
+      must have emitted at least twice.
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 

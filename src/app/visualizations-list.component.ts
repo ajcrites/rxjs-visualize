@@ -9,13 +9,18 @@ import { ActivatedRoute } from '@angular/router';
       [visualization]="visualization"
     ></rx-visualization>
     <section *ngIf="!visualizations.length">
-      <p>Welcome to my showcase of RxJS operators using RxJS operators.</p>
       <p>
-        You can click on an operator on the left menu to see that operator. If
-        you wish to see multiple operators at a time, you can click a checkbox
-        next to an operator to display that operator at the same time as another
-        selected operator. The operators are displayed in order of your
-        selection.
+        Welcome to my showcase of RxJS operators and other functions (hereafter
+        referred to as "operators" for convenience, though not strictly
+        correct). Visualizations of RxJS operators are shown using the operators
+        themselves.
+      </p>
+      <p>
+        You can click on an operator on the menu to the left to see the
+        visualization for that operator. If you wish to see multiple operators
+        at a time, you can click a checkbox next to an operator to display that
+        operator at the same time as the other already-selected operators. The
+        operators are displayed in order of your selection.
       </p>
       <p>
         Operators are stored in the pathname (url) of your browser so you can
@@ -28,7 +33,7 @@ import { ActivatedRoute } from '@angular/router';
       <p>
         See the
         <a href="https://rxjs-dev.firebaseapp.com/api"
-          >RxJS operator API documentation</a
+          >RxJS API documentation</a
         >
         for more specific information.
       </p>
@@ -53,6 +58,7 @@ import { ActivatedRoute } from '@angular/router';
           <a routerLink="/pluck"><code>pluck</code></a>
         </li>
       </ul>
+      <hr />
       <p>
         Most of the visualizations here work off of an interval emitting every
         second. The visualization will show the code that sets up the example
@@ -62,7 +68,7 @@ import { ActivatedRoute } from '@angular/router';
 
       <pre prism-highlight="typescript">
 // The output of this is the first marble diagram below
-input = interval(1000).pipe(take(3))
+input = timer(0, 1000).pipe(take(3))
 // The output of this is the second marble diagram below
 output = this.input.pipe(mapNumberToChar)
       </pre
@@ -86,8 +92,8 @@ output = this.input.pipe(mapNumberToChar)
       </div>
       <p>
         Sometimes an Observable will emit multiple values at once or very close
-        together. This is a bit tough to visual and it's something that can be
-        improved. For now, the marbles displays are blended like so:
+        together. This is a bit tough to visualize, and it's something that can
+        be improved. For now, the marble displays are blended like so:
       </p>
       <div class="marble">
         <div class="guide complete" style="width: 150px;"></div>

@@ -49,8 +49,8 @@ export class RxMulticastComponent {
   outputa = from(this.multi).pipe(map((val: number) => val + 3));
   outputb = from(this.multi).pipe(mapNumberToChar());
   // previously emitted values are not replayed
-  delayedOutput = timer(4500).pipe(mergeMapTo(this.multi));
-  // this never emits because multicast does not handle resubscriptions
-  // and `multi` will have already completed at this point.
+  delayedOutput = timer(2500).pipe(mergeMapTo(this.multi));
+  // not shown ... sort of. This never emits because multicast does not handle
+  // resubscriptions and `multi` will have already completed at this point.
   lateOutput = timer(6500).pipe(mergeMapTo(this.multi));
 }

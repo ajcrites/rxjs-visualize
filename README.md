@@ -23,6 +23,9 @@ values for display purposes.
 
 This was built using the Angular framework.
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information on development and adding
+contributions and fixes.
+
 ## TODO
 * [x] Build frame / menu to allow selection(s)
 * [x] Allow restarting of diagram without requiring refresh
@@ -30,3 +33,4 @@ This was built using the Angular framework.
 * [ ] Include versions with other arguments
 * [ ] Allow users to manipulate arguments
 * [x] Support HMR
+* [ ] Stackblitz support

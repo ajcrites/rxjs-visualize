@@ -5,7 +5,7 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
   template: `
     <div class="visualization">
       <button class="refresh-button" (click)="refresh()" *ngIf="showRefresh">
-        <img src="assets/refresh.png" alt="refresh" />
+        <img src="assets/refresh.svg" alt="refresh" />
       </button>
       <ng-container [ngSwitch]="visualization" *ngIf="show">
         <rx-bind-callback *ngSwitchCase="'bindCallback'"></rx-bind-callback>

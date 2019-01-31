@@ -101,6 +101,11 @@ marble, .marble {
   left: 0;
 }
 
+.header a, .header img {
+  height: 100%;
+  padding: 5px;
+}
+
 .loading {
   animation: spin 1s ease-in-out infinite;
 }
@@ -122,6 +127,7 @@ marble, .marble {
   right: 10px;
   -webkit-appearance: none;
   border: none;
+  outline: none;
   cursor: pointer;
   background-color: transparent;
 }

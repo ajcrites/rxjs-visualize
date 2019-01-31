@@ -1,7 +1,6 @@
 .header {
   height: 50px;
-  background-color: #ccc;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .8);
+  background-color: #d81b60;
   display: flex;
   align-items: center;
   width: auto;
@@ -18,7 +17,6 @@
 .page-title {
   font-size: 25px;
   color: white;
-  text-shadow: 1px 1px 1px #777;
 }
 
 .github-icon {
@@ -67,7 +65,7 @@ main {
 }
 
 .menu-button path, .nav-menu-button path {
-  fill: #374DFF;
+  fill: #d81b60;
 }
 
 .content {
@@ -89,9 +87,9 @@ main {
   z-index: 1;
   width: 250px;
   height: 100%;
-  background-color: #999;
+  background-color: #f2f4f4;
   position: absolute;
-  box-shadow: inset -2px -2px 8px rgba(0, 0, 0, .8);
+  box-shadow: inset -5px 0px 8px -5px;
   transition: transform .5s;
   transform: translateX(-250px);
   overflow-y: visible;
@@ -126,8 +124,7 @@ main {
 }
 .menu-title, .menu-section-title {
   font-size: 18px;
-  color: white;
-  text-shadow: 1px 1px 1px #777;
+  color: #232f3e;
   margin-left: 45px;
 }
 
@@ -149,8 +146,7 @@ main {
 }
 .operators-list li {
   font-family: monospace;
-  color: white;
-  text-shadow: 1px 1px 1px #222;
+  color: #232f3e;
   cursor: pointer;
   margin-bottom: 15px;
 }

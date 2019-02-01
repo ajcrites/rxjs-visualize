@@ -10,8 +10,8 @@ import { take, bufferTime } from 'rxjs/operators';
     <p>Similar to how <code>auditTime</code> works, but for buffers.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble>
-    <marble [source]="postBuffer"></marble>
+    <rxjs-visualize-marble [source]="preBuffer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postBuffer"></rxjs-visualize-marble>
   `,
 })
 export class RxBufferTimeComponent {

@@ -131,7 +131,7 @@ import { RxWindowWhenComponent } from './visualizations/operators/windowWhen';
 import { RxWithLatestFromComponent } from './visualizations/operators/withLatestFrom';
 import { RxZipAllComponent } from './visualizations/operators/zipAll';
 
-import { Marble } from './marble';
+import { RxjsVisualizeMarbleModule } from 'rxjs-visualize-marble';
 
 import { PrismHighlightModule } from 'ngx-prism-highlight';
 
@@ -260,8 +260,6 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
     RxWindowWhenComponent,
     RxWithLatestFromComponent,
     RxZipAllComponent,
-
-    Marble,
   ],
   imports: [
     BrowserModule,
@@ -273,6 +271,7 @@ import { PrismHighlightModule } from 'ngx-prism-highlight';
         component: VisualizationsListComponent,
       },
     ]),
+    RxjsVisualizeMarbleModule,
   ],
   providers: [],
   bootstrap: [RxVisualizationsAppComponent],

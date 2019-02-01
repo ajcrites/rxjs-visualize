@@ -9,7 +9,8 @@ import { mergeMapTo, throwIfEmpty } from 'rxjs/operators';
     <h1>throwIfEmpty</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="throws"></marble> <marble [source]="noThrows"></marble>
+    <rxjs-visualize-marble [source]="throws"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="noThrows"></rxjs-visualize-marble>
   `,
 })
 export class RxThrowIfEmptyComponent {

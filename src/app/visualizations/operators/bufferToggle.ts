@@ -9,10 +9,18 @@ import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
     <h1>bufferToggle</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble>
-    <marble [source]="openBuffer" [main]="preBuffer" color="blue"></marble>
-    <marble [source]="closeBuffer" [main]="preBuffer" color="blue"></marble>
-    <marble [source]="postBuffer"></marble>
+    <rxjs-visualize-marble [source]="preBuffer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="openBuffer"
+      [main]="preBuffer"
+      color="blue"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="closeBuffer"
+      [main]="preBuffer"
+      color="blue"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postBuffer"></rxjs-visualize-marble>
   `,
 })
 export class RxBufferToggleComponent {

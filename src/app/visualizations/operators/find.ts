@@ -10,7 +10,8 @@ import { take, find } from 'rxjs/operators';
     <p>This emits as soon as the value you're trying to find is emitted.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxFindComponent {

@@ -14,8 +14,9 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="first"></marble> <marble [source]="second"></marble>
-    <marble [source]="racing"></marble>
+    <rxjs-visualize-marble [source]="first"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="second"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="racing"></rxjs-visualize-marble>
   `,
 })
 export class RxRaceComponent {

@@ -9,7 +9,8 @@ import { take, mergeMap, map, debounce } from 'rxjs/operators';
     <h1>debounce</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="debounced"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="debounced"></rxjs-visualize-marble>
   `,
 })
 export class RxDebounceComponent {

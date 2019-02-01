@@ -21,9 +21,10 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="inputs[0]"></marble>
-    <marble [source]="inputs[1]"></marble>
-    <marble [source]="inputs[2]"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="inputs[0]"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="inputs[1]"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="inputs[2]"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxOnErrorResumeNextComponent {

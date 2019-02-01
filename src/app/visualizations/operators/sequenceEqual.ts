@@ -9,13 +9,18 @@ import { sequenceEqual, take, map } from 'rxjs/operators';
     <h1>sequenceEqual</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="compare"></marble> <marble [source]="compareTo"></marble>
-    <marble [source]="isEqual" color="green"></marble>
+    <rxjs-visualize-marble [source]="compare"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="compareTo"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="isEqual"
+      color="green"
+    ></rxjs-visualize-marble>
 
-    <marble [source]="compareNot"></marble>
-    <marble [source]="isNotEqual"></marble>
+    <rxjs-visualize-marble [source]="compareNot"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="isNotEqual"></rxjs-visualize-marble>
 
-    <marble [source]="compareShort"></marble> <marble [source]="short"></marble>
+    <rxjs-visualize-marble [source]="compareShort"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="short"></rxjs-visualize-marble>
   `,
 })
 export class RxSequenceEqualComponent {

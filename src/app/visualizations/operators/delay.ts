@@ -10,7 +10,8 @@ import { delay, take } from 'rxjs/operators';
     <p>This delays <em>once</em>, the first emission of the Observable.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="delayed"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="delayed"></rxjs-visualize-marble>
   `,
 })
 export class RxDelayComponent {

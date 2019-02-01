@@ -74,15 +74,17 @@ output = this.input.pipe(mapNumberToChar)
       </pre
       >
 
-      <div class="marble">
+      <div class="marbles-container">
         <div class="guide complete" style="width: 155px;"></div>
-        <i style="left: 25px;">0</i> <i style="left: 65px;">1</i>
-        <i style="left: 105px;">2</i>
+        <i class="marble" style="left: 25px;">0</i>
+        <i class="marble" style="left: 65px;">1</i>
+        <i class="marble" style="left: 105px;">2</i>
       </div>
-      <div class="marble">
+      <div class="marbles-container">
         <div class="guide complete" style="width: 155px;"></div>
-        <i style="left: 25px;">a</i> <i style="left: 65px;">b</i>
-        <i style="left: 105px;">c</i>
+        <i class="marble" style="left: 25px;">a</i>
+        <i class="marble" style="left: 65px;">b</i>
+        <i class="marble" style="left: 105px;">c</i>
       </div>
       <div style="position: relative;">
         Observables that are complete end with
@@ -95,11 +97,13 @@ output = this.input.pipe(mapNumberToChar)
         together. This is a bit tough to visualize, and it's something that can
         be improved. For now, the marble displays are blended like so:
       </p>
-      <div class="marble">
+      <div class="marbles-container">
         <div class="guide complete" style="width: 150px;"></div>
-        <i style="left: 25px;">1</i> <i style="left: 35px;">2</i>
-        <i style="left: 45px;">3</i> <i style="left: 105px;">a0</i>
-        <i style="left: 105px;">b1</i>
+        <i class="marble" style="left: 25px;">1</i>
+        <i class="marble" style="left: 35px;">2</i>
+        <i class="marble" style="left: 45px;">3</i>
+        <i class="marble" style="left: 105px;">a0</i>
+        <i class="marble" style="left: 105px;">b1</i>
       </div>
       <p>
         It can be a bit tough to tell exactly what's going on with overlapping

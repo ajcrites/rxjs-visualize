@@ -23,7 +23,7 @@ import { take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="test"></marble>
+    <rxjs-visualize-marble [source]="test"></rxjs-visualize-marble>
   `,
 })
 export class RxIntervalComponent {

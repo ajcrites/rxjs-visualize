@@ -1,0 +1,83 @@
+.marble {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid black;
+  text-align: center;
+  background-color: #ff6946;
+  background-image: radial-gradient(circle at 25% 25%, #ffbcad, #ff6946, #e02900);
+  line-height: 30px;
+  white-space: nowrap;
+  position: absolute;
+  font-style: normal;
+  font-family: sans-serif;
+  box-shadow: 2px 2px 3px #ccc;
+  mix-blend-mode: lighten;
+  box-sizing: border-box;
+}
+.marble:nth-of-type(4n + 2) {
+  background-color: #FFCB46;
+  background-image: radial-gradient(circle at 25% 25%, #ffe4a2, #ffcb46, #a27400);
+}
+.marble:nth-of-type(4n + 3) {
+  background-color: #3EA1CB;
+  background-image: radial-gradient(circle at 25% 25%, #8ec8e1, #3EA1CB, #226581);
+}
+.marble:nth-of-type(4n + 4) {
+  background-color: #82D736;
+  background-image: radial-gradient(circle at 25% 25%, #b7e88c, #82D736, #508d1c);
+}
+.marble.red {
+  background-color: #ff6946;
+  background-image: radial-gradient(circle at 25% 25%, #ffbcad, #ff6946, #e02900);
+}
+.marble.yellow {
+  background-color: #FFCB46;
+  background-image: radial-gradient(circle at 25% 25%, #ffe4a2, #ffcb46, #a27400);
+}
+.marble.blue {
+  background-color: #3EA1CB;
+  background-image: radial-gradient(circle at 25% 25%, #8ec8e1, #3EA1CB, #226581);
+}
+.marble.green {
+  background-color: #82D736;
+  background-image: radial-gradient(circle at 25% 25%, #b7e88c, #82D736, #508d1c);
+}
+
+rxjs-visualize-marble, .marbles-container {
+  display: block;
+  height: 60px;
+  position: relative;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 5px;
+}
+
+.guide {
+  position: absolute;
+  top: 27.5px;
+  height: 1px;
+  background-color: #555;
+  transition: width 1s;
+}
+.guide::after, .guide::before {
+  content: "";
+  height: 15px;
+  border-right: 1px solid #555;
+  right: 0;
+  top: -7px;
+  position: absolute;
+  transform: scale(0) rotate(0);
+  transition: all 2s;
+}
+.guide.complete::after {
+  transform: scale(1) rotate(0);
+}
+.guide.error::after {
+  transform: scale(1) rotate(45deg);
+}
+.guide.error::before {
+  transform: scale(1) rotate(-45deg);
+}

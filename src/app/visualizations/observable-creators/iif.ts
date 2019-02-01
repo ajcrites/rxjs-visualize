@@ -14,10 +14,12 @@ import { take, mapTo } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="t" color="green"></marble>
-    <marble [source]="f" color="blue"></marble>
-    <marble [source]="meetsCondition"></marble>
-    <marble [source]="doesNotMeetCondition"></marble>
+    <rxjs-visualize-marble [source]="t" color="green"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="f" color="blue"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="meetsCondition"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="doesNotMeetCondition"
+    ></rxjs-visualize-marble>
   `,
 })
 export class RxIifComponent {

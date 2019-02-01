@@ -1,13 +1,41 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { animations } from './visualizations.animations';
+import {
+  trigger,
+  state,
+  transition,
+  style,
+  animate,
+} from '@angular/animations';
 
 import { NEVER, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  animations,
+  animations: [
+    trigger('appear', [
+      state(
+        'in',
+        style({
+          transform: 'scale(1)',
+          opacity: 1,
+        }),
+      ),
+      transition('void => *', [
+        style({
+          transform: 'scale(0.2)',
+          opacity: 0.2,
+        }),
+        animate(100),
+        style({
+          transform: 'scale(1.5)',
+        }),
+        animate(100),
+      ]),
+    ]),
+  ],
+
   // tslint:disable-next-line: component-selector
-  selector: 'marble',
+  selector: 'rxjs-visualize-marble',
   template: `
     <div
       class="guide"
@@ -20,13 +48,14 @@ import { takeUntil } from 'rxjs/operators';
       [@appear]
       *ngFor="let elem of sourceValues"
       [style.left.px]="elem.left"
-      [class]="color"
+      class="marble"
+      [ngClass]="color"
       >{{ elem.value }}</i
     >
   `,
 })
 // tslint:disable-next-line:component-class-suffix
-export class Marble implements OnInit, OnDestroy {
+export class RxjsVisualizeMarbleComponent implements OnInit, OnDestroy {
   // Source Observable for the marble diagram
   @Input() source;
 

@@ -9,8 +9,8 @@ import { take, bufferCount } from 'rxjs/operators';
     <h1>bufferCount</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble>
-    <marble [source]="postBuffer"></marble>
+    <rxjs-visualize-marble [source]="preBuffer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postBuffer"></rxjs-visualize-marble>
   `,
 })
 export class RxBufferCountComponent {

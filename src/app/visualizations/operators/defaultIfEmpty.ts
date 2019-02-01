@@ -9,7 +9,7 @@ import { defaultIfEmpty } from 'rxjs/operators';
     <h1>defaultIfEmpty</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="default"></marble>
+    <rxjs-visualize-marble [source]="default"></rxjs-visualize-marble>
   `,
 })
 export class RxDefaultIfEmptyComponent {

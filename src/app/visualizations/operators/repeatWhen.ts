@@ -14,8 +14,11 @@ import { take, mapTo, repeatWhen } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input" color="yellow"></marble>
-    <marble [source]="output"></marble>
+    <rxjs-visualize-marble
+      [source]="input"
+      color="yellow"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxRepeatWhenComponent {

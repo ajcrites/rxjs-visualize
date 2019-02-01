@@ -30,7 +30,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/frame.css"
+              "src/frame.css",
+              "dist/rxjs-visualize-marble/style.css"
             ],
             "scripts": []
           },
@@ -59,6 +60,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "deleteOutputPath": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -92,6 +94,21 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        }
+      }
+    },
+    "rxjs-visualize-marble": {
+      "root": "projects/rxjs-visualize-marble",
+      "sourceRoot": "projects/rxjs-visualize-marble/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rxjs-visualize-marble/tsconfig.lib.json",
+            "project": "projects/rxjs-visualize-marble/ng-package.json"
           }
         }
       }

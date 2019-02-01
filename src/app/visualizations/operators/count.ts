@@ -11,7 +11,8 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>count</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="count"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="count"></rxjs-visualize-marble>
   `,
 })
 export class RxCountComponent {

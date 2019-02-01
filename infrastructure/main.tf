@@ -7,7 +7,7 @@ resource "netlify_site" netlify_site {
   custom_domain = "${var.site_name}"
   repo {
     provider = "github"
-    command = "yarn ng build --prod"
+    command = "yarn build-lib && yarn ng build --prod"
     dir = "dist"
     repo_path = "ajcrites/rxjs-visualize"
     repo_branch = "master"

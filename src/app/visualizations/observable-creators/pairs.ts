@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
     <h1>pairs</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxPairsComponent {

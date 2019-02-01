@@ -15,9 +15,10 @@ import { every, mapTo, map, take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="passEvery"></marble>
-    <marble [source]="failEvery"></marble> <marble [source]="passed"></marble>
-    <marble [source]="failed"></marble>
+    <rxjs-visualize-marble [source]="passEvery"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="failEvery"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="passed"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="failed"></rxjs-visualize-marble>
   `,
 })
 export class RxEveryComponent {

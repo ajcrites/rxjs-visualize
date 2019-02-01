@@ -13,7 +13,8 @@ import { take, auditTime } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preAudit"></marble> <marble [source]="postAudit"></marble>
+    <rxjs-visualize-marble [source]="preAudit"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postAudit"></rxjs-visualize-marble>
   `,
 })
 export class RxAuditTimeComponent {

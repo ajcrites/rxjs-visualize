@@ -11,8 +11,9 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>withLatestFrom</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="letters"></marble> <marble [source]="numbers"></marble>
-    <marble [source]="combined"></marble>
+    <rxjs-visualize-marble [source]="letters"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="numbers"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="combined"></rxjs-visualize-marble>
   `,
 })
 export class RxWithLatestFromComponent {

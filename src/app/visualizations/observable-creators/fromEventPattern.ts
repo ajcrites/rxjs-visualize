@@ -16,8 +16,12 @@ import { takeUntil, throwIfEmpty, mapTo, mergeMapTo } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="timeout"></marble>
-    <marble color="green" [source]="clicks" [main]="timeout"></marble>
+    <rxjs-visualize-marble [source]="timeout"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      color="green"
+      [source]="clicks"
+      [main]="timeout"
+    ></rxjs-visualize-marble>
   `,
 })
 export class RxFromEventPatternComponent {

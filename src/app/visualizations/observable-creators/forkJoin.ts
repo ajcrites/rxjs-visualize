@@ -21,8 +21,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble *ngFor="let input of inputs" [source]="input"></marble>
-    <marble [source]="forkJoined"></marble>
+    <rxjs-visualize-marble
+      *ngFor="let input of inputs"
+      [source]="input"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="forkJoined"></rxjs-visualize-marble>
   `,
 })
 export class RxForkJoinComponent {

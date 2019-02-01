@@ -9,7 +9,8 @@ import { take, last } from 'rxjs/operators';
     <h1>last</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="last"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="last"></rxjs-visualize-marble>
   `,
 })
 export class RxLastComponent {

@@ -10,8 +10,9 @@ import { tap, take, map, combineAll } from 'rxjs/operators';
     <p>I don't understand this operator yet.</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="outer"></marble> <marble [source]="inner"></marble>
-    <marble [source]="combined"></marble>
+    <rxjs-visualize-marble [source]="outer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="inner"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="combined"></rxjs-visualize-marble>
   `,
 })
 export class RxCombineAllComponent {

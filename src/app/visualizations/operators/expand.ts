@@ -10,13 +10,13 @@ import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
     <p>This visualization is broken</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="higherOrder"></marble>
-    <marble
+    <rxjs-visualize-marble [source]="higherOrder"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
-    ></marble>
-    <marble [source]="expanded"></marble>
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="expanded"></rxjs-visualize-marble>
   `,
 })
 export class RxExpandComponent {

@@ -11,8 +11,9 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>catchError (formerly <code>.catch</code>)</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preCatch"></marble>
-    <marble [source]="postCatch"></marble> <marble [source]="caught"></marble>
+    <rxjs-visualize-marble [source]="preCatch"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postCatch"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="caught"></rxjs-visualize-marble>
   `,
 })
 export class RxCatchErrorComponent {

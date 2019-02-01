@@ -16,9 +16,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble>
-    <marble [source]="materializedDisplay"></marble>
-    <marble [source]="dematerialized"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="materializedDisplay"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="dematerialized"></rxjs-visualize-marble>
   `,
 })
 export class RxDematerializeComponent {

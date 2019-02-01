@@ -15,8 +15,14 @@ import { take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble *ngFor="let input of inputs" [source]="input"></marble>
-    <marble [source]="combined" color="blue"></marble>
+    <rxjs-visualize-marble
+      *ngFor="let input of inputs"
+      [source]="input"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="combined"
+      color="blue"
+    ></rxjs-visualize-marble>
   `,
 })
 export class RxCombineLatestComponent {

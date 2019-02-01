@@ -1,7 +1,17 @@
 {
   "extends": "./node_modules/ts-config-mobiquity-angular/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "rxjs-visualize-marble": [
+        "dist/rxjs-visualize-marble"
+      ],
+      "rxjs-visualize-marble/*": [
+        "dist/rxjs-visualize-marble/*"
+      ]
+    }
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

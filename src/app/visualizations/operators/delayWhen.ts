@@ -9,13 +9,13 @@ import { delayWhen, take, mapTo } from 'rxjs/operators';
     <h1>delayWhen</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble>
-    <marble
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
       *ngFor="let source of delays"
       [initTime]="initTime"
       [source]="source"
-    ></marble>
-    <marble [source]="delayed"></marble>
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="delayed"></rxjs-visualize-marble>
   `,
 })
 export class RxDelayWhenComponent {

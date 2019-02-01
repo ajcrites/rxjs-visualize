@@ -13,7 +13,7 @@ import { delay } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="ofed"></marble>
+    <rxjs-visualize-marble [source]="ofed"></rxjs-visualize-marble>
   `,
 })
 export class RxOfComponent {

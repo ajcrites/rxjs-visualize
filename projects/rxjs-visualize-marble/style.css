@@ -14,6 +14,7 @@
   font-family: sans-serif;
   box-shadow: 2px 2px 3px #ccc;
   mix-blend-mode: lighten;
+  box-sizing: border-box;
 }
 .marble:nth-of-type(4n + 2) {
   background-color: #FFCB46;

@@ -20,9 +20,12 @@ import { take, mapTo, buffer } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble>
-    <marble [source]="buffer" [main]="preBuffer"></marble>
-    <marble [source]="postBuffer"></marble>
+    <rxjs-visualize-marble [source]="preBuffer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="buffer"
+      [main]="preBuffer"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postBuffer"></rxjs-visualize-marble>
   `,
 })
 export class RxBufferComponent {

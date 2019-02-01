@@ -11,9 +11,13 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>windowToggle</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble>
-    <marble [source]="notifier" [main]="input" color="blue"></marble>
-    <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="notifier"
+      [main]="input"
+      color="blue"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxWindowToggleComponent {

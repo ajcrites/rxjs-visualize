@@ -24,10 +24,12 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="subject"></marble>
-    <marble [source]="outputa"></marble> <marble [source]="outputb"></marble>
-    <marble [source]="delayedOutput"></marble>
-    <marble [source]="lateOutput"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="subject"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="outputa"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="outputb"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="delayedOutput"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="lateOutput"></rxjs-visualize-marble>
   `,
 })
 export class RxShareComponent {

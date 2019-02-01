@@ -15,8 +15,9 @@ import { groupBy, map, take, mergeAll } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="even"></marble>
-    <marble [source]="odd"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="even"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="odd"></rxjs-visualize-marble>
   `,
 })
 export class RxGroupByComponent {

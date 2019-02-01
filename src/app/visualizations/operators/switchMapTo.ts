@@ -9,8 +9,9 @@ import { switchMapTo, mapTo, take } from 'rxjs/operators';
     <h1>switchMapTo</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="higherOrder"></marble> <marble [source]="inner"></marble>
-    <marble [source]="firstOrder"></marble>
+    <rxjs-visualize-marble [source]="higherOrder"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="inner"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="firstOrder"></rxjs-visualize-marble>
   `,
 })
 export class RxSwitchMapToComponent {

@@ -13,7 +13,8 @@ import { take, skipLast } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxSkipLastComponent {

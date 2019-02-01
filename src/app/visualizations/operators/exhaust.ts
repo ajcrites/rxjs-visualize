@@ -15,13 +15,13 @@ import { exhaust, map, take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="higherOrder"></marble>
-    <marble
+    <rxjs-visualize-marble [source]="higherOrder"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
       *ngFor="let source of lowerOrders"
       [initTime]="initTime"
       [source]="source"
-    ></marble>
-    <marble [source]="firstOrder"></marble>
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="firstOrder"></rxjs-visualize-marble>
   `,
 })
 export class RxExhaustComponent {

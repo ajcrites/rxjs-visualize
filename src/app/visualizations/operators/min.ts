@@ -9,7 +9,8 @@ import { take, map, min } from 'rxjs/operators';
     <h1>min</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="min"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="min"></rxjs-visualize-marble>
   `,
 })
 export class RxMinComponent {

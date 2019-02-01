@@ -22,7 +22,8 @@ import { take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="once"></marble> <marble [source]="interval"></marble>
+    <rxjs-visualize-marble [source]="once"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="interval"></rxjs-visualize-marble>
   `,
 })
 export class RxTimerComponent {

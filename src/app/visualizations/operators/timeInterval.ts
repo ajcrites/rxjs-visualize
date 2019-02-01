@@ -15,8 +15,9 @@ import { take, timeInterval, pluck } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="intervals"></marble>
-    <marble [source]="values"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="intervals"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="values"></rxjs-visualize-marble>
   `,
 })
 export class RxTimeIntervalComponent {

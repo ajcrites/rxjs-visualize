@@ -9,7 +9,8 @@ import { take, map, pluck } from 'rxjs/operators';
     <h1>pluck</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="display"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="display"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxPluckComponent {

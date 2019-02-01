@@ -9,8 +9,9 @@ import { delay } from 'rxjs/operators';
     <h1>from</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="ofed"></marble> <marble [source]="fromed"></marble>
-    <marble [source]="fromPromise"></marble>
+    <rxjs-visualize-marble [source]="ofed"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="fromed"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="fromPromise"></rxjs-visualize-marble>
   `,
 })
 export class RxFromComponent {

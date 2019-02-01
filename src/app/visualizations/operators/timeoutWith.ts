@@ -15,8 +15,10 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="mappedInput"></marble>
-    <marble [source]="checkFive"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="mappedInput"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="checkFive"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxTimeoutWithComponent {

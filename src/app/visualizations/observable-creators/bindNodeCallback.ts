@@ -16,7 +16,8 @@ import { bindNodeCallback } from 'rxjs';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="test"></marble> <marble [source]="testWithError"></marble>
+    <rxjs-visualize-marble [source]="test"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="testWithError"></rxjs-visualize-marble>
   `,
 })
 export class RxBindNodeCallbackComponent {

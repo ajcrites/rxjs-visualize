@@ -11,8 +11,11 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>merge</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble *ngFor="let input of inputs" [source]="input"></marble>
-    <marble [source]="output"></marble>
+    <rxjs-visualize-marble
+      *ngFor="let input of inputs"
+      [source]="input"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxMergeComponent {

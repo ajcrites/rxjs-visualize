@@ -14,9 +14,13 @@ import { tap, take, bufferWhen } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preBuffer"></marble>
-    <marble [source]="closingBuffer" [main]="preBuffer" color="blue"></marble>
-    <marble [source]="postBuffer"></marble>
+    <rxjs-visualize-marble [source]="preBuffer"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      [source]="closingBuffer"
+      [main]="preBuffer"
+      color="blue"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postBuffer"></rxjs-visualize-marble>
   `,
 })
 export class RxBufferWhenComponent {

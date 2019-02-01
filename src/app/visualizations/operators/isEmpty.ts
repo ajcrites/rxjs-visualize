@@ -13,8 +13,9 @@ import { delay, take, map, isEmpty } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="notEmpty"></marble>
-    <marble [source]="yesEmpty"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="notEmpty"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="yesEmpty"></rxjs-visualize-marble>
   `,
 })
 export class RxIsEmptyComponent {

@@ -9,7 +9,8 @@ import { take, audit } from 'rxjs/operators';
     <h1>audit</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="preAudit"></marble> <marble [source]="postAudit"></marble>
+    <rxjs-visualize-marble [source]="preAudit"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="postAudit"></rxjs-visualize-marble>
   `,
 })
 export class RxAuditComponent {

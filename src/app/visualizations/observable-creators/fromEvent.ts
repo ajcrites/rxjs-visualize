@@ -10,8 +10,12 @@ import { takeUntil, throwIfEmpty, mergeMapTo, mapTo } from 'rxjs/operators';
     <p>You have ten seconds to click anywhere and trigger some emissions!</p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="timeout"></marble>
-    <marble color="green" [source]="clicks" [main]="timeout"></marble>
+    <rxjs-visualize-marble [source]="timeout"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
+      color="green"
+      [source]="clicks"
+      [main]="timeout"
+    ></rxjs-visualize-marble>
   `,
 })
 export class RxFromEventComponent {

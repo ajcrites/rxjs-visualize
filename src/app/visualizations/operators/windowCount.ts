@@ -11,13 +11,13 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
     <h1>windowCount</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble>
-    <marble
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble
       *ngFor="let source of windows"
       [initTime]="initTime"
       [source]="source"
-    ></marble>
-    <marble [source]="output"></marble>
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxWindowCountComponent {

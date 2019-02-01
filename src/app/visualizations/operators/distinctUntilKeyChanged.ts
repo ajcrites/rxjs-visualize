@@ -18,7 +18,8 @@ import { distinctUntilKeyChanged, map, take } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="display"></marble> <marble [source]="distinct"></marble>
+    <rxjs-visualize-marble [source]="display"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="distinct"></rxjs-visualize-marble>
   `,
 })
 export class RxDistinctUntilKeyChangedComponent {

@@ -14,8 +14,12 @@ import { retryWhen, take, map, mapTo } from 'rxjs/operators';
     </p>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="retry" color="yellow"></marble>
-    <marble [source]="input"></marble> <marble [source]="output"></marble>
+    <rxjs-visualize-marble
+      [source]="retry"
+      color="yellow"
+    ></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="output"></rxjs-visualize-marble>
   `,
 })
 export class RxRetryWhenComponent {

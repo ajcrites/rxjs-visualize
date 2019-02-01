@@ -9,8 +9,9 @@ import { elementAt, take } from 'rxjs/operators';
     <h1>elementAt</h1>
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="elementAt"></marble>
-    <marble [source]="elementAtUnknown"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="elementAt"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="elementAtUnknown"></rxjs-visualize-marble>
   `,
 })
 export class RxElementAtComponent {

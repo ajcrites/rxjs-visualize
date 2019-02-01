@@ -17,8 +17,9 @@ import { take, partition } from 'rxjs/operators';
 
     <pre prism-highlight="typescript">{{ code }}</pre>
 
-    <marble [source]="input"></marble> <marble [source]="satisfies"></marble>
-    <marble [source]="doesNotSatisfy"></marble>
+    <rxjs-visualize-marble [source]="input"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="satisfies"></rxjs-visualize-marble>
+    <rxjs-visualize-marble [source]="doesNotSatisfy"></rxjs-visualize-marble>
   `,
 })
 export class RxPartitionComponent {

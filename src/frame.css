@@ -89,7 +89,7 @@ main {
   z-index: 1;
   width: 250px;
   height: 100%;
-  background-color: #999;
+  background-color: #555;
   position: absolute;
   box-shadow: inset -2px -2px 8px rgba(0, 0, 0, .8);
   transition: transform .5s;

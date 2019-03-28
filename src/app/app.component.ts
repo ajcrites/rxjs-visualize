@@ -29,7 +29,7 @@ import {
   selector: 'rx-visualizations-app',
   template: `
     <div style="position: relative" [@fadeIn]="fadeInState">
-      <nav class="main-nav" [class.nav-open]="navOpen">
+      <nav class="main-nav" [class.nav-open]="navOpen" role="navigation">
         <div class="nav-title">
           <svg
             class="nav-menu-button"

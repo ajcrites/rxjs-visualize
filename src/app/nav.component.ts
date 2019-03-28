@@ -6,10 +6,10 @@ import { filter, map, startWith } from 'rxjs/operators';
   selector: 'rx-nav',
   template: `
     <h1 class="menu-section-title">Observable Creators</h1>
-    <ul class="operators-list">
-      <li *ngFor="let fn of observableCreators">
+    <ul class="operators-list" role="menu">
+      <li *ngFor="let fn of observableCreators" role="menuitem">
         <input
-          role="nav"
+          role="menuitemcheckbox"
           aria-label="Select Visualization"
           type="checkbox"
           (change)="select(fn.file, $event)"
@@ -20,10 +20,10 @@ import { filter, map, startWith } from 'rxjs/operators';
     </ul>
 
     <h1 class="menu-section-title">Operators</h1>
-    <ul class="operators-list">
-      <li *ngFor="let operator of operators">
+    <ul class="operators-list" role="menu">
+      <li *ngFor="let operator of operators" role="menuitem">
         <input
-          role="nav"
+          role="menuitemcheckbox"
           aria-label="Select Visualization"
           type="checkbox"
           (change)="select(operator.file, $event)"

@@ -8,11 +8,21 @@ In order to develop the project locally, follow these steps:
 
 1. Clone the repository
 2. `yarn (install)`
+3. `yarn build-lib`
+  * The app has a dependency on this local library. You must build it first
+    before the application will run.
 
 You can now run the project locally. Use `yarn ng serve` in order to start up
 a local server on `localhost:4200` that hosts the project and live reloads.
 
 You can also use HMR: `yarn ng serve --hmr -c=hmr`.
+
+If you want to make changes to the rxjs-visualize-marble project, you will
+have to rebuild it each time which you can do via `yarn build-lib`. If you
+don't need changes to the styles, you can also build this project with a
+watcher as in `yarn ng build rxjs-visualize-marble --watch`. If you're making
+style changes, copy the `project/rxjs-visualize-marble/style.css` styles over
+as needed too.
 
 ## Coding Style Guidelines
 All coding style should be handled by [`prettier`](https://github.com/prettier/prettier).

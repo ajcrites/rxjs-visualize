@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { bindCallback } from 'rxjs';
 import { delay, pluck } from 'rxjs/operators';
+import { bindCallback } from 'rxjs';
 
 @Component({
   selector: 'rx-bind-callback',

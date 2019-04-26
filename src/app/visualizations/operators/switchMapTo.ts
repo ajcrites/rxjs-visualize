@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { switchMapTo, mapTo, take } from 'rxjs/operators';
+import { mapTo, switchMapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-switch-map-to',

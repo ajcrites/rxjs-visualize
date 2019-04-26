@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, timestamp, pluck, map } from 'rxjs/operators';
+import { map, pluck, take, timestamp } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-timestamp',

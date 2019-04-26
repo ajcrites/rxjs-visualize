@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, interval } from 'rxjs';
-import { windowWhen, map, take, mergeAll } from 'rxjs/operators';
+import { interval, timer } from 'rxjs';
+import { map, mergeAll, take, windowWhen } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

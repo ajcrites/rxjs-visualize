@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { from, timer, Subject, ConnectableObservable } from 'rxjs';
-import { multicast, take, map, tap, mergeMapTo } from 'rxjs/operators';
+import { ConnectableObservable, from, Subject, timer } from 'rxjs';
+import { map, mergeMapTo, multicast, take, tap } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

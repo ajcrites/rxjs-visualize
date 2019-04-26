@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Observable, timer } from 'rxjs';
 import { exhaustMap, map, take } from 'rxjs/operators';
 

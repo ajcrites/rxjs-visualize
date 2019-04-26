@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { defer, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 

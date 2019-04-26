@@ -1,13 +1,12 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import {
-  trigger,
-  state,
-  transition,
-  style,
   animate,
+  state,
+  style,
+  transition,
+  trigger,
 } from '@angular/animations';
-
-import { NEVER, Subject, Observable } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { NEVER, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 interface MarbleIcon {
@@ -39,7 +38,6 @@ interface MarbleIcon {
     ]),
   ],
 
-  // tslint:disable-next-line: component-selector
   selector: 'rxjs-visualize-marble',
   template: `
     <div
@@ -59,7 +57,6 @@ interface MarbleIcon {
     >
   `,
 })
-// tslint:disable-next-line:component-class-suffix
 export class RxjsVisualizeMarbleComponent implements OnInit, OnDestroy {
   // Source Observable for the marble diagram
   @Input() source: Observable<string | number>;

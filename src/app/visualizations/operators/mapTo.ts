@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, mapTo } from 'rxjs/operators';
+import { mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-map-to',

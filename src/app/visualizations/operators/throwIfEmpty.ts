@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { timer, EMPTY } from 'rxjs';
+import { EMPTY, timer } from 'rxjs';
 import { mergeMapTo, throwIfEmpty } from 'rxjs/operators';
 
 @Component({

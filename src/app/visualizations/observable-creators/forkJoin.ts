@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { forkJoin, timer } from 'rxjs';
-import { take, map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

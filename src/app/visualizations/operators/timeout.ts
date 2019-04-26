@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, filter, timeout } from 'rxjs/operators';
+import { filter, take, timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-timeout',

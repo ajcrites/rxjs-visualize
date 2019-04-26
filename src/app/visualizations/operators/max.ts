@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, max } from 'rxjs/operators';
+import { max, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-max',

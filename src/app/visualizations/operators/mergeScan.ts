@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { Observable, timer } from 'rxjs';
-import { mergeScan, skip, take, map } from 'rxjs/operators';
+import { map, mergeScan, skip, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-merge-scan',

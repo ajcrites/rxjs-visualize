@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, publish, refCount, tap, mergeMapTo } from 'rxjs/operators';
+import { mergeMapTo, publish, refCount, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-ref-count',

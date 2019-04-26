@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, pipe } from 'rxjs';
-import { every, mapTo, map, take } from 'rxjs/operators';
+import { pipe, timer } from 'rxjs';
+import { every, map, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-every',

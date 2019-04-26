@@ -1,6 +1,7 @@
-import { timer, interval, Observable } from 'rxjs';
 import { Component } from '@angular/core';
-import { take, map, concatMap } from 'rxjs/operators';
+import { interval, Observable, timer } from 'rxjs';
+import { concatMap, map, take } from 'rxjs/operators';
+
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
 @Component({

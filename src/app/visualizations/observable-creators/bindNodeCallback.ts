@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { bindNodeCallback } from 'rxjs';
 
 type NodeJsCallback = (e: Error, param?: string) => void;

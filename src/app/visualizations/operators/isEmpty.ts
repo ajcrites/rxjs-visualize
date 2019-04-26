@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, EMPTY } from 'rxjs';
-import { delay, take, map, isEmpty } from 'rxjs/operators';
+import { EMPTY, timer } from 'rxjs';
+import { delay, isEmpty, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-is-empty',

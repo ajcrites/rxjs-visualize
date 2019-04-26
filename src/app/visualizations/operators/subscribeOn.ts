@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { timer, animationFrameScheduler } from 'rxjs';
+import { animationFrameScheduler, timer } from 'rxjs';
 import { subscribeOn, take } from 'rxjs/operators';
 
 @Component({

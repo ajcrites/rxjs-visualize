@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'rx-visualization',

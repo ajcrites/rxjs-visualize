@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, timeInterval, pluck } from 'rxjs/operators';
+import { pluck, take, timeInterval } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-time-interval',

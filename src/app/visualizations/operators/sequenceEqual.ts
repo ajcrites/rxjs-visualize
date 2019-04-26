@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { sequenceEqual, take, map } from 'rxjs/operators';
+import { map, sequenceEqual, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-sequence-equal',

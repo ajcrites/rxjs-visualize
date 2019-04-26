@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, map, pluck } from 'rxjs/operators';
+import { map, pluck, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-pluck',

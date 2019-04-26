@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, skipLast } from 'rxjs/operators';
+import { skipLast, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-skip-last',

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { retry, map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-retry',

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, ConnectableObservable } from 'rxjs';
-import { tap, take, publishBehavior } from 'rxjs/operators';
+import { ConnectableObservable, timer } from 'rxjs';
+import { publishBehavior, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-publish-behavior',

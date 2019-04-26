@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { fromEvent, timer } from 'rxjs';
-import { takeUntil, throwIfEmpty, mergeMapTo, mapTo } from 'rxjs/operators';
+import { mapTo, mergeMapTo, takeUntil, throwIfEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-from-event',

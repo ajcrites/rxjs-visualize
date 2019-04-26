@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { combineLatest, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 

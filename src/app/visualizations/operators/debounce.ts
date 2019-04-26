@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, mergeMap, map, debounce } from 'rxjs/operators';
+import { debounce, map, mergeMap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-debounce',

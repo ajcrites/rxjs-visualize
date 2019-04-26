@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { using, Subject } from 'rxjs';
+import { Subject, using } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({

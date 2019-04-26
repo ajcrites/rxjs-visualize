@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Subject } from 'rxjs';
-import { groupBy, map, take, mergeAll } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { groupBy, map, mergeAll, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-group-by',

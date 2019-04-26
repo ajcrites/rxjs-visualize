@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, find } from 'rxjs/operators';
+import { find, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-find',

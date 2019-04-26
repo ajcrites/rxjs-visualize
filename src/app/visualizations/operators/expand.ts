@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Observable } from 'rxjs';
-import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { expand, map, skip, take, takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-expand',

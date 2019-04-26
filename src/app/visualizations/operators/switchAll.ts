@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Observable } from 'rxjs';
-import { switchAll, map, take } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, switchAll, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

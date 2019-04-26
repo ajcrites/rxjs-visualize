@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, bufferCount } from 'rxjs/operators';
+import { bufferCount, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-count',

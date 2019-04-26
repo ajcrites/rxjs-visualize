@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, repeat } from 'rxjs/operators';
+import { repeat, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-repeat',

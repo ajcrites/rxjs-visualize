@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Subject } from 'rxjs';
-import { tap, take, mapTo, bufferToggle } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { bufferToggle, mapTo, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-toggle',

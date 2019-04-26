@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, ignoreElements } from 'rxjs/operators';
+import { ignoreElements, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-ignore-elements',

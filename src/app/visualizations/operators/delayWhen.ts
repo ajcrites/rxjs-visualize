@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Observable } from 'rxjs';
-import { delayWhen, take, mapTo } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { delayWhen, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-delay-when',

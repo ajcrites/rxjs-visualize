@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, map, startWith } from 'rxjs/operators';
 
+interface RxOperatorFile {
+  name: string;
+  file: string;
+}
+
 @Component({
   selector: 'rx-nav',
   template: `
@@ -35,7 +40,7 @@ import { filter, map, startWith } from 'rxjs/operators';
   `,
 })
 export class RxNavComponent implements OnInit {
-  selectedOperators = [];
+  selectedOperators: string[] = [];
 
   operators = preval`
     const fs = require('fs');
@@ -83,16 +88,16 @@ export class RxNavComponent implements OnInit {
       });
   }
 
-  navigate(file) {
+  navigate(file: string) {
     this.selectedOperators = [file];
     this.router.navigate(['/' + file]);
   }
 
-  hasSelectedOperator(operator) {
+  hasSelectedOperator(operator: RxOperatorFile) {
     return this.selectedOperators.some(file => operator.file === file);
   }
 
-  select(file, { target: { checked } }) {
+  select(file: string, { target: { checked } }: { target: HTMLInputElement }) {
     if (checked) {
       this.selectedOperators.push(file);
     } else {

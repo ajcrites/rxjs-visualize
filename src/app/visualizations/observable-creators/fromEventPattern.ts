@@ -27,8 +27,9 @@ import { takeUntil, throwIfEmpty, mapTo, mergeMapTo } from 'rxjs/operators';
 export class RxFromEventPatternComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  addClickHandler = handler => document.addEventListener('click', handler);
-  removeClickHandler = handler =>
+  addClickHandler = (handler: () => void) =>
+    document.addEventListener('click', handler);
+  removeClickHandler = (handler: () => void) =>
     document.removeEventListener('click', handler);
 
   timeout = timer(10000).pipe(mapTo('done'));

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer, EMPTY } from 'rxjs';
+import { timer, EMPTY, Observable } from 'rxjs';
 import { exhaust, map, take } from 'rxjs/operators';
 
 @Component({
@@ -30,7 +30,7 @@ export class RxExhaustComponent {
   initTime = new Date().getTime();
   higherOrder = timer(0, 1000).pipe(take(18));
   // One is created for every two emissions of higherOrder for a total of 9.
-  lowerOrders = [];
+  lowerOrders: Observable<string>[] = [];
   firstOrder = this.higherOrder.pipe(
     map(val => {
       if (val % 2) {

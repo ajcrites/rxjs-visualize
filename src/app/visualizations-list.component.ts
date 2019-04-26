@@ -114,7 +114,7 @@ output = this.input.pipe(mapNumberToChar)
   `,
 })
 export class VisualizationsListComponent {
-  visualizations = [];
+  visualizations: string[] = [];
 
   constructor(private route: ActivatedRoute) {
     this.route.url.subscribe(

@@ -9,7 +9,7 @@
   "lint-staged": {
     "**/*.ts": [
       "prettier --write --parser typescript --single-quote --trailing-comma all",
-      "tslint --fix",
+      "tslint --fix --config tslint.fix.json",
       "git add"
     ]
   },
@@ -50,11 +50,11 @@
     "lint-staged": "^8.1.0",
     "ng-packagr": "^4.2.0",
     "prettier": "^1.15.3",
-    "ts-config-mobiquity-angular": "^5.0.0",
+    "ts-config-mobiquity-angular": "^8.0.1-9.0.0-alpha.1.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
-    "tslint": "^5.12.0",
-    "typescript": "3.1.6"
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
   },
   "husky": {
     "hooks": {

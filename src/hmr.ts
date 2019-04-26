@@ -1,6 +1,8 @@
 import { NgModuleRef, ApplicationRef } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
 
+// tslint:disable:no-any
+
 export const hmrBootstrap = (
   module: any,
   bootstrap: () => Promise<NgModuleRef<any>>,

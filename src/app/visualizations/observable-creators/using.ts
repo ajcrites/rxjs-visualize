@@ -30,8 +30,8 @@ export class RxUsingComponent {
 
   resource = new class {
     count = 0;
-    interval;
-    start(cb) {
+    interval: NodeJS.Timeout;
+    start(cb: (count: number) => void) {
       this.interval = setInterval(() => {
         this.count += 1;
         cb(this.count);
@@ -46,9 +46,9 @@ export class RxUsingComponent {
 
   output = using(
     () => this.resource,
-    resource => {
+    (resource: RxUsingComponent['resource']) => {
       const subject = new Subject();
-      (resource as any).start(subject.next.bind(subject));
+      resource.start(subject.next.bind(subject));
 
       return subject.pipe(take(5));
     },

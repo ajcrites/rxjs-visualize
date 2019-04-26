@@ -11,6 +11,8 @@ import { environment } from './environments/environment';
 
 import { hmrBootstrap } from './hmr';
 
+declare const module: { hot: boolean };
+
 if (environment.production) {
   enableProdMode();
 }

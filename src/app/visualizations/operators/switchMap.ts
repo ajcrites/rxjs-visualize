@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { switchMap, map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
@@ -24,7 +24,7 @@ export class RxSwitchMapComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
-  lowerOrders = [];
+  lowerOrders: Observable<string>[] = [];
   higherOrder = timer(0, 2000).pipe(
     take(4),
     mapNumberToChar(),

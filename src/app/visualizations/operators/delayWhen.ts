@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { timer } from 'rxjs';
+import { timer, Observable } from 'rxjs';
 import { delayWhen, take, mapTo } from 'rxjs/operators';
 
 @Component({
@@ -25,7 +25,7 @@ export class RxDelayWhenComponent {
   input = timer(0, 1000).pipe(take(5));
   // This is used to display the five delay Observables. It does not have any
   // impact on the output.
-  delays = [];
+  delays: Observable<string>[] = [];
   // Note that `val` (the number) is emitted, not `'d'`
   delayed = this.input.pipe(
     delayWhen(val => {

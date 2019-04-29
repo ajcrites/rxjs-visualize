@@ -2475,15 +2475,15 @@ copy-webpack-plugin@4.5.4:
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
 
-core-js@2:
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
-  integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
-
 core-js@^2.4.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.1.tgz#87416ae817de957a3f249b3b5ca475d4aaed6042"
   integrity sha512-L72mmmEayPJBejKIWe2pYtGis5r0tQ5NaJekdhyXgeMQTpJoBsH0NL4ElY2LfSoV15xeQWKQ+XTTOZdyero5Xg==
+
+core-js@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+  integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -8042,18 +8042,18 @@ trim-right@^1.0.1:
   dependencies:
     glob "^7.1.2"
 
-ts-config-mobiquity-angular@^9.0.0-alpha.3:
-  version "9.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/ts-config-mobiquity-angular/-/ts-config-mobiquity-angular-9.0.0-alpha.3.tgz#213cb563d967318c6a6ad8b500dc83de1d7da419"
-  integrity sha512-YX+muU4D1DlZ7ZqibkjVRtkvucbZ01tlhwTAaiTqRKDbyMKNaGgfwFBA3YDnyxoIMGBsYpiHL1jR9OvDKemooA==
+ts-config-mobiquity-angular@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/ts-config-mobiquity-angular/-/ts-config-mobiquity-angular-9.0.0.tgz#de427316a0a49711d6d7a308b66533fa8001cec7"
+  integrity sha512-S9c98xT9qIZq/ayxpxUwDRSaCUDpnQRBfL7E6ffVu1UAO1+pCiSVAv5FhfsPCyA31s/XVJI1atfwZDXXTy5l6Q==
   dependencies:
     codelyzer "^4.5.0"
-    ts-config-mobiquity-core "^9.0.0-alpha.3"
+    ts-config-mobiquity-core "^9.0.0"
 
-ts-config-mobiquity-core@^9.0.0-alpha.3:
-  version "9.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/ts-config-mobiquity-core/-/ts-config-mobiquity-core-9.0.0-alpha.3.tgz#9e0ba30c51ac5db5ddf1ce1505fd849fe3e2bca9"
-  integrity sha512-6wGVnWFVc39BTXZvmyNloCX8G3slgD/NMbwBmNCwc9yC/9fQDZpX15PaSPgWF63YErGM3nCKCLEGxZO7b3o4fQ==
+ts-config-mobiquity-core@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/ts-config-mobiquity-core/-/ts-config-mobiquity-core-9.0.0.tgz#e28827e7a453af55f77345891484d3d6c4be599e"
+  integrity sha512-++YRBGxOiQl3YAl6tb4gh9m5PIe47cKI4/8qpyPK1/RsUdyMxVFqrP8uAEAymv5RXK97xLkMum6/hm4Gq4HCmQ==
   dependencies:
     tslint-config-airbnb "^5.11.0"
     tslint-config-prettier "^1.18.0"

@@ -54,7 +54,7 @@
     "lint-staged": "^8.1.5",
     "ng-packagr": "^5.1.0",
     "prettier": "^1.17.0",
-    "ts-config-mobiquity-angular": "^9.0.0-alpha.3",
+    "ts-config-mobiquity-angular": "^9.0.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "^5.16.0",

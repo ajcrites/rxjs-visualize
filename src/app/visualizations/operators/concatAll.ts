@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, interval } from 'rxjs';
-import { take, map, concatAll } from 'rxjs/operators';
+import { interval, Observable, timer } from 'rxjs';
+import { concatAll, map, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -30,7 +29,7 @@ export class RxConcatAllComponent {
   );
   // Four of these are created, one each second, and displayed below the
   // higher order Observable and above the resulting first order Observable.
-  lowerOrders = [];
+  lowerOrders: Observable<string>[] = [];
   firstOrder = this.higherOrder.pipe(
     map(val => {
       const lowerOrder = interval(1000).pipe(

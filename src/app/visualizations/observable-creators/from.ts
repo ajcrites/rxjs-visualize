@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { from, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 

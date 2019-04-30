@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { race, interval } from 'rxjs';
+import { interval, race } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';

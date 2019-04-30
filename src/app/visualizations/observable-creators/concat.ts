@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { concat, timer } from 'rxjs';
 import { delay, take } from 'rxjs/operators';
 

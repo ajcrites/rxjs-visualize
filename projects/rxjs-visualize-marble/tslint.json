@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "lib",
+      "rxjs-visualize",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "lib",
+      "rxjs-visualize",
       "kebab-case"
     ]
   }

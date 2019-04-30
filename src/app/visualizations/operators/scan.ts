@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
 import { scan, take } from 'rxjs/operators';
 

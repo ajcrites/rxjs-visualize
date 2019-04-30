@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-filter',

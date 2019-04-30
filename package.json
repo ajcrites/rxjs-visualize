@@ -7,54 +7,58 @@
     "lint": "tsc && tslint --project tsconfig.json"
   },
   "lint-staged": {
-    "**/*.ts": [
+    "src/**/*.ts": [
       "prettier --write --parser typescript --single-quote --trailing-comma all",
-      "tslint --fix",
+      "tslint --fix --config tslint.fix.json",
+      "git add"
+    ],
+    "projects/**/*.ts": [
+      "prettier --write --parser typescript --single-quote --trailing-comma all",
+      "tslint --fix --config projects/rxjs-visualize-marble/tslint.fix.json",
       "git add"
     ]
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^7.1.3",
-    "@angular/common": "^7.1.3",
-    "@angular/compiler": "^7.1.3",
-    "@angular/core": "^7.1.3",
-    "@angular/platform-browser": "^7.1.3",
-    "@angular/platform-browser-dynamic": "^7.1.3",
-    "@angular/router": "^7.1.3",
-    "core-js": "^2.6.1",
-    "lodash": "^4.17.11",
+    "@angular/animations": "^7.2.14",
+    "@angular/common": "^7.2.14",
+    "@angular/compiler": "^7.2.14",
+    "@angular/core": "^7.2.14",
+    "@angular/platform-browser": "^7.2.14",
+    "@angular/platform-browser-dynamic": "^7.2.14",
+    "@angular/router": "^7.2.14",
+    "core-js": "^2.6.5",
     "ngx-prism-highlight": "^1.0.1",
-    "prismjs": "^1.15.0",
-    "rxjs": "^6.4.0",
-    "zone.js": "^0.8.26"
+    "prismjs": "^1.16.0",
+    "rxjs": "^6.5.1",
+    "zone.js": "^0.9.0"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^7.1.1",
     "@angular-builders/dev-server": "^7.1.1",
     "@angular-devkit/build-angular": "^0.11.3",
     "@angular-devkit/build-ng-packagr": "~0.11.0",
-    "@angular/cli": "^7.1.3",
-    "@angular/compiler-cli": "^7.1.3",
+    "@angular/cli": "^7.3.8",
+    "@angular/compiler-cli": "^8.0.0-rc.0",
     "@angularclass/hmr": "^2.1.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-decorators": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@types/node": "^10.12.15",
+    "@types/node": "^11.13.7",
     "babel-loader": "^8.0.4",
     "babel-plugin-preval": "^3.0.1",
-    "codelyzer": "^4.5.0",
-    "husky": "^1.3.0",
-    "lint-staged": "^8.1.0",
-    "ng-packagr": "^4.2.0",
-    "prettier": "^1.15.3",
-    "ts-config-mobiquity-angular": "^5.0.0",
+    "codelyzer": "^5.0.1",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
+    "ng-packagr": "^5.1.0",
+    "prettier": "^1.17.0",
+    "ts-config-mobiquity-angular": "^9.0.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
-    "tslint": "^5.12.0",
-    "typescript": "3.1.6"
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
   },
   "husky": {
     "hooks": {

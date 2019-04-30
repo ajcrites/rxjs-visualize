@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, interval } from 'rxjs';
-import { take, mapTo, buffer } from 'rxjs/operators';
+import { interval, timer } from 'rxjs';
+import { buffer, mapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer',

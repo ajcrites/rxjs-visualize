@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
-import { expand, skip, map, take, takeWhile } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { expand, map, skip, take, takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-expand',
@@ -23,7 +22,7 @@ export class RxExpandComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
   initTime = new Date().getTime();
-  lowerOrders = [];
+  lowerOrders: Observable<number>[] = [];
   higherOrder = timer(0, 500).pipe(
     skip(3),
     take(3),

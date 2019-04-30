@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { throttleTime, take } from 'rxjs/operators';
+import { take, throttleTime } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

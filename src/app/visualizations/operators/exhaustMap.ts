@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { exhaustMap, map, take } from 'rxjs/operators';
 
 @Component({
@@ -28,7 +27,7 @@ export class RxExhaustMapComponent {
 
   initTime = new Date().getTime();
   higherOrder = timer(0, 1000).pipe(take(18));
-  lowerOrders = [];
+  lowerOrders: Observable<string>[] = [];
   firstOrder = this.higherOrder.pipe(
     exhaustMap(val => {
       const lowerOrder = timer(0, 1000).pipe(

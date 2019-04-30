@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { takeUntil, mapTo, take } from 'rxjs/operators';
+import { mapTo, take, takeUntil } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

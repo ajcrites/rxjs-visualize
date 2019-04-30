@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
-import { onErrorResumeNext, map, take } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, onErrorResumeNext, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -30,7 +29,7 @@ import { mapNumberToChar } from 'src/app/mapNumberToChar';
 export class RxOnErrorResumeNextComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  inputs = [
+  inputs: Observable<number | string>[] = [
     timer(0, 1000).pipe(
       take(3),
       map(val => {
@@ -58,7 +57,7 @@ export class RxOnErrorResumeNextComponent {
       map(val => val.toUpperCase()),
     ),
   ];
-  output = (this.inputs[0] as any).pipe(
+  output = this.inputs[0].pipe(
     onErrorResumeNext(this.inputs[1], this.inputs[2]),
   );
 }

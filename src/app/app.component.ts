@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
 import {
-  trigger,
-  state,
-  transition,
-  style,
   animate,
+  state,
+  style,
+  transition,
+  trigger,
 } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
+
+declare const module: { hot: boolean };
 
 @Component({
   animations: [
@@ -74,7 +76,7 @@ import {
   `,
 })
 export class RxVisualizationsAppComponent implements OnInit {
-  fadeInState = null;
+  fadeInState: string = null;
   navOpen = true;
 
   ngOnInit() {

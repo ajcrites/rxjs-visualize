@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { takeWhile, take } from 'rxjs/operators';
+import { take, takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-take-while',

@@ -1,8 +1,7 @@
 // This one confuses me
 import { Component } from '@angular/core';
-
-import { timer, interval } from 'rxjs';
-import { take, mapTo, repeatWhen } from 'rxjs/operators';
+import { interval, timer } from 'rxjs';
+import { mapTo, repeatWhen, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-repeat-when',

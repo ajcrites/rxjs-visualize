@@ -1,8 +1,7 @@
 // It's unclear to me why one of the emissions is skipped
 import { Component } from '@angular/core';
-
 import { interval, timer } from 'rxjs';
-import { retryWhen, take, map, mapTo } from 'rxjs/operators';
+import { map, mapTo, retryWhen, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-retry-when',

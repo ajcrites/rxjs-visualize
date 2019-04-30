@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { bindCallback } from 'rxjs';
 import { delay, pluck } from 'rxjs/operators';
 

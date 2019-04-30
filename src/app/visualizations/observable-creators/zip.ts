@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { zip, timer } from 'rxjs';
+import { timer, zip } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({

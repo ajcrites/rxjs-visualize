@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, auditTime } from 'rxjs/operators';
+import { auditTime, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-audit-time',

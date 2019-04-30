@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'rx-visualization',
@@ -169,8 +169,8 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
   `,
 })
 export class VisualizationComponent implements AfterViewInit {
-  @Input() visualization;
-  @ViewChild('noOperator') noOperator;
+  @Input() visualization: string;
+  @ViewChild('noOperator') noOperator: Element;
 
   show = true;
   showRefresh = false;
@@ -181,7 +181,7 @@ export class VisualizationComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Run asynchronously so Angular doesn't compain about view changing after
+    // Run asynchronously so Angular doesn't complain about view changing after
     // it's been checked
     setTimeout(() => (this.showRefresh = !this.noOperator));
   }

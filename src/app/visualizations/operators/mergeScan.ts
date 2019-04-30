@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
-import { mergeScan, skip, take, map } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, mergeScan, skip, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-merge-scan',
@@ -23,7 +22,7 @@ export class RxMergeScanComponent {
 
   // I don't fully understand this one yet; will revisit after `scan`
   initTime = new Date().getTime();
-  lowerOrders = [];
+  lowerOrders: Observable<number>[] = [];
   higherOrder = timer(0, 1000).pipe(
     take(3),
     skip(1),

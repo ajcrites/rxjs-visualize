@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, first } from 'rxjs/operators';
+import { first, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-first',

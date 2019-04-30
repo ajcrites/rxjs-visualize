@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, pairwise } from 'rxjs/operators';
+import { pairwise, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-pairwise',

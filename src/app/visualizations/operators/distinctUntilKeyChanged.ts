@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
 import { distinctUntilKeyChanged, map, take } from 'rxjs/operators';
 

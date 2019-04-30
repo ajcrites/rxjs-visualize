@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { from, timer } from 'rxjs';
-import { take, tap, share, map, mergeMapTo } from 'rxjs/operators';
+import { map, mergeMapTo, share, take, tap } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
-import { switchAll, map, take } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, switchAll, take } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -30,7 +29,7 @@ export class RxSwitchAllComponent {
   );
   // Four of these are created, one each second, and displayed below the
   // higher order Observable and above the resulting first order Observable.
-  lowerOrders = [];
+  lowerOrders: Observable<string>[] = [];
   firstOrder = this.higherOrder.pipe(
     map(val => {
       const lowerOrder = timer(0, 1000).pipe(

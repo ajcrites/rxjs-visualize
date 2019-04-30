@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Subject } from 'rxjs';
-import { tap, take, map, catchError, finalize } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { catchError, finalize, map, take, tap } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 

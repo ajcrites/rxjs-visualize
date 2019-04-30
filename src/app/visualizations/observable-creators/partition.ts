@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, partition } from 'rxjs/operators';
+import { partition, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-partition',

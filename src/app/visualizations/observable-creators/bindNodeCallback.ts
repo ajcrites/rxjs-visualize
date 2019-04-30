@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
 import { bindNodeCallback } from 'rxjs';
+
+type NodeJsCallback = (e: Error, param?: string) => void;
 
 @Component({
   selector: 'rx-bind-node-callback',
@@ -23,8 +24,10 @@ import { bindNodeCallback } from 'rxjs';
 export class RxBindNodeCallbackComponent {
   code = preval`module.exports = require('../codefile')(__filename)`;
 
-  cb = callback => setTimeout(() => callback(null, 'T'), 1000);
-  cbWithError = callback => setTimeout(() => callback(new Error()), 1000);
+  cb = (callback: NodeJsCallback) =>
+    setTimeout(() => callback(null, 'T'), 1000);
+  cbWithError = (callback: NodeJsCallback) =>
+    setTimeout(() => callback(new Error()), 1000);
 
   test = bindNodeCallback(this.cb)();
   testWithError = bindNodeCallback(this.cbWithError)();

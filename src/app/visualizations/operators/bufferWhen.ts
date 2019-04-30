@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, Subject } from 'rxjs';
-import { tap, take, bufferWhen } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { bufferWhen, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-buffer-when',

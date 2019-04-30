@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { range, timer, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 

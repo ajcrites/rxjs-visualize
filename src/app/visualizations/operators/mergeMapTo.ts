@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { mergeMapTo, mapTo, take } from 'rxjs/operators';
+import { mapTo, mergeMapTo, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-merge-map-to',

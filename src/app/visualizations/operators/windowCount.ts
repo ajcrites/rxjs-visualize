@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer } from 'rxjs';
-import { windowCount, take, tap, mergeAll } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { mergeAll, take, tap, windowCount } from 'rxjs/operators';
 
 import { mapNumberToChar } from 'src/app/mapNumberToChar';
 
@@ -28,7 +27,7 @@ export class RxWindowCountComponent {
     mapNumberToChar(),
     take(10),
   );
-  windows = [];
+  windows: Observable<string>[] = [];
   output = this.input.pipe(
     windowCount(2),
     tap(win => this.windows.push(win)),

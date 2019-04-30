@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { ConnectableObservable, timer } from 'rxjs';
-import { tap, take, publishReplay, mergeMapTo } from 'rxjs/operators';
+import { mergeMapTo, publishReplay, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-publish-replay',

@@ -1,14 +1,18 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import {
-  trigger,
-  state,
-  transition,
-  style,
   animate,
+  state,
+  style,
+  transition,
+  trigger,
 } from '@angular/animations';
-
-import { NEVER, Subject } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { NEVER, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+interface MarbleIcon {
+  value: string | number;
+  left: number;
+}
 
 @Component({
   animations: [
@@ -34,7 +38,6 @@ import { takeUntil } from 'rxjs/operators';
     ]),
   ],
 
-  // tslint:disable-next-line: component-selector
   selector: 'rxjs-visualize-marble',
   template: `
     <div
@@ -54,10 +57,9 @@ import { takeUntil } from 'rxjs/operators';
     >
   `,
 })
-// tslint:disable-next-line:component-class-suffix
 export class RxjsVisualizeMarbleComponent implements OnInit, OnDestroy {
   // Source Observable for the marble diagram
-  @Input() source;
+  @Input() source: Observable<string | number>;
 
   // Main Observable for the example. When it completes, stop the source
   // This is only needed if the source will not stop on its own in a
@@ -74,7 +76,7 @@ export class RxjsVisualizeMarbleComponent implements OnInit, OnDestroy {
 
   @Input() leftPad = 45;
 
-  sourceValues = [];
+  sourceValues: MarbleIcon[] = [];
   // Source Observable has completed
   complete = false;
   // Source Observable encountered an error

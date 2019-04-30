@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, ConnectableObservable } from 'rxjs';
-import { tap, take, mapTo, publishLast } from 'rxjs/operators';
+import { ConnectableObservable, timer } from 'rxjs';
+import { mapTo, publishLast, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-publish-last',

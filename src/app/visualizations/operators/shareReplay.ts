@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
 import { timer } from 'rxjs';
-import { take, shareReplay, mergeMapTo } from 'rxjs/operators';
+import { mergeMapTo, shareReplay, take } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-share-replay',

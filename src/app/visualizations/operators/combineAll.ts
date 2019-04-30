@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { timer, interval, Subject } from 'rxjs';
-import { tap, take, map, combineAll } from 'rxjs/operators';
+import { interval, Subject, timer } from 'rxjs';
+import { combineAll, map, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rx-combine-all',

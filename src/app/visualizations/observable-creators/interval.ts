@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 
